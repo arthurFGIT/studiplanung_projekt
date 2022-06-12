@@ -21,7 +21,7 @@ public class StudienplanService {
         
     }
 
-    public void savePlan(){
+    public void speicherePlan(){
         
     }
 

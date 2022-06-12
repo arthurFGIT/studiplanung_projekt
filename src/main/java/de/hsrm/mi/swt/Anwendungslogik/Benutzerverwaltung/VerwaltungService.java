@@ -3,7 +3,7 @@ package de.hsrm.mi.swt.Anwendungslogik.Benutzerverwaltung;
 public class VerwaltungService {
     
 
-    public boolean validate(String nutzername, String passwort){
+    public boolean validierung(String nutzername, String passwort){
         return false;
     }
 

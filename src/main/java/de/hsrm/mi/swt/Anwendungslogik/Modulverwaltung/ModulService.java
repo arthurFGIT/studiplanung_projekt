@@ -21,7 +21,7 @@ public class ModulService {
         return null;
     }
 
-    public boolean validate(String name, String beschreibung, int cpGesamt,
+    public boolean validierung(String name, String beschreibung, int cpGesamt,
     Fachsemester fachsemester, List<Kompetenz> kompetenzGesamt){
         return true;
     }
