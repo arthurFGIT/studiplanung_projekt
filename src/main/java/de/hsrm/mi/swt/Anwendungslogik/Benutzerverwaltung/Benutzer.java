@@ -1,18 +1,16 @@
 package de.hsrm.mi.swt.Anwendungslogik.Benutzerverwaltung;
 
-public class Nutzer {
+public class Benutzer {
 
     private int id;
     private String benutzername;
     private String passwort;
-    private Nutzertyp nutzertyp;
 
 
-    public Nutzer(int id, String benutzername, String passwort, Nutzertyp nutzertyp) {
+    public Benutzer(int id, String benutzername, String passwort) {
         this.id = id;
         this.benutzername = benutzername;
         this.passwort = passwort;
-        this.nutzertyp = nutzertyp;
     }
 
 
@@ -43,21 +41,6 @@ public class Nutzer {
 
     public void setPasswort(String passwort) {
         this.passwort = passwort;
-    }
-
-
-    public Nutzertyp getNutzertyp() {
-        return nutzertyp;
-    }
-
-
-    public void setNutzertyp(Nutzertyp nutzertyp) {
-        this.nutzertyp = nutzertyp;
-    }
-
-    
-
-
-    
+    }  
     
 }

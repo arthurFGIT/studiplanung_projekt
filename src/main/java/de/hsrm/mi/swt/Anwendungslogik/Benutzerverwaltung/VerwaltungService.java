@@ -7,13 +7,8 @@ public class VerwaltungService {
         return false;
     }
 
-    public void viewWahl(Nutzertyp rolle){
-
-    }
-
-    public Nutzer ladeDaten(int nutzerid){
+    public Benutzer ladeDaten(int nutzerid){
         return null;
     }
-
 
 }
