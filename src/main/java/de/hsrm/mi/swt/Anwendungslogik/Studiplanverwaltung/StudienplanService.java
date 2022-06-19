@@ -17,36 +17,36 @@ public class StudienplanService {
     public void verschiebeModul(int id, int x, int y){ //TODO ID oder ganzes Modul mitgeben
 
         
-        boolean fortschritt = checkService.checkFortschrittsregel(modulService.holeModulmitId(id), aktFachsemester, neuesFachsemester, altesFachsemester);
-        if(fortschritt){
-            boolean kompetenz = checkService.checkKompetenzen(modul, neuesFachsemester, altesFachsemester);
-            if(kompetenz){
-                boolean semster = checkService.checkSemester(angebotsIntervall, neueFachsemester);
-                if(semster){
-                    Modul modul = modulService.holeModulmitId(id);
-                    modul.setxKoordinate(x);
-                    modul.setyKoordinate(y);
-                }
-                else{
-                    errorService.getErrorMessages().add("Das Modul wird in diesem Semester nicht angeboten.");
-                }
+    //     boolean fortschritt = checkService.checkFortschrittsregel(modulService.holeModulmitId(id), zielSemester);
+    //     if(fortschritt){
+    //         boolean kompetenz = checkService.checkKompetenzen(modul, zielSemester);
+    //         if(kompetenz){
+    //             boolean semster = checkService.checkSemester(angebotsIntervall, neueFachsemester);
+    //             if(semster){
+    //                 Modul modul = modulService.holeModulmitId(id);
+    //                 modul.setxKoordinate(x);
+    //                 modul.setyKoordinate(y);
+    //             }
+    //             else{
+    //                 errorService.getErrorMessages().add("Das Modul wird in diesem Semester nicht angeboten.");
+    //             }
 
-            }
-            else{ //TODO: evtl anders gestalten, da Kompetenzen nur Empfehlung 
-                errorService.getErrorMessages().add("Du benötigst Kompetenzen aus vorherigen Modulen, die du noch nicht hast.");
-            }
+    //         }
+    //         else{ //TODO: evtl anders gestalten, da Kompetenzen nur Empfehlung 
+    //             errorService.getErrorMessages().add("Du benötigst Kompetenzen aus vorherigen Modulen, die du noch nicht hast.");
+    //         }
 
-        }
-        else{
-            errorService.getErrorMessages().add("Bitte beachte die Fortschrittsregelung.");
-        }
+    //     }
+    //     else{
+    //         errorService.getErrorMessages().add("Bitte beachte die Fortschrittsregelung.");
+    //     }
         
         
         
-    }
+    // }
 
 
-    public void speicherePlan(){
+    // public void speicherePlan(){
         
     }
 

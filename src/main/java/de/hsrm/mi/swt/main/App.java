@@ -17,6 +17,7 @@ public class App extends Application {
 
 	private HashMap<String, Pane> scenes;
 	private Stage primaryStage;
+	private boolean erstAnwendung = false; //TODO: verwenden
 
 
 	@Override
@@ -31,7 +32,7 @@ public class App extends Application {
 			scenes.put("StudentView", studentView);
 
 			root = scenes.get("StartView");
-			Scene scene = new Scene(root, 1920, 1080);
+			Scene scene = new Scene(root, 500, 500);
 			// scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);

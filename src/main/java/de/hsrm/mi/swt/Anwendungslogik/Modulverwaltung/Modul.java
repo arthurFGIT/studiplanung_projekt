@@ -13,7 +13,7 @@ public class Modul {
     // private Prüfungsleistung prüfungsleistung;
     private int cpGesamt;
     private List<Kompetenz> kompetenzGesamt;
-    private Fachsemester fachsemester;
+    private int fachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
     private int xKoordinate;
     private int yKoordinate;
     public static final String SET_X = "x"; //TODO: googlen was das macht
@@ -21,7 +21,7 @@ public class Modul {
 
     
     public Modul(int id, String name, String beschreibung, int cpGesamt,
-            Fachsemester fachsemester, int xKoordinate, int yKoordinate) {
+            int fachsemester, int xKoordinate, int yKoordinate) {
         this.name = name;
         this.beschreibung = beschreibung;
         // this.prüfungsleistung = prüfungsleistung;
@@ -80,11 +80,11 @@ public class Modul {
         this.id = id;
     }
 
-    public Fachsemester getFachsemester() {
+    public int getFachsemester() {
         return fachsemester;
     }
 
-    public void setFachsemester(Fachsemester fachsemester) {
+    public void setFachsemester(int fachsemester) {
         this.fachsemester = fachsemester;
     }
 

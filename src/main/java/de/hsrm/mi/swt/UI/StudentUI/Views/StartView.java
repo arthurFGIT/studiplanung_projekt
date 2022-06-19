@@ -18,6 +18,8 @@ public class StartView extends BorderPane{
     private FileChooser fileChooser;
     private App app;
 
+    //TODO: Nur bei erfolgreichem Upload View wechseln
+
     public StartView(App app){
         this.app = app;
 
