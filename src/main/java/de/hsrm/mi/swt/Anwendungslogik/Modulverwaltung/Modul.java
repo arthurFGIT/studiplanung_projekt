@@ -1,5 +1,7 @@
 package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,18 +12,24 @@ public class Modul {
     private String beschreibung;
     // private Prüfungsleistung prüfungsleistung;
     private int cpGesamt;
-    private List<Kompetenz> kompetenzGesamt; // TODO: Muss eine Liste sein
+    private List<Kompetenz> kompetenzGesamt;
     private Fachsemester fachsemester;
+    private int xKoordinate;
+    private int yKoordinate;
+    public static final String SET_X = "x"; //TODO: googlen was das macht
+    public static final String SET_Y = "y";
 
     
     public Modul(int id, String name, String beschreibung, int cpGesamt,
-            Fachsemester fachsemester) {
+            Fachsemester fachsemester, int xKoordinate, int yKoordinate) {
         this.name = name;
         this.beschreibung = beschreibung;
         // this.prüfungsleistung = prüfungsleistung;
         this.cpGesamt = cpGesamt;
         this.kompetenzGesamt = new ArrayList<>();
         this.fachsemester = fachsemester;
+        this.xKoordinate = xKoordinate;
+        this.yKoordinate = yKoordinate;
     }
 
     public String getName() {
@@ -80,6 +88,38 @@ public class Modul {
         this.fachsemester = fachsemester;
     }
 
+    public int getxKoordinate() {
+        return xKoordinate;
+    }
+
+    public void setxKoordinate(int xKoordinate) {
+        int pre = this.xKoordinate;
+        this.xKoordinate = xKoordinate;
+        this.pcs.firePropertyChange(SET_X, pre, this.xKoordinate);
+    }
+
+    public int getyKoordinate() {
+        return yKoordinate;
+    }
+
+    public void setyKoordinate(int yKoordinate) {
+        int pre = this.yKoordinate;
+        this.yKoordinate = yKoordinate;
+        this.pcs.firePropertyChange(SET_Y, pre, this.yKoordinate);
+    }
+
+
+
+    //changeEvents für Modul verschieben -> Kopie von DragAndDropFxDing
+    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.removePropertyChangeListener(listener);
+}
 
 
     

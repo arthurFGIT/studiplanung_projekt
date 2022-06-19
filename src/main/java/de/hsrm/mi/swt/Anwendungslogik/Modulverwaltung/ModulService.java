@@ -1,27 +1,28 @@
 package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ModulService {
 
     private Modul aktuellesModul;
 
-    private List<Modul> modulListe = new ArrayList<>();
+    private Map<Integer, Modul> modulMap = new HashMap<>();
 
     public ModulService(){
 
     }
 
 
-    public List<Modul> erzeugen(String dateiPfad){
+    public Map<Integer, Modul> erzeugen(String dateiPfad){
         
         
-        return modulListe;
+        return modulMap;
     }
 
-    public Modul holeModulInfo(int id){
-        return null;
+    public Modul holeModulmitId(int id){
+
+        return modulMap.get(id);
     }
     
 }
