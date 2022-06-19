@@ -1,30 +1,27 @@
 package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModulService {
 
-    private Modul currentModul;
+    private Modul aktuellesModul;
 
+    private List<Modul> modulListe = new ArrayList<>();
 
-    public void bearbeiten(String name, String beschreibung, int cpGesamt,
-    Fachsemester fachsemester, List<Kompetenz> kompetenzGesamt){
+    public ModulService(){
 
     }
 
-    public void speichern(String name, String beschreibung, int cpGesamt,
-    Fachsemester fachsemester, List<Kompetenz> kompetenzGesamt){
 
+    public List<Modul> erzeugen(String dateiPfad){
+        
+        
+        return modulListe;
     }
 
     public Modul holeModulInfo(int id){
         return null;
     }
-
-    public boolean validierung(String name, String beschreibung, int cpGesamt,
-    Fachsemester fachsemester, List<Kompetenz> kompetenzGesamt){
-        return true;
-    }
-
     
 }
