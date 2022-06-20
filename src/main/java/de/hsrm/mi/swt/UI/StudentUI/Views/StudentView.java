@@ -2,9 +2,11 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienPlan;
 import de.hsrm.mi.swt.main.App;
@@ -37,8 +39,10 @@ public class StudentView extends BorderPane implements PropertyChangeListener{
 
     public StudentView(App app){
 
-
-        modul = new Modul(1, "Prog", "tolles Modul", 5, 2, 100, 100);
+		Kompetenz kompetenz = new Kompetenz("Test");
+		ArrayList<Kompetenz> kompetenzListe = new ArrayList<>();
+		kompetenzListe.add(kompetenz);
+        modul = new Modul(1, "Prog", "tolles Modul", 5, kompetenzListe, 2, 100, 100);
         studienplanungView = new StudienplanungView();
         uebersichtView = new UebersichtView();
         modulMap = new HashMap<>();

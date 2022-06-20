@@ -13,6 +13,7 @@ public class Modul {
     // private Prüfungsleistung prüfungsleistung;
     private int cpGesamt;
     private List<Kompetenz> kompetenzGesamt;
+    private String kompetenz;
     private int fachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
     private int xKoordinate;
     private int yKoordinate;
@@ -20,13 +21,14 @@ public class Modul {
     public static final String SET_Y = "y";
 
     
-    public Modul(int id, String name, String beschreibung, int cpGesamt,
+    public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
             int fachsemester, int xKoordinate, int yKoordinate) {
         this.name = name;
         this.beschreibung = beschreibung;
         // this.prüfungsleistung = prüfungsleistung;
         this.cpGesamt = cpGesamt;
         this.kompetenzGesamt = new ArrayList<>();
+        // this.kompetenz = kompetenz;
         this.fachsemester = fachsemester;
         this.xKoordinate = xKoordinate;
         this.yKoordinate = yKoordinate;
@@ -71,6 +73,15 @@ public class Modul {
     public void setKompetenzGesamt(List<Kompetenz> kompetenzGesamt) {
         this.kompetenzGesamt = kompetenzGesamt;
     }
+
+    // public String getKompetenzGesamt() {
+    //     return kompetenz;
+    // }
+
+    // public void setKompetenzGesamt(String kompetenz) {
+    //     this.kompetenz = kompetenz;
+    // }
+
 
     public int getId() {
         return id;
@@ -120,6 +131,13 @@ public class Modul {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         this.pcs.removePropertyChangeListener(listener);
 }
+
+    @Override
+    public String toString() {
+        return "Modul [beschreibung=" + beschreibung + ", cpGesamt=" + cpGesamt + ", fachsemester=" + fachsemester
+                + ", id=" + id + ", kompetenzGesamt=" + kompetenzGesamt + ", name=" + name + ", xKoordinate="
+                + xKoordinate + ", yKoordinate=" + yKoordinate + "]";
+    }
 
 
     
