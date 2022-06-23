@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <modul>
+        <id>0</id>
+        <name>Programmieren 1</name>
+        <beschreibung>Lernen Sie ProgrammierenLernen Sie Programmieren</beschreibung>
+        <cpGesamt />
+        <kompetenzen />
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>null</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>null</verschAngebotsIntervall>
+        <xKoordinate>0</xKoordinate>
+        <yKoordinate>0</yKoordinate>
+    </modul>
+    <modul>
+        <id>0</id>
+        <name>Programmieren 2</name>
+        <beschreibung>Lernen Sie Programmieren, nur besserLernen Sie Programmieren, nur besser</beschreibung>
+        <cpGesamt />
+        <kompetenzen />
+        <origFachsemesterId>2</origFachsemesterId>
+        <origAngebotsIntervall>null</origAngebotsIntervall>
+        <verschFachsemesterId>2</verschFachsemesterId>
+        <verschAngebotsIntervall>null</verschAngebotsIntervall>
+        <xKoordinate>597</xKoordinate>
+        <yKoordinate>665</yKoordinate>
+    </modul>
+</module>

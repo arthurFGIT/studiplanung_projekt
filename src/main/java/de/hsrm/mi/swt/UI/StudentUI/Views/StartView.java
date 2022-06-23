@@ -21,7 +21,7 @@ public class StartView extends BorderPane{
 
     public StartView(App app){
         this.app = app;
-        modulService = new ModulService();
+        modulService = app.getModulService();
 
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("XML Dateien (*.xml)", "*.xml");
         // set selected filter

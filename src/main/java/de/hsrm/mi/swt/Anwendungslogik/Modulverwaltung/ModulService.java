@@ -20,12 +20,11 @@ public class ModulService {
     private Map<Integer, Modul> modulMap;
 
     public ModulService(){
-
+        modulMap = new HashMap<>();
     }
 
     public Map<Integer, Modul> erzeugen(String dateipfad){
         try {
-            modulMap = new HashMap<>();
             File file = new File(dateipfad);
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
                     .newInstance();

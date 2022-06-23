@@ -2,6 +2,10 @@ package de.hsrm.mi.swt.main;
 
 import java.util.HashMap;
 
+import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.CheckService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.ErrorService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.UI.StudentUI.Views.StartView;
 import de.hsrm.mi.swt.UI.StudentUI.Views.StudentView;
 import javafx.application.Application;
@@ -19,17 +23,27 @@ public class App extends Application {
 	private Stage primaryStage;
 	private boolean erstAnwendung = false; //TODO: verwenden
 
+	private ModulService modulService;
+	private CheckService checkService;
+	private StudienplanService studienplanService;
+	private ErrorService errorService;
+
 
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
+		this.modulService = new ModulService();
+		this.errorService = new ErrorService();
+		this.checkService = new CheckService(modulService, errorService);
+		this.studienplanService = new StudienplanService(modulService, checkService, errorService);
+		
 		this.scenes = new HashMap<>();
 		startView = new StartView(this);
-		studentView = new StudentView(this);
+		
 		try{
 			
 			scenes.put("StartView", startView);
-			scenes.put("StudentView", studentView);
+			
 
 			root = scenes.get("StartView");
 			Scene scene = new Scene(root, 500, 500);
@@ -53,6 +67,8 @@ public class App extends Application {
 			this.primaryStage.getScene().setRoot(root);
 			break;
 		case "STUDENTVIEW":
+			studentView = new StudentView(this);
+			scenes.put("StudentView", studentView);
 			root = scenes.get("StudentView");
 			this.primaryStage.getScene().setRoot(root);
 			break;
@@ -62,4 +78,22 @@ public class App extends Application {
 	public Stage getPrimaryStage(){
 		return this.primaryStage;
 	}
+
+	public ModulService getModulService() {
+		return modulService;
+	}
+
+	public CheckService getCheckService() {
+		return checkService;
+	}
+
+	public StudienplanService getStudienplanService() {
+		return studienplanService;
+	}
+
+	public ErrorService getErrorService() {
+		return errorService;
+	}
+
+	
 }
