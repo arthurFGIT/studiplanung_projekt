@@ -41,10 +41,13 @@ public class StartView extends BorderPane{
 		uploadButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             fileChooser.setTitle("Wählen Sie die Curriculum Datei in XML-Format aus...");
             File file = fileChooser.showOpenDialog(this.app.getPrimaryStage());
-            this.app.switchView("STUDENTVIEW");            
-            System.out.println(file.getAbsolutePath());
-            modulService.erzeugen(file.getAbsolutePath());
-            System.out.println(modulService.getModulMap());
+            if(file != null){
+              String pfad = file.getAbsolutePath();
+              if(pfad != null){
+                modulService.erzeugen(file.getAbsolutePath());
+                this.app.switchView("STUDENTVIEW");            
+              }
+            }
 		});
 
     }

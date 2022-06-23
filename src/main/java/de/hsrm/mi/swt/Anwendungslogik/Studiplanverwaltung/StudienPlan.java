@@ -10,7 +10,7 @@ import java.util.Map;
 public class StudienPlan {
 
     	// PropertyChangeEvent-Strings
-	public static final String ADD_EVENT = "spielfeld.add";
+	// public static final String ADD_EVENT = "studienplan.add";
     private Map<Integer, Modul> modulMap = new HashMap<>();
 
 	
@@ -24,11 +24,11 @@ public class StudienPlan {
         this.pcs.removePropertyChangeListener(listener);
     }
 
-	public void add(int id, Modul b) {
-		System.out.println("Spielfeld.add " + b);
-		modulMap.put(id, b);
-		this.pcs.firePropertyChange(ADD_EVENT, null, b);
-	}
+	// public void add(int id, Modul b) {
+	// 	System.out.println("Spielfeld.add " + b);
+	// 	modulMap.put(id, b);
+	// 	this.pcs.firePropertyChange(ADD_EVENT, null, b);
+	// }
 
 
 

@@ -38,6 +38,7 @@ public class ModulService {
                 String modulname = document.getElementsByTagName("name").item(i).getTextContent();
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
+                
                 NodeList kompetenzList = document.getElementsByTagName("kompetenz");
                 
                 List<Kompetenz> kompetenzListe = new ArrayList<>();
@@ -46,11 +47,25 @@ public class ModulService {
                     Kompetenz kompetenzNew = new Kompetenz(kompetenz);
                     kompetenzListe.add(kompetenzNew);
                 }
-                int fachsemester = Integer.parseInt(document.getElementsByTagName("fachsemester").item(i).getTextContent());
+                int fachsemesterID = Integer.parseInt(document.getElementsByTagName("fachsemesterid").item(i).getTextContent());
+                String fachsemesterIntervall = document.getElementsByTagName("angebotsIntervall").item(i).getTextContent();
+                AngebotsIntervall angebotsIntervall = null;
+                if (fachsemesterIntervall.equals("winter")){
+                    angebotsIntervall = AngebotsIntervall.WINTER;
+                }
+                else if(fachsemesterIntervall.equals("sommer")){
+                    angebotsIntervall = AngebotsIntervall.SOMMER;
+                }
+                else if(fachsemesterIntervall.equals("wiso")){
+                    angebotsIntervall = AngebotsIntervall.WISO;
+                }
+
+                Fachsemester fachsemester = new Fachsemester(fachsemesterID, angebotsIntervall);
+                boolean bestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(i).getTextContent());
                 int xKoordinate = Integer.parseInt(document.getElementsByTagName("xKoordinate").item(i).getTextContent());
                 int yKoordinate = Integer.parseInt(document.getElementsByTagName("yKoordinate").item(i).getTextContent());
 
-                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, fachsemester, xKoordinate, yKoordinate);
+                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, fachsemester, fachsemester, bestanden, xKoordinate, yKoordinate);
                 modulMap.put(i, neuesModul);
             }
 

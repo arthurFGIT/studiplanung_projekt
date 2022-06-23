@@ -18,24 +18,25 @@ public class ModulView extends Rectangle implements PropertyChangeListener {
 	public static final int MODULHOEHE = 50;
 	private Modul modul;
 
-	public ModulView(Modul modul) {
+	public ModulView(Modul m) {
 		super();
-		this.modul = modul;
+		this.modul = m;
 		// Kringel-UI soll Änderungen des Kringel-Domänenobjekts beobachten
 		modul.addPropertyChangeListener(this);
 
+		System.out.println("ModulView");
 		setFill(Color.GREENYELLOW);
-        setX(50);
-        setY(50);
-        setWidth(200);
-        setHeight(100);
+        setX(modul.getxKoordinate());
+        setY(modul.getyKoordinate());
+        setWidth(MODULBREITE);
+        setHeight(MODULHOEHE);
         // setArcWidth(20);
         // setArcHeight(20);
 	
 
 		setOnMouseDragged(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				// System.out.println("KringelUI - onMouseDragged " + event);
+				System.out.println("KringelUI - onMouseDragged " + event);
 				setX(event.getX());
 				setY(event.getY());
 				event.consume();
@@ -45,6 +46,7 @@ public class ModulView extends Rectangle implements PropertyChangeListener {
 		setOnMouseReleased(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				// System.out.println("KringelUI - onMouseReleased " + event);
+				System.out.println((int) event.getX() + " " + (int) event.getY());
 				modul.setxKoordinate((int) event.getX());
 				modul.setyKoordinate((int) event.getY());
 				event.consume();

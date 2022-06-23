@@ -9,7 +9,9 @@
             <kompetenz>Java Grundkenntnisse</kompetenz>
             <kompetenz>Java Grundkenntnisse 2</kompetenz>
         </kompetenzen>
-        <fachsemester>1</fachsemester>
+        <fachsemesterid>1</fachsemesterid>
+        <angebotsIntervall>WINTER</angebotsIntervall>
+        <bestanden>false</bestanden>
         <xKoordinate>0</xKoordinate>
         <yKoordinate>0</yKoordinate>
     </modul>
@@ -22,7 +24,9 @@
             <kompetenz>Java Grundkenntnisse 3</kompetenz>
             <kompetenz>Java Grundkenntnisse 4</kompetenz>
         </kompetenzen>
-        <fachsemester>2</fachsemester>
+        <fachsemesterid>2</fachsemesterid>
+        <angebotsIntervall>WISO</angebotsIntervall>
+        <bestanden>false</bestanden>
         <xKoordinate>0</xKoordinate>
         <yKoordinate>0</yKoordinate>
     </modul>

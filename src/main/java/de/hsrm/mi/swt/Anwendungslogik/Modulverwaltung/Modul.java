@@ -13,23 +13,25 @@ public class Modul {
     // private Prüfungsleistung prüfungsleistung;
     private int cpGesamt;
     private List<Kompetenz> kompetenzGesamt;
-    private String kompetenz;
-    private int fachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
+    private Fachsemester originalesFachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
+    private Fachsemester verschobenesFachsemester;
     private int xKoordinate;
     private int yKoordinate;
+    private boolean bestanden;
     public static final String SET_X = "x"; //TODO: googlen was das macht
     public static final String SET_Y = "y";
 
     
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
-            int fachsemester, int xKoordinate, int yKoordinate) {
+            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, boolean bestanden, int xKoordinate, int yKoordinate) {
         this.name = name;
         this.beschreibung = beschreibung;
         // this.prüfungsleistung = prüfungsleistung;
         this.cpGesamt = cpGesamt;
         this.kompetenzGesamt = new ArrayList<>();
-        // this.kompetenz = kompetenz;
-        this.fachsemester = fachsemester;
+        this.originalesFachsemester = originalesFachsemester;
+        this.verschobenesFachsemester = verschobenesFachsemester;
+        this.bestanden = bestanden;
         this.xKoordinate = xKoordinate;
         this.yKoordinate = yKoordinate;
     }
@@ -91,12 +93,22 @@ public class Modul {
         this.id = id;
     }
 
-    public int getFachsemester() {
-        return fachsemester;
+    
+
+    public Fachsemester getOriginalesFachsemester() {
+        return originalesFachsemester;
     }
 
-    public void setFachsemester(int fachsemester) {
-        this.fachsemester = fachsemester;
+    public void setOriginalesFachsemester(Fachsemester originalesFachsemester) {
+        this.originalesFachsemester = originalesFachsemester;
+    }
+
+    public Fachsemester getVerschobenesFachsemester() {
+        return verschobenesFachsemester;
+    }
+
+    public void setVerschobenesFachsemester(Fachsemester verschobenesFachsemester) {
+        this.verschobenesFachsemester = verschobenesFachsemester;
     }
 
     public int getxKoordinate() {
@@ -107,6 +119,7 @@ public class Modul {
         int pre = this.xKoordinate;
         this.xKoordinate = xKoordinate;
         this.pcs.firePropertyChange(SET_X, pre, this.xKoordinate);
+        System.out.println("set x: "+ xKoordinate);
     }
 
     public int getyKoordinate() {
@@ -117,6 +130,17 @@ public class Modul {
         int pre = this.yKoordinate;
         this.yKoordinate = yKoordinate;
         this.pcs.firePropertyChange(SET_Y, pre, this.yKoordinate);
+        System.out.println("set y: "+ yKoordinate);
+    }
+
+
+
+    public boolean isBestanden() {
+        return bestanden;
+    }
+
+    public void setBestanden(boolean bestanden) {
+        this.bestanden = bestanden;
     }
 
 
@@ -134,8 +158,9 @@ public class Modul {
 
     @Override
     public String toString() {
-        return "Modul [beschreibung=" + beschreibung + ", cpGesamt=" + cpGesamt + ", fachsemester=" + fachsemester
-                + ", id=" + id + ", kompetenzGesamt=" + kompetenzGesamt + ", name=" + name + ", xKoordinate="
+        return "Modul [beschreibung=" + beschreibung + ", bestanden=" + bestanden + ", cpGesamt=" + cpGesamt + ", id="
+                + id + ", kompetenzGesamt=" + kompetenzGesamt + ", name=" + name + ", originalesFachsemester="
+                + originalesFachsemester + ", verschobenesFachsemester=" + verschobenesFachsemester + ", xKoordinate="
                 + xKoordinate + ", yKoordinate=" + yKoordinate + "]";
     }
 
