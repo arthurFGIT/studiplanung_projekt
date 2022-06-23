@@ -11,6 +11,7 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienPlan;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -39,7 +40,7 @@ public class StudentView extends BorderPane implements PropertyChangeListener{
 
     private StudienPlan studienPlan;
 
-	private Rectangle modulV;
+	private Rectangle modulV;	
 
 
     public StudentView(App app){
@@ -62,6 +63,7 @@ public class StudentView extends BorderPane implements PropertyChangeListener{
         studienPlan.addPropertyChangeListener(this);
         modulView = new ModulView(modul);
 		
+
 		// modulV.getOnDragOver();
         
 
