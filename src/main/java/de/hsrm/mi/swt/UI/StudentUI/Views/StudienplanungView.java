@@ -16,12 +16,14 @@ import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Dimension2D;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 public class StudienplanungView extends ScrollPane implements PropertyChangeListener {
@@ -32,6 +34,7 @@ public class StudienplanungView extends ScrollPane implements PropertyChangeList
 	private StudienPlan studienPlan;
 	private Map<Integer, Modul> modulMap;
 	private ModulView modulView;
+	private Pane container;
 
 	// private Rectangle modul;
 
@@ -48,17 +51,22 @@ public class StudienplanungView extends ScrollPane implements PropertyChangeList
 
 		// modulMap = new HashMap<>();
 		// modulMap.put(2, modul);
+		setPrefSize(450, 600);
 		modulService = app.getModulService();
 		modulMap = modulService.getModulMap();
 		studienPlan = new StudienPlan(modulMap);
 		studienPlan.addPropertyChangeListener(this);
 		System.out.println("Studienplan added observer");
 		System.out.println(modulMap.toString());
-		modul = modulMap.get(1);
+		modul = modulMap.get(0);
 		System.out.println(modul.toString());
 		modulView = new ModulView(modul);
+		container = new Pane();
+		container.getChildren().add(modulView);
 
-		this.setContent(modulView);
+
+
+		this.setContent(container);
 
 		initialize();
 
@@ -92,7 +100,10 @@ public class StudienplanungView extends ScrollPane implements PropertyChangeList
 				dragboard.setContent(content);
 				event.consume();
 			}
+
 		});
+
+
 
 		// modulView.setOnDragOver(new EventHandler<DragEvent>() {
 		// 	@Override
@@ -107,10 +118,10 @@ public class StudienplanungView extends ScrollPane implements PropertyChangeList
 		// 	}
 		// });
 
-		modulView.setOnDragOver(new EventHandler<DragEvent>() {
+		this.setOnDragOver(new EventHandler<DragEvent>() {
 			@Override
 			public void handle(DragEvent event) {
-				// System.out.println("Search Drop Place");
+				System.out.println("Search Drop Place");
 				if (event.getDragboard().hasString()) {
 					event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
 				}
@@ -118,19 +129,20 @@ public class StudienplanungView extends ScrollPane implements PropertyChangeList
 			}
 		});
 
-		modulView.setOnDragDropped(new EventHandler<DragEvent>() {
+		this.setOnDragDropped(new EventHandler<DragEvent>() {
 			@Override
 			public void handle(DragEvent event) {
 				Dragboard dragboard = event.getDragboard();
 				boolean success = false;
 				if(dragboard.hasString()){
-					modul = (Modul) dragboard.getContent(ModulView.MODULFORMAT);
+					// modul = (Modul) dragboard.getContent(ModulView.MODULFORMAT);
 					int x = (int) event.getX();
 					int y = (int) event.getY();
 					modul.setxKoordinate(x);
 					modul.setyKoordinate(y);
-					System.out.println("SpielfeldUI.spielfeldOnDragDropped -> moved kringel " + modul);
+					System.out.println("StudienplanungView.thisOnDragDropped -> moved Modul " + modul);
 					success = true;
+
 				}
 				
 				event.setDropCompleted(success);
@@ -190,6 +202,11 @@ public class StudienplanungView extends ScrollPane implements PropertyChangeList
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
+		System.out.println("HALLOOOOO");
+		modul = (Modul) event.getNewValue();
+		modulView = new ModulView(modul);
+		this.getContent();
+		this.getChildren().add(modulView);
 		// UI bei Änderung des zugehörigen Domänenobjekts (Spielfeld) aktualisieren
 		// System.out.println("SpielfeldUI.update " + event);
 		// if (event.getPropertyName().equals(StudienPlan.ADD_EVENT)) {

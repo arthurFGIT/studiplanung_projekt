@@ -14,8 +14,8 @@
         <verschFachsemesterId>1</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
         <bestanden>false</bestanden>
-        <xKoordinate>0</xKoordinate>
-        <yKoordinate>0</yKoordinate>
+        <xKoordinate>50</xKoordinate>
+        <yKoordinate>200</yKoordinate>
     </modul>
     <modul>
         <id>2</id>
