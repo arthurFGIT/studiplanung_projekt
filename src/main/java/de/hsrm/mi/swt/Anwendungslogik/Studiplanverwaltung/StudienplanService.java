@@ -100,6 +100,7 @@ public class StudienplanService {
                 Element id = document.createElement("id");
                 id.appendChild(document.createTextNode(String.valueOf(m.getId())));
                 modul.appendChild(id);
+                System.out.println(String.valueOf("MODULID: " + m.getId()));
 
                 // name element
                 Element name = document.createElement("name");
@@ -113,7 +114,7 @@ public class StudienplanService {
 
                 // beschreibung element
                 Element cpGesamt = document.createElement("cpGesamt");
-                beschreibung.appendChild(document.createTextNode(m.getBeschreibung()));
+                cpGesamt.appendChild(document.createTextNode(String.valueOf(m.getCpGesamt())));
                 modul.appendChild(cpGesamt);
 
                 // kompetenzen element
@@ -122,12 +123,12 @@ public class StudienplanService {
 
                 for(Kompetenz k : m.getKompetenzGesamt()){
                     // kompetenz element
+                    System.out.println();
                     Element kompetenz = document.createElement("kompetenz");
-                    beschreibung.appendChild(document.createTextNode(k.getName()));
+                    kompetenz.appendChild(document.createTextNode(k.getName()));
                     kompetenzen.appendChild(kompetenz);
                 }
 
-                // TODO: Fachsemester
                 // originales Fachsemester
                 // ID
                 Element origFachsemesterId = document.createElement("origFachsemesterId");
@@ -135,9 +136,11 @@ public class StudienplanService {
                 modul.appendChild(origFachsemesterId);
 
                 // AngebotsIntervall
+                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall().getName());
                 Element origAngebotsIntervall = document.createElement("origAngebotsIntervall");
-                origAngebotsIntervall.appendChild(document.createTextNode(String.valueOf(m.getOriginalesFachsemester().getAngebotsIntervall())));
+                origAngebotsIntervall.appendChild(document.createTextNode(m.getOriginalesFachsemester().getAngebotsIntervall().getName()));
                 modul.appendChild(origAngebotsIntervall);
+                
 
                 // verschobenes Fachsemester
                 // ID
@@ -147,7 +150,7 @@ public class StudienplanService {
 
                 // AngebotsIntervall
                 Element verschAngebotsIntervall = document.createElement("verschAngebotsIntervall");
-                verschAngebotsIntervall.appendChild(document.createTextNode(String.valueOf(m.getVerschobenesFachsemester().getAngebotsIntervall())));
+                verschAngebotsIntervall.appendChild(document.createTextNode(m.getVerschobenesFachsemester().getAngebotsIntervall().getName()));
                 modul.appendChild(verschAngebotsIntervall);
 
 

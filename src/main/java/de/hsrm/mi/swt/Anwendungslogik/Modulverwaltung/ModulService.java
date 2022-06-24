@@ -37,7 +37,7 @@ public class ModulService {
                 String modulname = document.getElementsByTagName("name").item(i).getTextContent();
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
-                
+                                
                 NodeList kompetenzList = document.getElementsByTagName("kompetenz");
                 
                 List<Kompetenz> kompetenzListe = new ArrayList<>();
@@ -51,13 +51,13 @@ public class ModulService {
                 int origFachsemesterID = Integer.parseInt(document.getElementsByTagName("origFachsemesterId").item(i).getTextContent());
                 String origAngebotsIntervall = document.getElementsByTagName("origAngebotsIntervall").item(i).getTextContent();
                 AngebotsIntervall angebotsIntervallOrig = null;
-                if (origAngebotsIntervall.equals("winter")){
+                if (origAngebotsIntervall.equalsIgnoreCase("winter")){
                     angebotsIntervallOrig = AngebotsIntervall.WINTER;
                 }
-                else if(origAngebotsIntervall.equals("sommer")){
+                else if(origAngebotsIntervall.equalsIgnoreCase("sommer")){
                     angebotsIntervallOrig = AngebotsIntervall.SOMMER;
                 }
-                else if(origAngebotsIntervall.equals("wiso")){
+                else if(origAngebotsIntervall.equalsIgnoreCase("wiso")){
                     angebotsIntervallOrig = AngebotsIntervall.WISO;
                 }
                 Fachsemester origFachsemester = new Fachsemester(origFachsemesterID, angebotsIntervallOrig);
@@ -66,19 +66,17 @@ public class ModulService {
                 int verschFachsemesterID = Integer.parseInt(document.getElementsByTagName("verschFachsemesterId").item(i).getTextContent());
                 String verschAngebotsIntervall = document.getElementsByTagName("verschAngebotsIntervall").item(i).getTextContent();
                 AngebotsIntervall angebotsIntervallVersch = null;
-                if (verschAngebotsIntervall.equals("winter")){
+                if (verschAngebotsIntervall.equalsIgnoreCase("winter")){
                     angebotsIntervallVersch = AngebotsIntervall.WINTER;
                 }
-                else if(verschAngebotsIntervall.equals("sommer")){
+                else if(verschAngebotsIntervall.equalsIgnoreCase("sommer")){
                     angebotsIntervallVersch = AngebotsIntervall.SOMMER;
                 }
-                else if(verschAngebotsIntervall.equals("wiso")){
+                else if(verschAngebotsIntervall.equalsIgnoreCase("wiso")){
                     angebotsIntervallVersch = AngebotsIntervall.WISO;
                 }
                 Fachsemester verschFachsemester = new Fachsemester(verschFachsemesterID, angebotsIntervallVersch);
-                
-                
-                
+                                
                 boolean bestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(i).getTextContent());
                 int xKoordinate = Integer.parseInt(document.getElementsByTagName("xKoordinate").item(i).getTextContent());
                 int yKoordinate = Integer.parseInt(document.getElementsByTagName("yKoordinate").item(i).getTextContent());

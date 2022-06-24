@@ -22,8 +22,7 @@ public class UebersichtView extends BorderPane{
 
     public void initialize(){
         saveButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-                studienplanService.speicherePlan();
-            
+                studienplanService.speicherePlan();            
 		});
     }
     
