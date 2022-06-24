@@ -24,14 +24,6 @@ public class StudienPlan {
         this.pcs.removePropertyChangeListener(listener);
     }
 
-	// public void add(int id, Modul b) {
-	// 	System.out.println("Spielfeld.add " + b);
-	// 	modulMap.put(id, b);
-	// 	this.pcs.firePropertyChange(ADD_EVENT, null, b);
-	// }
-
-
-
     public StudienPlan(Map<Integer, Modul> modulMap) {
         this.modulMap = modulMap;
     }

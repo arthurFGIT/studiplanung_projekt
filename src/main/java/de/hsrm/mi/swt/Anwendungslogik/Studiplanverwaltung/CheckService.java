@@ -1,10 +1,7 @@
 package de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.naming.ldap.HasControls;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
@@ -14,13 +11,11 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 
 public class CheckService {
     
-    private ModulService modulService;
     private ErrorService errorService;  
     Map<Integer, Modul> modulMap;
 
 
     public CheckService(ModulService modulService, ErrorService errorService) {
-        this.modulService = modulService;
         this.errorService = errorService;
         modulMap = modulService.getModulMap();
     }

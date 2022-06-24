@@ -34,6 +34,7 @@ public class ModulService {
             NodeList modulList = document.getElementsByTagName("modul");
             for (int i = 0; i < modulList.getLength(); i++){
                 int modulID = Integer.parseInt(document.getElementsByTagName("id").item(i).getTextContent());
+                System.out.println("ModulID IN: " + modulID);
                 String modulname = document.getElementsByTagName("name").item(i).getTextContent();
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
@@ -83,6 +84,9 @@ public class ModulService {
 
                 neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, bestanden, xKoordinate, yKoordinate);
                 modulMap.put(i, neuesModul);
+            }
+            for(int key : modulMap.keySet()){
+                System.out.println("ID: " + modulMap.get(key));
             }
 
          } catch (Exception e) {

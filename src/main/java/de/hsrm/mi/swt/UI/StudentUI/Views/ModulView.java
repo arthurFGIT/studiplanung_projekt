@@ -5,10 +5,12 @@ import java.beans.PropertyChangeListener;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 public class ModulView extends Rectangle implements PropertyChangeListener {
 
@@ -17,6 +19,7 @@ public class ModulView extends Rectangle implements PropertyChangeListener {
 	public static final int MODULBREITE = 100;
 	public static final int MODULHOEHE = 50;
 	private Modul modul;
+	private Label beschreibung;
 
 	public ModulView(Modul m) {
 		super();
@@ -34,7 +37,10 @@ public class ModulView extends Rectangle implements PropertyChangeListener {
         setHeight(MODULHOEHE);
         // setArcWidth(20);
         // setArcHeight(20);
-	
+
+		beschreibung = new Label(m.getBeschreibung());
+		
+		this.getChildren().addAll(beschreibung);	
 
 		setOnMouseDragged(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
@@ -72,6 +78,14 @@ public class ModulView extends Rectangle implements PropertyChangeListener {
 			default:
 				throw new IllegalArgumentException("UnbehandeltesEvent " + event);
 		}
+	}
+
+	public Modul getModul() {
+		return this.modul;
+	}
+
+	public void setModul(Modul modul) {
+		this.modul = modul;
 	}
 
 

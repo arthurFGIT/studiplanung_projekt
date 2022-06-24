@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <module>
     <modul>
-        <id>1</id>
+        <id>0</id>
         <name>Programmieren 1</name>
         <beschreibung>Lernen Sie Programmieren</beschreibung>
         <cpGesamt>10</cpGesamt>
@@ -14,11 +14,11 @@
         <verschFachsemesterId>1</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
         <bestanden>false</bestanden>
-        <xKoordinate>50</xKoordinate>
-        <yKoordinate>200</yKoordinate>
+        <xKoordinate>0</xKoordinate>
+        <yKoordinate>0</yKoordinate>
     </modul>
     <modul>
-        <id>2</id>
+        <id>1</id>
         <name>Programmieren 2</name>
         <beschreibung>Lernen Sie Programmieren, nur besser</beschreibung>
         <cpGesamt>6</cpGesamt>

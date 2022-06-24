@@ -40,9 +40,9 @@ public class StudienplanService {
         modulMap = modulService.getModulMap();
     }
 
-    public void ladePlan(int nutzerid){
+    // public void ladePlan(int nutzerid){
 
-    }
+    // }
 
     public void verschiebeModul(int id, int x, int y){} //TODO ID oder ganzes Modul mitgeben
 
@@ -100,7 +100,6 @@ public class StudienplanService {
                 Element id = document.createElement("id");
                 id.appendChild(document.createTextNode(String.valueOf(m.getId())));
                 modul.appendChild(id);
-                System.out.println(String.valueOf("MODULID: " + m.getId()));
 
                 // name element
                 Element name = document.createElement("name");
@@ -123,7 +122,6 @@ public class StudienplanService {
 
                 for(Kompetenz k : m.getKompetenzGesamt()){
                     // kompetenz element
-                    System.out.println();
                     Element kompetenz = document.createElement("kompetenz");
                     kompetenz.appendChild(document.createTextNode(k.getName()));
                     kompetenzen.appendChild(kompetenz);
@@ -136,7 +134,6 @@ public class StudienplanService {
                 modul.appendChild(origFachsemesterId);
 
                 // AngebotsIntervall
-                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall().getName());
                 Element origAngebotsIntervall = document.createElement("origAngebotsIntervall");
                 origAngebotsIntervall.appendChild(document.createTextNode(m.getOriginalesFachsemester().getAngebotsIntervall().getName()));
                 modul.appendChild(origAngebotsIntervall);
@@ -164,24 +161,23 @@ public class StudienplanService {
                 yKoordinate.appendChild(document.createTextNode(String.valueOf(m.getyKoordinate())));
                 modul.appendChild(yKoordinate);
 
-                // create the xml file
-                //transform the DOM Object to an XML File
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource domSource = new DOMSource(document);
-                StreamResult streamResult = new StreamResult(new File(xmlFilePath));
-    
-                // If you use
-                // StreamResult result = new StreamResult(System.out);
-                // the output will be pushed to the standard output ...
-                // You can use that for debugging 
-    
-                transformer.transform(domSource, streamResult);
-    
-                System.out.println("Done creating XML File");
-
-
             }    
+
+            // create the xml file
+            //transform the DOM Object to an XML File
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource domSource = new DOMSource(document);
+            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+
+            // If you use
+            // StreamResult result = new StreamResult(System.out);
+            // the output will be pushed to the standard output ...
+            // You can use that for debugging 
+
+            transformer.transform(domSource, streamResult);
+
+            System.out.println("Done creating XML File"); // TODO: Message auf der View
 
 
         } catch (ParserConfigurationException pce) {

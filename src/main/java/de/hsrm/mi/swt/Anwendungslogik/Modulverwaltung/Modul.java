@@ -2,7 +2,6 @@ package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Modul {
@@ -24,11 +23,12 @@ public class Modul {
     
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
             Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, boolean bestanden, int xKoordinate, int yKoordinate) {
+        this.id = id;
         this.name = name;
         this.beschreibung = beschreibung;
         // this.prüfungsleistung = prüfungsleistung;
         this.cpGesamt = cpGesamt;
-        this.kompetenzGesamt = new ArrayList<>();
+        this.kompetenzGesamt = kompetenz;
         this.originalesFachsemester = originalesFachsemester;
         this.verschobenesFachsemester = verschobenesFachsemester;
         this.bestanden = bestanden;
