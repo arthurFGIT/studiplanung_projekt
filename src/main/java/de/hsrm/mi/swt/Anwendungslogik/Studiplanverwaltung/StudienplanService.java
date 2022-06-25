@@ -26,7 +26,8 @@ public class StudienplanService {
     private ModulService modulService;
     private CheckService checkService;
     private ErrorService errorService;
-    Map<Integer, Modul> modulMap;
+    private Map<Integer, Modul> modulMap;
+    private int maxSemesterAnzahl;
 
     public static final String xmlFilePath = "moduleIndividual.xml";
 
@@ -38,11 +39,22 @@ public class StudienplanService {
         this.checkService = checkService;
         this.errorService = errorService;
         modulMap = modulService.getModulMap();
+        maxSemesterAnzahl = 0;
     }
 
     // public void ladePlan(int nutzerid){
 
     // }
+
+    public int maxSemesterAnzahl(){
+        maxSemesterAnzahl = modulMap.get(0).getVerschobenesFachsemester().getid();
+        for(int k : modulMap.keySet()){
+            if(modulMap.get(k).getVerschobenesFachsemester().getid() > maxSemesterAnzahl){
+                maxSemesterAnzahl = modulMap.get(k).getVerschobenesFachsemester().getid();
+            }
+        }
+        return maxSemesterAnzahl;
+    }
 
     public void verschiebeModul(int id, int x, int y){} //TODO ID oder ganzes Modul mitgeben
 
@@ -149,18 +161,6 @@ public class StudienplanService {
                 Element verschAngebotsIntervall = document.createElement("verschAngebotsIntervall");
                 verschAngebotsIntervall.appendChild(document.createTextNode(m.getVerschobenesFachsemester().getAngebotsIntervall().getName()));
                 modul.appendChild(verschAngebotsIntervall);
-
-
-                // xKoordinate element
-                Element xKoordinate = document.createElement("xKoordinate");
-                xKoordinate.appendChild(document.createTextNode(String.valueOf(m.getxKoordinate())));
-                modul.appendChild(xKoordinate);
-
-                // yKoordinate element
-                Element yKoordinate = document.createElement("yKoordinate");
-                yKoordinate.appendChild(document.createTextNode(String.valueOf(m.getyKoordinate())));
-                modul.appendChild(yKoordinate);
-
             }    
 
             // create the xml file

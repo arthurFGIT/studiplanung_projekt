@@ -14,11 +14,24 @@
         <verschFachsemesterId>1</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
         <bestanden>false</bestanden>
-        <xKoordinate>0</xKoordinate>
-        <yKoordinate>0</yKoordinate>
     </modul>
     <modul>
         <id>1</id>
+        <name>Analysis</name>
+        <beschreibung>Lernen Sie Analysis</beschreibung>
+        <cpGesamt>8</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Java Grundkenntnisse</kompetenz>
+            <kompetenz>Java Grundkenntnisse 2</kompetenz>
+        </kompetenzen>            
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <bestanden>false</bestanden>
+    </modul>
+    <modul>
+        <id>2</id>
         <name>Programmieren 2</name>
         <beschreibung>Lernen Sie Programmieren, nur besser</beschreibung>
         <cpGesamt>6</cpGesamt>
@@ -31,7 +44,20 @@
         <verschFachsemesterId>2</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
         <bestanden>false</bestanden>
-        <xKoordinate>0</xKoordinate>
-        <yKoordinate>0</yKoordinate>
+    </modul>
+    <modul>
+        <id>3</id>
+        <name>Programmieren 3</name>
+        <beschreibung>Lernen Sie Programmieren, nur noch besser</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Java Grundkenntnisse 3</kompetenz>
+            <kompetenz>Java Grundkenntnisse 4</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>3</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>3</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <bestanden>false</bestanden>
     </modul>
 </module>

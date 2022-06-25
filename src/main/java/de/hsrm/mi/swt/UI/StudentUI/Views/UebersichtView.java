@@ -11,7 +11,11 @@ public class UebersichtView extends BorderPane{
     private Button saveButton;
     private StudienplanService studienplanService;
 
+    private App app;
+
     public UebersichtView(App app){
+
+        this.app = app;
         
         studienplanService = app.getStudienplanService();
         saveButton = new Button("save");

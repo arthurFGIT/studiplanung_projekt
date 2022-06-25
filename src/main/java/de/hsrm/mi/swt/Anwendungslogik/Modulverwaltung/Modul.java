@@ -14,15 +14,12 @@ public class Modul {
     private List<Kompetenz> kompetenzGesamt;
     private Fachsemester originalesFachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
     private Fachsemester verschobenesFachsemester;
-    private int xKoordinate;
-    private int yKoordinate;
     private boolean bestanden;
-    public static final String SET_X = "x"; //TODO: googlen was das macht
-    public static final String SET_Y = "y";
+    public static final String SET_VERSCH_SEMESTER = "verschobenesSemester"; //TODO: googlen was das macht
 
     
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
-            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, boolean bestanden, int xKoordinate, int yKoordinate) {
+            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, boolean bestanden) {
         this.id = id;
         this.name = name;
         this.beschreibung = beschreibung;
@@ -32,8 +29,6 @@ public class Modul {
         this.originalesFachsemester = originalesFachsemester;
         this.verschobenesFachsemester = verschobenesFachsemester;
         this.bestanden = bestanden;
-        this.xKoordinate = xKoordinate;
-        this.yKoordinate = yKoordinate;
     }
 
     public String getName() {
@@ -108,32 +103,11 @@ public class Modul {
     }
 
     public void setVerschobenesFachsemester(Fachsemester verschobenesFachsemester) {
+        Fachsemester pre = this.verschobenesFachsemester;
         this.verschobenesFachsemester = verschobenesFachsemester;
+        this.pcs.firePropertyChange(SET_VERSCH_SEMESTER, pre, this.verschobenesFachsemester);
+        System.out.println("set verschobenes Fachsemester: "+ verschobenesFachsemester);
     }
-
-    public int getxKoordinate() {
-        return xKoordinate;
-    }
-
-    public void setxKoordinate(int xKoordinate) {
-        int pre = this.xKoordinate;
-        this.xKoordinate = xKoordinate;
-        this.pcs.firePropertyChange(SET_X, pre, this.xKoordinate);
-        System.out.println("set x: "+ xKoordinate);
-    }
-
-    public int getyKoordinate() {
-        return yKoordinate;
-    }
-
-    public void setyKoordinate(int yKoordinate) {
-        int pre = this.yKoordinate;
-        this.yKoordinate = yKoordinate;
-        this.pcs.firePropertyChange(SET_Y, pre, this.yKoordinate);
-        System.out.println("set y: "+ yKoordinate);
-    }
-
-
 
     public boolean isBestanden() {
         return bestanden;
@@ -160,8 +134,7 @@ public class Modul {
     public String toString() {
         return "Modul [beschreibung=" + beschreibung + ", bestanden=" + bestanden + ", cpGesamt=" + cpGesamt + ", id="
                 + id + ", kompetenzGesamt=" + kompetenzGesamt + ", name=" + name + ", originalesFachsemester="
-                + originalesFachsemester + ", verschobenesFachsemester=" + verschobenesFachsemester + ", xKoordinate="
-                + xKoordinate + ", yKoordinate=" + yKoordinate + "]";
+                + originalesFachsemester + ", verschobenesFachsemester=" + verschobenesFachsemester + "]";
     }
 
 

@@ -34,7 +34,6 @@ public class ModulService {
             NodeList modulList = document.getElementsByTagName("modul");
             for (int i = 0; i < modulList.getLength(); i++){
                 int modulID = Integer.parseInt(document.getElementsByTagName("id").item(i).getTextContent());
-                System.out.println("ModulID IN: " + modulID);
                 String modulname = document.getElementsByTagName("name").item(i).getTextContent();
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
@@ -79,14 +78,9 @@ public class ModulService {
                 Fachsemester verschFachsemester = new Fachsemester(verschFachsemesterID, angebotsIntervallVersch);
                                 
                 boolean bestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(i).getTextContent());
-                int xKoordinate = Integer.parseInt(document.getElementsByTagName("xKoordinate").item(i).getTextContent());
-                int yKoordinate = Integer.parseInt(document.getElementsByTagName("yKoordinate").item(i).getTextContent());
 
-                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, bestanden, xKoordinate, yKoordinate);
+                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, bestanden);
                 modulMap.put(i, neuesModul);
-            }
-            for(int key : modulMap.keySet()){
-                System.out.println("ID: " + modulMap.get(key));
             }
 
          } catch (Exception e) {
