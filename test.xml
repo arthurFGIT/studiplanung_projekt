@@ -13,6 +13,8 @@
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
         <verschFachsemesterId>1</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
     </modul>
     <modul>
@@ -28,6 +30,8 @@
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
         <verschFachsemesterId>1</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
     </modul>
     <modul>
@@ -40,9 +44,11 @@
             <kompetenz>Java Grundkenntnisse 4</kompetenz>
         </kompetenzen>
         <origFachsemesterId>2</origFachsemesterId>
-        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
         <verschFachsemesterId>2</verschFachsemesterId>
-        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
     </modul>
     <modul>
@@ -58,6 +64,8 @@
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
         <verschFachsemesterId>3</verschFachsemesterId>
         <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>3</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
     </modul>
 </module>

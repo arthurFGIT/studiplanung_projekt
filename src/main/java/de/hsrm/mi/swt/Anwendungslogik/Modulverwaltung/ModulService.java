@@ -11,15 +11,24 @@ import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
+import de.hsrm.mi.swt.main.App;
+
 
 public class ModulService {
 
     private Modul aktuellesModul;
     private Modul neuesModul;
+    private StudienplanService studienplanService;
+    private App app;
+    private Studienplan studienplan;
 
     private Map<Integer, Modul> modulMap;
 
-    public ModulService(){
+    public ModulService(App app){
+        this.app = app;
         modulMap = new HashMap<>();
     }
 
@@ -76,16 +85,33 @@ public class ModulService {
                     angebotsIntervallVersch = AngebotsIntervall.WISO;
                 }
                 Fachsemester verschFachsemester = new Fachsemester(verschFachsemesterID, angebotsIntervallVersch);
+
+                // verschobenes Fachsemester
+                int vorherigesFachsemesterID = Integer.parseInt(document.getElementsByTagName("vorherigesFachsemesterId").item(i).getTextContent());
+                String vorherigesAngebotsIntervall = document.getElementsByTagName("vorherigesAngebotsIntervall").item(i).getTextContent();
+                AngebotsIntervall angebotsIntervallVorherig = null;
+                if (vorherigesAngebotsIntervall.equalsIgnoreCase("winter")){
+                    angebotsIntervallVorherig = AngebotsIntervall.WINTER;
+                }
+                else if(vorherigesAngebotsIntervall.equalsIgnoreCase("sommer")){
+                    angebotsIntervallVorherig = AngebotsIntervall.SOMMER;
+                }
+                else if(vorherigesAngebotsIntervall.equalsIgnoreCase("wiso")){
+                    angebotsIntervallVorherig = AngebotsIntervall.WISO;
+                }
+                Fachsemester vorherigesFachsemester = new Fachsemester(vorherigesFachsemesterID, angebotsIntervallVorherig);
                                 
                 boolean bestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(i).getTextContent());
 
-                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, bestanden);
+                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, vorherigesFachsemester, bestanden);
                 modulMap.put(i, neuesModul);
             }
 
          } catch (Exception e) {
             e.printStackTrace();
          }
+
+         studienplan = new Studienplan(this.app);
          return modulMap;
     }
 
@@ -104,5 +130,16 @@ public class ModulService {
     public Map<Integer, Modul> getModulMap() {
         return modulMap;
     }
+
+    public Studienplan getStudienplan() {
+        return studienplan;
+    }
+
+    public void setStudienplan(Studienplan studienplan) {
+        this.studienplan = studienplan;
+    }
+
+    
+
     
 }

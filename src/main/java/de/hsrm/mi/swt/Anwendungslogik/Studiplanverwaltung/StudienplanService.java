@@ -161,6 +161,18 @@ public class StudienplanService {
                 Element verschAngebotsIntervall = document.createElement("verschAngebotsIntervall");
                 verschAngebotsIntervall.appendChild(document.createTextNode(m.getVerschobenesFachsemester().getAngebotsIntervall().getName()));
                 modul.appendChild(verschAngebotsIntervall);
+
+                
+                // vorheriges Fachsemester
+                // ID
+                Element vorherigesFachsemesterId = document.createElement("vorherigesFachsemesterId");
+                vorherigesFachsemesterId.appendChild(document.createTextNode(String.valueOf(m.getVorherigesFachsemester().getid())));
+                modul.appendChild(vorherigesFachsemesterId);
+
+                // AngebotsIntervall
+                Element vorherigesAngebotsIntervall = document.createElement("vorherigesAngebotsIntervall");
+                vorherigesAngebotsIntervall.appendChild(document.createTextNode(m.getVorherigesFachsemester().getAngebotsIntervall().getName()));
+                modul.appendChild(vorherigesAngebotsIntervall);
             }    
 
             // create the xml file

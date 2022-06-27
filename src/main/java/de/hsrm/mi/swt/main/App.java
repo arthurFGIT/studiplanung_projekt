@@ -32,7 +32,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		this.modulService = new ModulService();
+		this.modulService = new ModulService(this);
 		this.errorService = new ErrorService();
 		this.checkService = new CheckService(modulService, errorService);
 		this.studienplanService = new StudienplanService(modulService, checkService, errorService);

@@ -14,12 +14,13 @@ public class Modul {
     private List<Kompetenz> kompetenzGesamt;
     private Fachsemester originalesFachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
     private Fachsemester verschobenesFachsemester;
+    private Fachsemester vorherigesFachsemester;
     private boolean bestanden;
     public static final String SET_VERSCH_SEMESTER = "verschobenesSemester"; //TODO: googlen was das macht
 
     
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
-            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, boolean bestanden) {
+            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden) {
         this.id = id;
         this.name = name;
         this.beschreibung = beschreibung;
@@ -28,8 +29,20 @@ public class Modul {
         this.kompetenzGesamt = kompetenz;
         this.originalesFachsemester = originalesFachsemester;
         this.verschobenesFachsemester = verschobenesFachsemester;
+        this.vorherigesFachsemester = vorherigesFachsemester;
         this.bestanden = bestanden;
     }
+
+    //changeEvents für Modul verschieben -> Kopie von DragAndDropFxDing
+    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        this.pcs.removePropertyChangeListener(listener);
+    }   
 
     public String getName() {
         return name;
@@ -118,23 +131,20 @@ public class Modul {
     }
 
 
-
-    //changeEvents für Modul verschieben -> Kopie von DragAndDropFxDing
-    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        this.pcs.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        this.pcs.removePropertyChangeListener(listener);
-}
-
     @Override
     public String toString() {
         return "Modul [beschreibung=" + beschreibung + ", bestanden=" + bestanden + ", cpGesamt=" + cpGesamt + ", id="
                 + id + ", kompetenzGesamt=" + kompetenzGesamt + ", name=" + name + ", originalesFachsemester="
-                + originalesFachsemester + ", verschobenesFachsemester=" + verschobenesFachsemester + "]";
+                + originalesFachsemester + ", pcs=" + pcs + ", verschobenesFachsemester=" + verschobenesFachsemester
+                + ", vorherigesFachsemester=" + vorherigesFachsemester + "]";
+    }
+
+    public Fachsemester getVorherigesFachsemester() {
+        return vorherigesFachsemester;
+    }
+
+    public void setVorherigesFachsemester(Fachsemester vorherigesFachsemester) {
+        this.vorherigesFachsemester = vorherigesFachsemester;
     }
 
 

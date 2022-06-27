@@ -1,41 +1,72 @@
 package de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung;
-import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
-
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
+import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
+import de.hsrm.mi.swt.main.App;
 
-public class StudienPlan {
+public class Studienplan {
 
-    	// PropertyChangeEvent-Strings
-	// public static final String ADD_EVENT = "studienplan.add";
-    private Map<Integer, Modul> modulMap = new HashMap<>();
 
-	
-	private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
-	public void addPropertyChangeListener(PropertyChangeListener listener) {
-        this.pcs.addPropertyChangeListener(listener);
+    private Map<Integer, Studiensemester> semesterMap;
+    private App app;
+    private StudienplanService studienplanService;
+    private ModulService modulService;
+    private Map<Integer,Modul> modulMap;
+
+    public static final String PLAN_ERNEUERT = "planErneuert";
+
+    public Studienplan(App app){        
+        this.app = app;
+        this.studienplanService = app.getStudienplanService();
+        this.modulService = app.getModulService();
+        this.modulMap = modulService.getModulMap();
+        this.semesterMap = new HashMap<>();
+        createMap();        
     }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        this.pcs.removePropertyChangeListener(listener);
-    }
-
-    public StudienPlan(Map<Integer, Modul> modulMap) {
-        this.modulMap = modulMap;
-    }
-
-    public Map<Integer, Modul> getModulMap() {
-        return modulMap;
-    }
-
-    public void setModulMap(Map<Integer, Modul> modulMap) {
-        this.modulMap = modulMap;
-    }
-    
 
     
+    public void createMap(){
+        
+        for(int i=1; i<= studienplanService.maxSemesterAnzahl(); i++){            
+            Studiensemester studiensemester = new Studiensemester(app);
+            for(int k : modulMap.keySet()){
+                if(modulMap.get(k).getVerschobenesFachsemester().getid() == i){
+                    studiensemester.add(modulMap.get(k));
+                }                
+            }
+            semesterMap.put(i, studiensemester);
+        }
+
+    }
+
+
+
+
+    public Studiensemester holeStudiensemesterMitId(int i) {
+        return semesterMap.get(i);
+    }
+
+
+    public Map<Integer, Studiensemester> getSemesterMap() {
+        return semesterMap;
+    }
+
+
+    public void setSemesterMap(Map<Integer, Studiensemester> semesterMap) {
+        this.semesterMap = semesterMap;
+    }
+
+
+    
+
+
+
 }
+
+    
