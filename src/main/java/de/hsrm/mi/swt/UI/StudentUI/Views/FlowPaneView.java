@@ -61,6 +61,13 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         }
     }
 
+    private void setModulViewsNew() {
+        this.getChildren().clear();
+        for (int k : modulViewMap.keySet()) {            
+            this.getChildren().add(modulViewMap.get(k));
+        }
+    }
+
     private void initialize() {
 
         for (int k : modulViewMap.keySet()) {
@@ -138,6 +145,8 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 // System.out.println("ModulViewTemp: " + modulViewTemp);
                 modulViewMap.put(modulViewMap.size(), modulViewTemp);
 
+                setModulViewsNew();
+
                 for(int y : modulViewsListe.keySet()){
                     System.out.println("Liste: " + y);
                     for(int z : modulViewsListe.get(y).keySet()){
@@ -149,23 +158,23 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 break;
             // TODO: Muss angepasst werden siehe -> ADD_MODUL_TO_SEMESTER
             case Studiensemester.REMOVE_MODUL_FROM_SEMESTER:
-                Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe.get(modul.getVerschobenesFachsemester().getid());
-                ModulView modulViewTemp2 = null;
-                for(int k : modulViewMapTemp2.keySet()){
-                    // System.out.println("ModulView: " + modulViewMap.get(k));
-                    if(modulViewMapTemp2.get(k).getModul().getId() == modul.getId()){        
-                        this.getModulViewMap().remove(k);
-                        // modulViewTemp2.setStyle("-fx-background-color: white");
-                        break;
-                    }
-                }
-                for(int k : modulViewMap.keySet()){
-                    System.out.println("ModulView: " + modulViewMap.get(k));
-                    if(modulViewMap.get(k).equals(modulViewTemp2)){        
-                        this.getModulViewMap().remove(k);
-                        break;
-                    }
-                }
+                // Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe.get(modul.getVerschobenesFachsemester().getid());
+                // ModulView modulViewTemp2 = null;
+                // for(int k : modulViewMapTemp2.keySet()){
+                //     // System.out.println("ModulView: " + modulViewMap.get(k));
+                //     if(modulViewMapTemp2.get(k).getModul().getId() == modul.getId()){        
+                //         this.getModulViewMap().remove(k);
+                //         // modulViewTemp2.setStyle("-fx-background-color: white");
+                //         break;
+                //     }
+                // }
+                // for(int k : modulViewMap.keySet()){
+                //     System.out.println("ModulView: " + modulViewMap.get(k));
+                //     if(modulViewMap.get(k).equals(modulViewTemp2)){        
+                //         this.getModulViewMap().remove(k);
+                //         break;
+                //     }
+                // }
                 System.out.println("Modul auf der GUI aus alter View");
                 break;
             default:
