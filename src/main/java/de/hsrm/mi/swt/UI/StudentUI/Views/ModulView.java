@@ -3,10 +3,12 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.main.App;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public class ModulView extends StackPane{
+public class ModulView extends VBox{
 
 	public static final double MODULBREITE = 100.0;
 	public static final double MODULHOEHE = 50.0;
@@ -28,7 +30,7 @@ public class ModulView extends StackPane{
 		name = new Text(m.getName());
 		cpGesamt = new Text("CP: " + String.valueOf(m.getCpGesamt()));
 		
-		this.getChildren().addAll(name);	
+		this.getChildren().addAll(name, cpGesamt);	
 	}
 
 	public Modul getModul() {

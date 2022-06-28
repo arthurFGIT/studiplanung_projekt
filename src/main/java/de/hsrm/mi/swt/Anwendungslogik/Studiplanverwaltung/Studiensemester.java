@@ -24,7 +24,6 @@ public class Studiensemester {
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         this.pcs.addPropertyChangeListener(listener);
-        System.out.println(this.pcs.getPropertyChangeListeners());
     }
 
     public void removePropertyChangeListener(PropertyChangeListener listener) {

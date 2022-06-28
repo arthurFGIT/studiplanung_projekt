@@ -41,7 +41,7 @@ public class StudienplanungView extends ScrollPane {
 	public StudienplanungView(App app) {
 		this.app = app;
 
-		setPrefSize(450, 600);
+		setPrefSize(1000, 800);
 		modulService = app.getModulService();
 		studienplanService = app.getStudienplanService();
 		modulMap = modulService.getModulMap();
@@ -94,7 +94,7 @@ public class StudienplanungView extends ScrollPane {
 			}
 
 			FlowPaneView paneView = new FlowPaneView(app, fachsemester, modulViewsListe.get(x), modulViewsListe, modulService.getStudienplan().getSemesterMap().get(x));
-
+			paneView.getStyleClass().add("flow-pane");
 			flowPaneMap.put(x, paneView);
 		}		
 	}

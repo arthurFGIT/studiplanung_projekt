@@ -46,8 +46,7 @@ public class App extends Application {
 			
 
 			root = scenes.get("StartView");
-			Scene scene = new Scene(root, 500, 500);
-			// scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Scene scene = new Scene(root, 1366, 768);
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Studiplanung");
