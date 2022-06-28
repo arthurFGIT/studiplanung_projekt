@@ -1,7 +1,5 @@
 package de.hsrm.mi.swt.UI.StudentUI.Views;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,27 +7,20 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class StudienplanungView extends ScrollPane {
 
-	public final String MODUL = "modul";
-
-	private Modul modul; // TODO Test löschen
+	private Modul modul;
 	private Map<Integer, Modul> modulMap;
-	private ModulView modulView;
 	private Pane container;
 	private Map<Integer, ModulView> modulViewMap;
 	private Map<Integer, Map<Integer, ModulView>> modulViewsListe;
@@ -42,7 +33,6 @@ public class StudienplanungView extends ScrollPane {
 
 	private App app;
 
-	// private Rectangle modul;
 
 	private ModulService modulService; // später durch Studienplanservice -> lade Plan ersetzen
 	private StudienplanService studienplanService;
@@ -56,9 +46,6 @@ public class StudienplanungView extends ScrollPane {
 		studienplanService = app.getStudienplanService();
 		modulMap = modulService.getModulMap();
 		System.out.println("Studienplan added observer");
-		System.out.println(modulMap.toString());
-		// modul = modulMap.get(0);
-		// System.out.println(modul.toString());
 		container = new Pane();
 		container.setMinHeight(800);
 		containerVBox = new VBox();
@@ -67,21 +54,7 @@ public class StudienplanungView extends ScrollPane {
 		modulViewsListe = new HashMap<>();
 		flowPaneMap = new HashMap<>();
 
-		// for(int k : modulMap.keySet()){
-		// 	modulMap.get(k).addPropertyChangeListener(this);
-		// }
-
-		// for(int k : flowPaneMap.keySet()){
-		// 	flowPaneMap.get(k).addPropertyChangeListener(this);
-		// }
-
-
-
 		this.ladePlan();
-
-		// for(int k : modulViewsListe.keySet()){
-		// 	((Modul) modulViewsListe.get(k)).addPropertyChangeListener(this);
-		// }
 
 		for(int k : flowPaneMap.keySet()){
 			containerVBox.getChildren().add(flowPaneMap.get(k));
@@ -123,30 +96,8 @@ public class StudienplanungView extends ScrollPane {
 			FlowPaneView paneView = new FlowPaneView(app, fachsemester, modulViewsListe.get(x), modulViewsListe, modulService.getStudienplan().getSemesterMap().get(x));
 
 			flowPaneMap.put(x, paneView);
-		}
-
-
-		
-		
-
-		// for(int j = 0; j <= flowPaneMap.size(); j++){
-		// 	fuegeModulViewsInFlowPanes("pane"+j, j);
-		// }
-
-		
+		}		
 	}
-
-	// public void fuegeModulViewsInFlowPanes(String key, int j){
-	// 	for(int k : modulViewMap.keySet()){
-	// 		System.out.println(modulViewMap.get(k));
-
-	// 		if(modulViewMap.get(k).getModul().getVerschobenesFachsemester().getid()-1 == j){
-	// 			flowPaneMap.get(j).getChildren().add(modulViewMap.get(k));
-	// 		}
-	// 	}
-
-	// }
-
 
 	public void initialize() {
 
@@ -196,64 +147,4 @@ public class StudienplanungView extends ScrollPane {
             });
         }
 	}
-
-	
-	// @Override
-	// public void propertyChange(PropertyChangeEvent event) {
-	// 	// UI bei Änderung des zugehörigen Domänenobjekts (Kringel) aktualisieren
-	// 	System.out.println("ModulUI - update " + event);
-	// 	modul = (Modul) event.getSource();
-	// 	System.out.println("MODUL PropertyChange: " + modul);
-		
-		
-	// 	int semester = modul.getVerschobenesFachsemester().getid();
-	// 	ModulView modulViewTemp = flowPaneMap.get(vorherigesFachsemester.getid()).getModulViewMap().get(modul.getId());
-
-	// 	switch (event.getPropertyName()) {
-	// 		case Modul.SET_VERSCH_SEMESTER:
-
-				
-
-
-
-	// 			for(int o : flowPaneMap.keySet()){
-	// 				for(int x : flowPaneMap.get(o).getModulViewMap().keySet()){
-	// 					System.out.println(flowPaneMap.get(o).getModulViewMap().get(x));
-	// 				}
-
-	// 				System.out.println("-----------------------------------");
-	// 			}
-
-	// 			break;
-	// 		case Studiensemester.ADD_MODUL_TO_SEMESTER:
-	// 			flowPaneMap.get(semester).getModulViewMap().put(modulViewMap.size(), modulViewTemp);
-			
-			
-	// 		case Studiensemester.REMOVE_MODUL_FROM_SEMESTER:
-	// 			for(int k : flowPaneMap.keySet()){
-	// 				if(k == vorherigesFachsemester.getid()){
-	// 					for(int x : flowPaneMap.get(k).getModulViewMap().keySet()){
-	// 						if(flowPaneMap.get(k).getModulViewMap().get(x).getModul().getId() == modul.getId()){
-	// 							modulViewTemp = flowPaneMap.get(k).getModulViewMap().get(x);
-	// 							flowPaneMap.get(k).getModulViewMap().remove(x);
-	// 							break;
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-				
-	// 		default:
-	// 			throw new IllegalArgumentException("UnbehandeltesEvent " + event);
-	// 	}
-	// }
-	
-	// @Override
-	// public void propertyChange(PropertyChangeEvent event) {
-	// 	System.out.println("HALLOOOOO");
-	// 	modul = (Modul) event.getNewValue();
-	// 	modulView = new ModulView(modul);
-	// 	this.getContent();
-	// 	this.getChildren().add(modulView);
-	// }
-
 }

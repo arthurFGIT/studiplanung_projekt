@@ -2,8 +2,6 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.util.List;
 import java.util.Map;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
@@ -13,7 +11,6 @@ import de.hsrm.mi.swt.main.App;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
@@ -43,9 +40,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         this.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         setModulViews();
-        // for (int k : modulViewMap.keySet()) {
-        //     System.out.println("ModulView: " + modulViewMap.get(k));
-        // }
             
         System.out.println("Observer added");
 
@@ -66,6 +60,7 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         for (int k : modulViewMap.keySet()) {            
             this.getChildren().add(modulViewMap.get(k));
         }
+        initialize();
     }
 
     private void initialize() {
@@ -75,7 +70,7 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 @Override
                 public void handle(MouseEvent event) {
                     System.out.println("Drag detected");
-                    Dragboard dragboard = modulViewMap.get(k).startDragAndDrop(TransferMode.COPY);
+                    Dragboard dragboard = modulViewMap.get(k).startDragAndDrop(TransferMode.MOVE);
                     ClipboardContent content = new ClipboardContent();
                     content.putString(String.valueOf(modulViewMap.get(k).getModul().getId()));
                     dragboard.setContent(content);
@@ -85,8 +80,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
             modulViewMap.get(k).setOnMouseReleased(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
-                    // System.out.println("KringelUI - onMouseReleased " + event);
-                    // System.out.println((int) event.getX() + " " + (int) event.getY());
                     modulViewMap.get(k).getModul().setVerschobenesFachsemester(semester);
 
                     app.getModulService().getStudienplan()
@@ -119,11 +112,8 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent event) {
 
-        // System.out.println("ModulUI - update " + event);
         studiensemester = (Studiensemester) event.getSource();
-        // System.out.println("MODUL PropertyChange: " + studiensemester);
         Modul modul = studiensemester.getCurrentModul();
-        System.out.println(event.getPropertyName());
         
         switch (event.getPropertyName()) {
             case Studiensemester.ADD_MODUL_TO_SEMESTER:
@@ -131,50 +121,29 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 Map<Integer, ModulView> modulViewMapTemp = modulViewsListe.get(modul.getVorherigesFachsemester().getid());
                 ModulView modulViewTemp = null;
                 for(int k : modulViewMapTemp.keySet()){
-                    // System.out.println("ModulView: " + modulViewMap.get(k));
                     if(modulViewMapTemp.get(k).getModul().getId() == modul.getId()){        
                         modulViewTemp = modulViewMapTemp.get(k);
-                        modulViewTemp.setStyle("-fx-background-color: white");
                         break;
                     }
                 }
 
-
-                // modulViewTemp = modulViewsListe.get(modul.getVerschobenesFachsemester().getid());
-                // ModulView modulViewTemp = modulViewMap.get(modul.getVerschobenesFachsemester().getid());
-                // System.out.println("ModulViewTemp: " + modulViewTemp);
                 modulViewMap.put(modulViewMap.size(), modulViewTemp);
-
                 setModulViewsNew();
-
-                for(int y : modulViewsListe.keySet()){
-                    System.out.println("Liste: " + y);
-                    for(int z : modulViewsListe.get(y).keySet()){
-                        System.out.println("View: " + z + "-----" + modulViewsListe.get(y).get(z));
-                    }
-                }
                 
                 System.out.println("Modul auf der GUI zu neuer View");
                 break;
-            // TODO: Muss angepasst werden siehe -> ADD_MODUL_TO_SEMESTER
             case Studiensemester.REMOVE_MODUL_FROM_SEMESTER:
-                // Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe.get(modul.getVerschobenesFachsemester().getid());
-                // ModulView modulViewTemp2 = null;
-                // for(int k : modulViewMapTemp2.keySet()){
-                //     // System.out.println("ModulView: " + modulViewMap.get(k));
-                //     if(modulViewMapTemp2.get(k).getModul().getId() == modul.getId()){        
-                //         this.getModulViewMap().remove(k);
-                //         // modulViewTemp2.setStyle("-fx-background-color: white");
-                //         break;
-                //     }
-                // }
-                // for(int k : modulViewMap.keySet()){
-                //     System.out.println("ModulView: " + modulViewMap.get(k));
-                //     if(modulViewMap.get(k).equals(modulViewTemp2)){        
-                //         this.getModulViewMap().remove(k);
-                //         break;
-                //     }
-                // }
+                Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe.get(modul.getVorherigesFachsemester().getid());
+                ModulView modulViewTemp2 = null;
+                for(int k : modulViewMapTemp2.keySet()){
+                    if(modulViewMapTemp2.get(k).getModul().getId() == modul.getId()){        
+                        this.getModulViewMap().remove(k);
+                        break;
+                    }
+                }
+                
+                setModulViewsNew();
+
                 System.out.println("Modul auf der GUI aus alter View");
                 break;
             default:

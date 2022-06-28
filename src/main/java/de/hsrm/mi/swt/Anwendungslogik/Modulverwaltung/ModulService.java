@@ -13,7 +13,6 @@ import org.w3c.dom.NodeList;
 
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
 
 

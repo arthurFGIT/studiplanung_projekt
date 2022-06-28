@@ -42,10 +42,6 @@ public class StudienplanService {
         maxSemesterAnzahl = 0;
     }
 
-    // public void ladePlan(int nutzerid){
-
-    // }
-
     public int maxSemesterAnzahl(){
         maxSemesterAnzahl = modulMap.get(0).getVerschobenesFachsemester().getid();
         for(int k : modulMap.keySet()){
@@ -181,11 +177,6 @@ public class StudienplanService {
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(xmlFilePath));
-
-            // If you use
-            // StreamResult result = new StreamResult(System.out);
-            // the output will be pushed to the standard output ...
-            // You can use that for debugging 
 
             transformer.transform(domSource, streamResult);
 

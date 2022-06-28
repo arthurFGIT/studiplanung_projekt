@@ -1,10 +1,6 @@
 package de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 import de.hsrm.mi.swt.main.App;
