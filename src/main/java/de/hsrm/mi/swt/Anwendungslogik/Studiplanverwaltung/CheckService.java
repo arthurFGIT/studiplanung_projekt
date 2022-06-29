@@ -30,6 +30,7 @@ public class CheckService {
                 for (Kompetenz kompetenz : modulkompList){
                     for (Kompetenz k : kompetenzen){
                         if (kompetenz.getName().equals(k.getName())){
+                            System.out.println("Wenn du das Modul "+modul.getName() + "dorthin verschiebst, fehlen dir wichtige Kompetenzen in den nächsten Semestern.");
                             errorService.getErrorMessages().add("Wenn du das Modul "+modul.getName() + "dorthin verschiebst, fehlen dir wichtige Kompetenzen in den nächsten Semestern.");
                         }
                     }
@@ -49,13 +50,16 @@ public class CheckService {
                 for (int key : modulMap.keySet()){
                     Modul m = modulMap.get(key);
                     if (Math.abs(m.getOriginalesFachsemester().getid() - m.getVerschobenesFachsemester().getid()) > 1){
+                        System.out.println("Kann nicht verschoben werden (Fortschrittsregelung).");
                         return false; 
                     }
                 }
             }
+            System.out.println("Kann verschoben werden (Fortschrittsregelung).");
             return true;
         }
         else{
+            System.out.println("Kann nicht verschoben werden (Fortschrittsregelung).");
             return false;
         }
         
@@ -64,8 +68,10 @@ public class CheckService {
     public boolean checkSemester(AngebotsIntervall angebotsIntervall, Fachsemester neueFachsemester){
         
         if(angebotsIntervall == neueFachsemester.getAngebotsIntervall() || neueFachsemester.getAngebotsIntervall() == AngebotsIntervall.WISO){
+            System.out.println("Kann verschoben werden (Angebotsintervall).");
             return true;
         } else{
+            System.out.println("Kann nicht verschoben werden (Angebotsintervall).");
             errorService.getErrorMessages().add("Modul wird nicht in diesem Semester angeboten.");
             return false; 
         }

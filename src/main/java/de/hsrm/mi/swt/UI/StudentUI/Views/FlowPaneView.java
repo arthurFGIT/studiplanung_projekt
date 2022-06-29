@@ -6,6 +6,7 @@ import java.util.Map;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.CheckService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.EventHandler;
@@ -27,12 +28,15 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
     private Studiensemester studiensemester;
     private App app;
     private Map<Integer, Map<Integer, ModulView>> modulViewsListe;
+    private CheckService checkService;
 
     public FlowPaneView(App app, Fachsemester semester, Map<Integer, ModulView> modulViewMap, Map<Integer, Map<Integer, ModulView>> modulViewsListe,
             Studiensemester studiensemester) {
+        
         this.app = app;
         this.semester = semester;
         this.studiensemester = studiensemester;
+        this.checkService = app.getCheckService();
         this.setMinWidth(200.0);
         this.setMinHeight(50.0);
         this.modulViewMap = modulViewMap;
@@ -80,19 +84,27 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
             modulViewMap.get(k).setOnMouseReleased(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
-                    modulViewMap.get(k).getModul().setVerschobenesFachsemester(semester);
+                    
+                    Modul m = modulViewMap.get(k).getModul();
 
+                    
+                    // checkService.checkFortschrittsregel(modul, zielFachsemester);
+                    // checkService.checkKompetenzen(modul, zielFachsemester);
+
+   
+                    m.setVerschobenesFachsemester(semester);
+                    
                     app.getModulService().getStudienplan()
-                            .holeStudiensemesterMitId(
-                                    modulViewMap.get(k).getModul().getVerschobenesFachsemester().getid())
-                            .addToSemester(modulViewMap.get(k).getModul());
+                    .holeStudiensemesterMitId(
+                            modulViewMap.get(k).getModul().getVerschobenesFachsemester().getid())
+                    .addToSemester(modulViewMap.get(k).getModul());
                     System.out.println("Modul zu neuer Liste");
                     
                     app.getModulService().getStudienplan()
                             .holeStudiensemesterMitId(
                                     modulViewMap.get(k).getModul().getVorherigesFachsemester().getid())
                             .removeFromSemester(modulViewMap.get(k).getModul());
-                    System.out.println("Modul aus alter Liste entfernt");
+                        System.out.println("Modul aus alter Liste entfernt");
                     event.consume();
                 }
             });

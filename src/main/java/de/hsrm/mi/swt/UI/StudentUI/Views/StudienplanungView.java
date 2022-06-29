@@ -125,18 +125,29 @@ public class StudienplanungView extends ScrollPane {
 						System.out.println(dragboard.getString());
 
 						modul = modulMap.get(Integer.parseInt(dragboard.getString()));
-
 						vorherigesFachsemester = modul.getVerschobenesFachsemester();
-						modul.setVorherigesFachsemester(vorherigesFachsemester);
 						aktuellesFachsemester = flowPaneMap.get(k).getSemester();
-                        modul.setVerschobenesFachsemester(aktuellesFachsemester);
 
 
-						modulService.getStudienplan().holeStudiensemesterMitId(modul.getVerschobenesFachsemester().getid()).addToSemester(modul);
-						modulService.getStudienplan().holeStudiensemesterMitId(modul.getVorherigesFachsemester().getid()).removeFromSemester(modul);
 
-						System.out.println("DROP HAT GEKLAPPT");
+						if(app.getCheckService().checkSemester(vorherigesFachsemester.getAngebotsIntervall(), aktuellesFachsemester)){
+							
+							if(app.getCheckService().checkFortschrittsregel(modul, aktuellesFachsemester)){
+								
+								app.getCheckService().checkKompetenzen(modul, aktuellesFachsemester);
 
+								modul.setVorherigesFachsemester(vorherigesFachsemester);
+								modul.setVerschobenesFachsemester(aktuellesFachsemester);
+		
+		
+								modulService.getStudienplan().holeStudiensemesterMitId(modul.getVerschobenesFachsemester().getid()).addToSemester(modul);
+								modulService.getStudienplan().holeStudiensemesterMitId(modul.getVorherigesFachsemester().getid()).removeFromSemester(modul);
+								System.out.println("DROP HAT GEKLAPPT");
+	
+							}
+						
+	
+						}
                         success = true;
     
                     }

@@ -68,4 +68,38 @@
         <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
     </modul>
+    <modul>
+        <id>4</id>
+        <name>Programmieren 4</name>
+        <beschreibung>Lernen Sie Programmieren, nur noch noch besser</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Java Grundkenntnisse 5</kompetenz>
+            <kompetenz>Java Grundkenntnisse 6</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>4</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>4</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>4</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+    </modul>
+    <modul>
+        <id>5</id>
+        <name>Programmieren 5</name>
+        <beschreibung>Lernen Sie Programmieren, nur noch noch noch besser</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Java Grundkenntnisse 7</kompetenz>
+            <kompetenz>Java Grundkenntnisse 8</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>5</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>5</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>5</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+    </modul>
 </module>
