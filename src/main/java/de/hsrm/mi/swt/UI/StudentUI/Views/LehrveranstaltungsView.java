@@ -3,7 +3,7 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 import java.awt.Color;
 
-import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
+import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Lehrveranstaltung;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.scene.control.CheckBox;
@@ -15,11 +15,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public class ModulView extends VBox{
+public class LehrveranstaltungsView extends VBox{
 
-	public static final double MODULBREITE = 100.0;
-	public static final double MODULHOEHE = 50.0;
-	private Modul modul;
+	public static final double MODULBREITE = 80.0;
+	public static final double MODULHOEHE = 40.0;
+	private Lehrveranstaltung lehrveranstaltung;
 	private Text name;
 	private Text cpGesamt;
 	private App app;
@@ -28,41 +28,30 @@ public class ModulView extends VBox{
 	private StudienplanService studienplanService;
 
 	
-	public ModulView(Modul m, App app){
+	public LehrveranstaltungsView(Lehrveranstaltung l, App app){
 		super();
-		this.modul = m;
+		this.lehrveranstaltung = l;
 		this.app = app;
 		this.studienplanService = app.getStudienplanService();
 		this.getStylesheets().add("style.css");
-		this.getStyleClass().add("modul-view");
+		this.getStyleClass().add("lehrveranstaltungs-view");
 
-		System.out.println("ModulView");
         prefWidth(MODULBREITE);
         prefHeight(MODULHOEHE);
-		name = new Text(m.getName());
-		cpGesamt = new Text("CP: " + String.valueOf(m.getCpGesamt()));
+		name = new Text(String.valueOf(lehrveranstaltung.getVeranstaltungsTyp()));
+        cpGesamt = new Text("CP: " + String.valueOf(lehrveranstaltung.getWorkloadInCP()));
 		
 		checkBestanden = new CheckBox();
-		if(modul.isBestanden()){
+		if(lehrveranstaltung.isBestanden()){
 			checkBestanden.setSelected(true);
 			this.setStyle("-fx-background-color: #c6f1e5;");	
 		}
 
-
 		nameWithCheck = new HBox(name, checkBestanden);
 				
-		this.getChildren().addAll(nameWithCheck, cpGesamt);	
-		createAndAddLehrveranstaltungsViews();
+		this.getChildren().addAll(nameWithCheck);	
 
 		initialize();
-	}
-
-	private void createAndAddLehrveranstaltungsViews() {
-		for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
-			LehrveranstaltungsView lehrveranstaltungsView = new LehrveranstaltungsView(modul.getLehrveranstaltungenGesamt().get(i), app);
-			this.getChildren().add(lehrveranstaltungsView);
-		}
-
 	}
 
 	private void initialize() {
@@ -70,33 +59,32 @@ public class ModulView extends VBox{
 		checkBestanden.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 
 			if(checkBestanden.isSelected()){
-				modul.setBestanden(true);
+				lehrveranstaltung.setBestanden(true);
 				this.setStyle("-fx-background-color: #c6f1e5;");			
 				System.out.println("Act CP: " + studienplanService.calcActCP());
-				System.out.println("Modul Bestanden: " + modul.isBestanden());
+				System.out.println("Lehrveranstaltung Bestanden: " + lehrveranstaltung.isBestanden());
 			}
 			else{
-				modul.setBestanden(false);
+				lehrveranstaltung.setBestanden(false);
 				this.setStyle("-fx-background-color: #b2c0f6;");
 				studienplanService.calcActCP();
-				System.out.println("Modul Bestanden: " + modul.isBestanden());
+				System.out.println("Lehrveranstaltung Bestanden: " + lehrveranstaltung.isBestanden());
 			}            
 		});
 
-
 	}
 
-	public Modul getModul() {
-		return this.modul;
-	}
+    public Lehrveranstaltung getLehrveranstaltung() {
+        return lehrveranstaltung;
+    }
 
-	public void setModul(Modul modul) {
-		this.modul = modul;
-	}
+    public void setLehrveranstaltung(Lehrveranstaltung lehrveranstaltung) {
+        this.lehrveranstaltung = lehrveranstaltung;
+    }
+
     
 }
-
-
+    
 
 
 

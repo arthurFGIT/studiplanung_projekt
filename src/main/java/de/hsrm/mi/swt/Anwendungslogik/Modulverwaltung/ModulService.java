@@ -14,6 +14,7 @@ import org.w3c.dom.NodeList;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
+import javafx.scene.Node;
 
 
 public class ModulService {
@@ -46,8 +47,9 @@ public class ModulService {
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
                                 
-                NodeList kompetenzList = document.getElementsByTagName("kompetenz");
-                
+                NodeList kompetenzList = document.getElementsByTagName("kompetenzen").item(i).getChildNodes();
+                System.out.println("Kompetenzlänge: " + kompetenzList.getLength()); 
+                System.out.println(kompetenzList.toString());               
                 List<Kompetenz> kompetenzListe = new ArrayList<>();
                 for (int j = 0; j < kompetenzList.getLength(); j++){
                     String kompetenz = document.getElementsByTagName("kompetenz").item(j).getTextContent(); 
@@ -102,7 +104,52 @@ public class ModulService {
                                 
                 boolean bestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(i).getTextContent());
 
-                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, vorherigesFachsemester, bestanden);
+                int workloadInCP = 0;
+                String veranstaltungsTypString = "";
+                VeranstaltungsTyp veranstaltungsTyp = null;
+                boolean lehrveranstaltungBestanden = false;
+
+
+                NodeList lehrveranstaltungsList = document.getElementsByTagName("lehrveranstaltungen").item(i).getChildNodes();
+                // System.out.println(lehrveranstaltungsList.toString());
+
+                List<Lehrveranstaltung> lehrveranstaltungsListe = new ArrayList<>();
+                // System.out.println("Size of Lehrveranstaltungsliste: " + lehrveranstaltungsList.getLength());
+                for (int z = 0; z < lehrveranstaltungsList.getLength(); z++){
+
+                    NodeList lehrveranstaltungsInhalte = document.getElementsByTagName("lehrveranstaltung").item(z).getChildNodes();
+                    System.out.println(lehrveranstaltungsInhalte.toString());
+                    // System.out.println("Länge: " + lehrveranstaltungsInhalte.getLength());
+                    for (int x = 0; x < lehrveranstaltungsInhalte.getLength(); x++){
+                        workloadInCP = Integer.parseInt(document.getElementsByTagName("workloadInCP").item(x).getTextContent()); 
+                        veranstaltungsTypString = document.getElementsByTagName("veranstaltungsTyp").item(x).getTextContent();
+                        System.out.println(veranstaltungsTypString);
+                        lehrveranstaltungBestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(x).getTextContent());
+                        veranstaltungsTyp = null;
+                        if (veranstaltungsTypString.equalsIgnoreCase("praktikum")){
+                            veranstaltungsTyp = VeranstaltungsTyp.PRAKTIKUM;
+                        }
+                        else if(veranstaltungsTypString.equalsIgnoreCase("vorlesung")){
+                            veranstaltungsTyp = VeranstaltungsTyp.VORLESUNG;
+                        }
+                        else if(veranstaltungsTypString.equalsIgnoreCase("uebung")){
+                            veranstaltungsTyp = VeranstaltungsTyp.UEBUNG;
+                        }
+                        else if(veranstaltungsTypString.equalsIgnoreCase("portfolio")){
+                            veranstaltungsTyp = VeranstaltungsTyp.PORTFOLIO;
+                        }
+                        else if(veranstaltungsTypString.equalsIgnoreCase("listenfach")){
+                            veranstaltungsTyp = VeranstaltungsTyp.LISTENFACH;
+                        }
+
+                    }
+                    Lehrveranstaltung lehrveranstaltungsObj = new Lehrveranstaltung(workloadInCP, veranstaltungsTyp, lehrveranstaltungBestanden);
+                    lehrveranstaltungsListe.add(lehrveranstaltungsObj);
+
+                }
+                // System.out.println(lehrveranstaltungsListe);
+
+                neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, vorherigesFachsemester, bestanden, lehrveranstaltungsListe);
                 modulMap.put(i, neuesModul);
             }
 

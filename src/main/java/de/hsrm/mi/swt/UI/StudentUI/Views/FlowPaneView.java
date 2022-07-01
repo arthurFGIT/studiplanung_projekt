@@ -20,6 +20,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
@@ -29,22 +30,30 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
     private App app;
     private Map<Integer, Map<Integer, ModulView>> modulViewsListe;
     private CheckService checkService;
+    private Text semZahl;
 
-    public FlowPaneView(App app, Fachsemester semester, Map<Integer, ModulView> modulViewMap, Map<Integer, Map<Integer, ModulView>> modulViewsListe,
+    public FlowPaneView(App app, Fachsemester semester, Map<Integer, ModulView> modulViewMap,
+            Map<Integer, Map<Integer, ModulView>> modulViewsListe,
             Studiensemester studiensemester) {
-        
+
         this.app = app;
         this.semester = semester;
         this.studiensemester = studiensemester;
         this.checkService = app.getCheckService();
-        this.setMinWidth(200.0);
-        this.setMinHeight(50.0);
+        this.setMinWidth(1300.0);
+        this.setMinHeight(70.0);
         this.modulViewMap = modulViewMap;
         this.modulViewsListe = modulViewsListe;
-        this.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        // this.setBackground(new Background(new BackgroundFill(Color.BLUE,
+        // CornerRadii.EMPTY, Insets.EMPTY)));
+        this.getStylesheets().add("style.css");
+        this.getStyleClass().add("flow-pane");
+
+        semZahl = new Text(String.valueOf(this.semester.getid()));
+        semZahl.getStyleClass().add("sem-Zahl");
 
         setModulViews();
-            
+
         System.out.println("Observer added");
 
         studiensemester.addPropertyChangeListener(this);
@@ -54,6 +63,7 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
     }
 
     private void setModulViews() {
+        this.getChildren().add(semZahl);
         for (int k : modulViewMap.keySet()) {
             this.getChildren().add(modulViewMap.get(k));
         }
@@ -61,7 +71,9 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
     private void setModulViewsNew() {
         this.getChildren().clear();
-        for (int k : modulViewMap.keySet()) {            
+        this.getChildren().add(semZahl);
+        for (int k : modulViewMap.keySet()) {
+            System.out.println("Key: "+ k);
             this.getChildren().add(modulViewMap.get(k));
         }
         initialize();
@@ -84,28 +96,28 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
             modulViewMap.get(k).setOnMouseReleased(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent event) {
-                    
+
                     Modul m = modulViewMap.get(k).getModul();
 
-                    
                     // checkService.checkFortschrittsregel(modul, zielFachsemester);
                     // checkService.checkKompetenzen(modul, zielFachsemester);
 
-   
-                    m.setVerschobenesFachsemester(semester);
-                    
-                    app.getModulService().getStudienplan()
-                    .holeStudiensemesterMitId(
-                            modulViewMap.get(k).getModul().getVerschobenesFachsemester().getid())
-                    .addToSemester(modulViewMap.get(k).getModul());
-                    System.out.println("Modul zu neuer Liste");
-                    
-                    app.getModulService().getStudienplan()
-                            .holeStudiensemesterMitId(
-                                    modulViewMap.get(k).getModul().getVorherigesFachsemester().getid())
-                            .removeFromSemester(modulViewMap.get(k).getModul());
+                    if (m.getVorherigesFachsemester().getid() != m.getVerschobenesFachsemester().getid()) {
+                        m.setVerschobenesFachsemester(semester);
+
+                        app.getModulService().getStudienplan()
+                                .holeStudiensemesterMitId(
+                                        modulViewMap.get(k).getModul().getVerschobenesFachsemester().getid())
+                                .addToSemester(modulViewMap.get(k).getModul());
+                        System.out.println("Modul zu neuer Liste");
+
+                        app.getModulService().getStudienplan()
+                                .holeStudiensemesterMitId(
+                                        modulViewMap.get(k).getModul().getVorherigesFachsemester().getid())
+                                .removeFromSemester(modulViewMap.get(k).getModul());
                         System.out.println("Modul aus alter Liste entfernt");
-                    event.consume();
+                        event.consume();
+                    }
                 }
             });
 
@@ -126,42 +138,54 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
         studiensemester = (Studiensemester) event.getSource();
         Modul modul = studiensemester.getCurrentModul();
-        
+
         switch (event.getPropertyName()) {
             case Studiensemester.ADD_MODUL_TO_SEMESTER:
-                
-                Map<Integer, ModulView> modulViewMapTemp = modulViewsListe.get(modul.getVorherigesFachsemester().getid());
+
+                Map<Integer, ModulView> modulViewMapTemp = modulViewsListe
+                        .get(modul.getVorherigesFachsemester().getid());
                 ModulView modulViewTemp = null;
-                for(int k : modulViewMapTemp.keySet()){
-                    if(modulViewMapTemp.get(k).getModul().getId() == modul.getId()){        
+                for (int k : modulViewMapTemp.keySet()) {
+                    if (modulViewMapTemp.get(k).getModul().getId() == modul.getId()) {
                         modulViewTemp = modulViewMapTemp.get(k);
                         break;
                     }
                 }
 
-                modulViewMap.put(modulViewMap.size(), modulViewTemp);
+                modulViewMap.put(modul.getId(), modulViewTemp);
+                // modulViewMap.put(modulViewMap.size(), modulViewTemp);
                 setModulViewsNew();
-                
+
+                System.out.println(modul.getName() + " : " + modul.isFalschVerschoben());
+                if (modul.isFalschVerschoben()) {
+                   modulViewTemp.setStyle("-fx-background-color : red;");
+                } else {
+                    modul.setFalschVerschoben(false);
+                    modulViewTemp.setStyle("-fx-background-color : #b2c0f6;"); 
+                }
+                System.out.println(modulViewMap);
                 System.out.println("Modul auf der GUI zu neuer View");
                 break;
             case Studiensemester.REMOVE_MODUL_FROM_SEMESTER:
-                Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe.get(modul.getVorherigesFachsemester().getid());
+                Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe
+                        .get(modul.getVorherigesFachsemester().getid());
                 ModulView modulViewTemp2 = null;
-                for(int k : modulViewMapTemp2.keySet()){
-                    if(modulViewMapTemp2.get(k).getModul().getId() == modul.getId()){        
+                for (int k : modulViewMapTemp2.keySet()) {
+                    if (modulViewMapTemp2.get(k).getModul().getId() == modul.getId()) {
                         this.getModulViewMap().remove(k);
                         break;
                     }
                 }
-                
-                setModulViewsNew();
 
+                setModulViewsNew();
+                System.out.println(modulViewMap);
                 System.out.println("Modul auf der GUI aus alter View");
                 break;
             default:
                 throw new IllegalArgumentException("UnbehandeltesEvent " + event);
         }
 
+      
     }
 
 }

@@ -16,11 +16,13 @@ public class Modul {
     private Fachsemester verschobenesFachsemester;
     private Fachsemester vorherigesFachsemester;
     private boolean bestanden;
+    private List<Lehrveranstaltung> lehrveranstaltungenGesamt;
     public static final String SET_VERSCH_SEMESTER = "verschobenesSemester"; //TODO: googlen was das macht
+    private boolean falschVerschoben;
 
     
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
-            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden) {
+            Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden, List<Lehrveranstaltung> lehrveranstaltungenGesamt) {
         this.id = id;
         this.name = name;
         this.beschreibung = beschreibung;
@@ -31,6 +33,8 @@ public class Modul {
         this.verschobenesFachsemester = verschobenesFachsemester;
         this.vorherigesFachsemester = vorherigesFachsemester;
         this.bestanden = bestanden;
+        this.lehrveranstaltungenGesamt = lehrveranstaltungenGesamt;
+        this.falschVerschoben = false;
     }
 
     //changeEvents für Modul verschieben -> Kopie von DragAndDropFxDing
@@ -84,14 +88,13 @@ public class Modul {
         this.kompetenzGesamt = kompetenzGesamt;
     }
 
-    // public String getKompetenzGesamt() {
-    //     return kompetenz;
-    // }
+    public List<Lehrveranstaltung> getLehrveranstaltungenGesamt() {
+        return lehrveranstaltungenGesamt;
+    }
 
-    // public void setKompetenzGesamt(String kompetenz) {
-    //     this.kompetenz = kompetenz;
-    // }
-
+    public void setLehrveranstaltungenGesamt(List<Lehrveranstaltung> lehrveranstaltungenGesamt) {
+        this.lehrveranstaltungenGesamt = lehrveranstaltungenGesamt;
+    }
 
     public int getId() {
         return id;
@@ -100,7 +103,6 @@ public class Modul {
     public void setId(int id) {
         this.id = id;
     }
-
     
 
     public Fachsemester getOriginalesFachsemester() {
@@ -119,7 +121,7 @@ public class Modul {
         Fachsemester pre = this.verschobenesFachsemester;
         this.verschobenesFachsemester = verschobenesFachsemester;
         this.pcs.firePropertyChange(SET_VERSCH_SEMESTER, pre, this.verschobenesFachsemester);
-        System.out.println("set verschobenes Fachsemester: "+ verschobenesFachsemester);
+        System.out.println("set verschobenes Fachsemester: "+ verschobenesFachsemester.getid());
     }
 
     public boolean isBestanden() {
@@ -133,10 +135,10 @@ public class Modul {
 
     @Override
     public String toString() {
-        return "Modul [beschreibung=" + beschreibung + ", bestanden=" + bestanden + ", cpGesamt=" + cpGesamt + ", id="
-                + id + ", kompetenzGesamt=" + kompetenzGesamt + ", name=" + name + ", originalesFachsemester="
-                + originalesFachsemester + ", pcs=" + pcs + ", verschobenesFachsemester=" + verschobenesFachsemester
-                + ", vorherigesFachsemester=" + vorherigesFachsemester + "]";
+        return "Modul [ bestanden=" + bestanden + ", cpGesamt=" + cpGesamt + ", id="
+                + id +", name=" + name + ", originalesFachsemester=" + originalesFachsemester.getid()
+                + ", verschobenesFachsemester=" + verschobenesFachsemester.getid()
+                + ", vorherigesFachsemester=" + vorherigesFachsemester.getid() + "]";
     }
 
     public Fachsemester getVorherigesFachsemester() {
@@ -147,6 +149,14 @@ public class Modul {
         this.vorherigesFachsemester = vorherigesFachsemester;
     }
 
+    public boolean isFalschVerschoben() {
+        return falschVerschoben;
+    }
+
+    public void setFalschVerschoben(boolean falschVerschoben) {
+        this.falschVerschoben = falschVerschoben;
+    }
 
     
+
 }

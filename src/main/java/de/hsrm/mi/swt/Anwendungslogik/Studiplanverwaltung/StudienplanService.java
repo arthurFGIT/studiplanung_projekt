@@ -29,9 +29,7 @@ public class StudienplanService {
     private Map<Integer, Modul> modulMap;
     private int maxSemesterAnzahl;
 
-    public static final String xmlFilePath = "moduleIndividual.xml";
-
-    
+    public static final String xmlFilePath = "moduleIndividual.xml";   
 
 
     public StudienplanService(ModulService modulService, CheckService checkService, ErrorService errorService) {
@@ -52,37 +50,23 @@ public class StudienplanService {
         return maxSemesterAnzahl;
     }
 
-    public void verschiebeModul(int id, int x, int y){} //TODO ID oder ganzes Modul mitgeben
+    public int calcMaxCP(){
+        int maxCP = 0;
+        for(int k : modulMap.keySet()){
+            maxCP += modulMap.get(k).getCpGesamt();
+        }
+        return maxCP;
+    }
 
-        
-    //     boolean fortschritt = checkService.checkFortschrittsregel(modulService.holeModulmitId(id), zielSemester);
-    //     if(fortschritt){
-    //         boolean kompetenz = checkService.checkKompetenzen(modul, zielSemester);
-    //         if(kompetenz){
-    //             boolean semster = checkService.checkSemester(angebotsIntervall, neueFachsemester);
-    //             if(semster){
-    //                 Modul modul = modulService.holeModulmitId(id);
-    //                 modul.setxKoordinate(x);
-    //                 modul.setyKoordinate(y);
-    //             }
-    //             else{
-    //                 errorService.getErrorMessages().add("Das Modul wird in diesem Semester nicht angeboten.");
-    //             }
-
-    //         }
-    //         else{ //TODO: evtl anders gestalten, da Kompetenzen nur Empfehlung 
-    //             errorService.getErrorMessages().add("Du benötigst Kompetenzen aus vorherigen Modulen, die du noch nicht hast.");
-    //         }
-
-    //     }
-    //     else{
-    //         errorService.getErrorMessages().add("Bitte beachte die Fortschrittsregelung.");
-    //     }
-        
-        
-        
-    // }
-
+    public int calcActCP(){
+        int actCP = 0;
+        for(int k : modulMap.keySet()){
+            if(modulMap.get(k).isBestanden()){
+                actCP += modulMap.get(k).getCpGesamt();
+            }
+        }
+        return actCP;
+    }
 
     public void speicherePlan(){
         try {
@@ -93,9 +77,9 @@ public class StudienplanService {
  
             Document document = documentBuilder.newDocument();
 
-             // root element
-             Element root = document.createElement("module");
-             document.appendChild(root);
+            // root element
+            Element root = document.createElement("module");
+            document.appendChild(root);
 
             for(int key : modulMap.keySet()){
                 Modul m = modulMap.get(key);
@@ -169,6 +153,22 @@ public class StudienplanService {
                 Element vorherigesAngebotsIntervall = document.createElement("vorherigesAngebotsIntervall");
                 vorherigesAngebotsIntervall.appendChild(document.createTextNode(m.getVorherigesFachsemester().getAngebotsIntervall().getName()));
                 modul.appendChild(vorherigesAngebotsIntervall);
+
+                // Bestanden
+                Element bestanden = document.createElement("bestanden");
+                bestanden.appendChild(document.createTextNode(String.valueOf(m.isBestanden())));
+                modul.appendChild(bestanden);
+
+                // // kompetenzen element
+                // Element  = lehrveranstaltungen.createElement("lehrveranstaltungen");
+                // modul.appendChild(kompetenzen);
+
+                // for(Kompetenz k : m.getKompetenzGesamt()){
+                //     // kompetenz element
+                //     Element kompetenz = document.createElement("kompetenz");
+                //     kompetenz.appendChild(document.createTextNode(k.getName()));
+                //     kompetenzen.appendChild(kompetenz);
+                // }
             }    
 
             // create the xml file

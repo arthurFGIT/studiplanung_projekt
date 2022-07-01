@@ -4,10 +4,8 @@
         <id>0</id>
         <name>Programmieren 1</name>
         <beschreibung>Lernen Sie Programmieren</beschreibung>
-        <cpGesamt>10</cpGesamt>
+        <cpGesamt>7</cpGesamt>
         <kompetenzen>
-            <kompetenz>Java Grundkenntnisse</kompetenz>
-            <kompetenz>Java Grundkenntnisse 2</kompetenz>
         </kompetenzen>            
         <origFachsemesterId>1</origFachsemesterId>
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
@@ -16,15 +14,26 @@
         <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
         <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
     </modul>
     <modul>
         <id>1</id>
-        <name>Analysis</name>
-        <beschreibung>Lernen Sie Analysis</beschreibung>
-        <cpGesamt>8</cpGesamt>
+        <name>Einführung in die Medieninformatik</name>
+        <beschreibung>In dem Modul sollen sowohl theoretische Kompetenzen erworben als auch deren konkrete Anwendung bzw. praktische Umsetzung während des Semesters erprobt werden.</beschreibung>
+        <cpGesamt>5</cpGesamt>
         <kompetenzen>
-            <kompetenz>Java Grundkenntnisse</kompetenz>
-            <kompetenz>Java Grundkenntnisse 2</kompetenz>
+         
         </kompetenzen>            
         <origFachsemesterId>1</origFachsemesterId>
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
@@ -33,15 +42,111 @@
         <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
         <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
     </modul>
     <modul>
         <id>2</id>
-        <name>Programmieren 2</name>
-        <beschreibung>Lernen Sie Programmieren, nur besser</beschreibung>
-        <cpGesamt>6</cpGesamt>
+        <name>Einführung in die Gestaltung</name>
+        <beschreibung>Kennenlernen der verschiedenen Design Tools und Vorschriften</beschreibung>
+        <cpGesamt>4</cpGesamt>
         <kompetenzen>
-            <kompetenz>Java Grundkenntnisse 3</kompetenz>
-            <kompetenz>Java Grundkenntnisse 4</kompetenz>
+        </kompetenzen>            
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>3</id>
+        <name>Analysis</name>
+        <beschreibung>Die Modellbildung und deren Analyse fordert von den Medieninformatikerinnen und Medieninformatikern: den sicheren Umgang mit Funktionen, Beherrschung der Differential- und Integralrechnung, die Darstellung der Funktionen als Potenzreihen</beschreibung>
+        <cpGesamt>3</cpGesamt>
+        <kompetenzen>
+           
+        </kompetenzen>            
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>4</id>
+        <name>Grundlagen der Betriebswirtschaftslehre</name>
+        <beschreibung>Medieninformatikerinnen und Medieninformatiker brauchen in einem besonders turbulenten wirtschaftlichen Umfeld mit
+hohen Innovationsraten, wirtschaftlichen Risiken und Kundenansprüchen betriebswirtschaftliche Kenntnisse und Fähigkeiten: wirtschaftliche Grundbedingungen und Zusammenhänge der betrieblichen Aktivitäten beurteilen, Kosten von Projekten abschätzen und kontrollieren, Investitions- und Projektkalkulationen durchführen</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+        </kompetenzen>            
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>5</id>
+        <name>Algorithmen und Datenstrukturen</name>
+        <beschreibung>Entwurf, Implementierung und Auswahl von Algorithmen und Datenstrukturen für gegebene Problemstellungen sind typische Aufgaben einer Medieninformatikerin beziehungsweise eines Medieninformatikers:Algorithmen entwerfen, bewerten (Laufzeit) und implementieren, Dynamische Datenstrukturen objektorientiert implementieren, für Problemstellungen passende Algorithmen und Datenstrukturen auswählen und bestehende Bibliotheken nutzenr</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Prog 1</kompetenz>
+            <kompetenz>Einführung in die Medieninformatik</kompetenz>
+            <kompetenz>Analysis</kompetenz>
         </kompetenzen>
         <origFachsemesterId>2</origFachsemesterId>
         <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
@@ -50,15 +155,171 @@
         <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
         <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
     </modul>
     <modul>
-        <id>3</id>
-        <name>Programmieren 3</name>
-        <beschreibung>Lernen Sie Programmieren, nur noch besser</beschreibung>
+        <id>6</id>
+        <name>Auszeichnungssprachen</name>
+        <beschreibung>Auszeichnungssprachen spielen eine immer größere Rolle bei der Repräsentation, dem maschinellen Austausch und
+der Weiterverarbeitung strukturierter Informationen, beispielsweise im elektronischen Datenaustausch, vielen InternetAnwendungen und mobilen Informationssystemen. Eine Medieninformatikerin beziehungsweise ein Medieninformatiker
+benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssprachen einsetzen, XML-basierter Dokumente (insb. Parsing, Transformation) erzeugen und weiter verarbeiten,XML in unterschiedlichen Einsatzbereichen (z.B. Multimedia, el. Datenaustausch) sinnvoll einsetzen</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Programmieren 1</kompetenz>
+            <kompetenz>Einführung in die Medieninformatik</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>2</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>2</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>    
+	<modul>
+        <id>7</id>
+        <name>Programmieren 2</name>
+        <beschreibung>Ausbau der bisherigen Fertigkeiten und Techniken des Programmierens:Objektorientierte Paradigmen aufgabengerecht einsetzen, Programmieraufgaben in einer konkreten Programmiersprache objektorientiert umsetzen, Umfangreichen, genormten Standard Bibliotheken verwenden</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+ 		<kompetenz>Programmieren 1</kompetenz>
+            <kompetenz>Einführung in die Medieninformatik</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>2</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>2</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>    
+	<modul>
+        <id>8</id>
+        <name>Gestaltung elektronischer Medien</name>
+        <beschreibung>Eine wichtige Gestaltungsdisziplin für Medieninformatikerinnen und Medieninformatiker ist das Design von Benutzungsoberflächen elektronischer Medien. Dabei werden die im ersten Semester erworbenen grundlegenden Gestaltungskenntnisse vertieft und spezialisiert. Am Ende des Semesters sollen die Studierenden die gestalterische Funktionalität und
+ästhetische Qualität grafischer User-Interfaces nach objektiven Kriterien beurteilen können.</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Einführung in die Gestaltung</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>2</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>2</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>    <modul>
+        <id>9</id>
+        <name>Lineare Algebra</name>
+        <beschreibung>Die Modellbildung und deren Analyse fordert von Medieninformatikerinnen und Medieninformatikern den sicheren Umgang mit Vektoren und linearen Abbildungen: Beherrschung der Matrizenrechnung, Lösen von linearen Gleichungssystemen, Umgang mit komplexen Größen</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Analysis</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>2</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>2</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>    
+	<modul>
+        <id>10</id>
+        <name>IT-Recht und Datenschutz</name>
+        <beschreibung>Studierende sind in der Lage, ihr berufliches Handeln rechtlich zu begründen und kritisch in Bezug rechtliche Erwartungen und Folgen zu reflektieren. Sie beherrschen die Grundzusammenhänge des IT-Rechts und des Datenschutzrechts
+sowie das problembewusste Erkennen von entsprechenden praxisbezogenen Grundfällen im Arbeitsumfeld einer Medieninformatikerin und eines Medieninformatikers.</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+        </kompetenzen>
+        <origFachsemesterId>2</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>2</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>2</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>11</id>
+        <name>Automatentheorie und formale Sprachen</name>
+        <beschreibung>Logisches Denken und strukturiertes Vorgehen - unabhängig von konkreten Rechnern und aktuellen Trends - ist Grundlage solider konzeptionellen Arbeit. Verfahren zur Mustererkennung, Spracherkennung und -erzeugung praktisch anwenden für z.B. die Suche in Texten, Syntaxanalyse, Kodierung, etc., Erkenntnisse über grundsätzliche und praktische Lösbarkeit eines Problems auf neue Probleme übertragen, Theoretische Überlegungen auf gefestigten theoretischen Grundlagen der Informatik aufbauen</beschreibung>
         <cpGesamt>6</cpGesamt>
         <kompetenzen>
-            <kompetenz>Java Grundkenntnisse 3</kompetenz>
-            <kompetenz>Java Grundkenntnisse 4</kompetenz>
+            <kompetenz>Algorithmen und Datenstrukturen</kompetenz>
+            <kompetenz>Analysis</kompetenz>
         </kompetenzen>
         <origFachsemesterId>3</origFachsemesterId>
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
@@ -67,15 +328,149 @@
         <vorherigesFachsemesterId>3</vorherigesFachsemesterId>
         <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
     </modul>
     <modul>
-        <id>4</id>
-        <name>Programmieren 4</name>
-        <beschreibung>Lernen Sie Programmieren, nur noch noch besser</beschreibung>
-        <cpGesamt>5</cpGesamt>
+        <id>12</id>
+        <name>Datenbanksysteme</name>
+        <beschreibung>Datenbanksysteme zum konsistenten Verwalten von Daten für Anwendungen im Ein- und Mehrbenutzerbetrieb sind aus
+der Praxis nicht mehr wegzudenken und werden von jeder Medieninformatikerin und jedem Medieninformatiker betrieben
+und genutzt: Modellieren, Erstellen von Entity-Relationship-Modellen und Umsetzung in relationale Datenmodelle, Datenunabhängigkeit, Relationenmodell und -algebra, Transaktionskonzept verstehen und einsetzen können, Kenntnisse in SQL zur Datendefinition, Datenmanipulation und für Anfragen nutzen, relationalen Datenbanken von Programmiersprachen aus nutzen</beschreibung>
+        <cpGesamt>6</cpGesamt>
         <kompetenzen>
-            <kompetenz>Java Grundkenntnisse 5</kompetenz>
-            <kompetenz>Java Grundkenntnisse 6</kompetenz>
+            <kompetenz>Algorithmen und Datenstrukturen</kompetenz>
+            <kompetenz>Programmieren 2</kompetenz>
+            <kompetenz>Lineare Algebra</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>3</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>3</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>3</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>13</id>
+        <name>Entwicklung interaktiver Benutzungsoberflächen</name>
+        <beschreibung>Bei der Anwendungsentwicklung ist die Konzeption und Umsetzung von Benutzerinteraktionen und Realisierung entsprechender Screenlayouts/Animationen eine typische Aufgabe von Medieninformatikerinnen und Medieninformatikern.</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Programmieren 2</kompetenz>
+            <kompetenz>Einführung in die Gestaltung</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>3</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>3</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>3</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>14</id>
+        <name>Programmieren 3</name>
+        <beschreibung>Sprachparadigmen und Sprachebenen Aufgabe entsprechend einsetzen, um Anwendungen und Infrastruktursoftware
+effizienter, kompakter, mit geringerem Fehlerpotential und wartungsfreundlicher zu realisieren.</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Programmieren 2</kompetenz>
+            <kompetenz>Algorithmen und Datenstrukturen</kompetenz>
+            <kompetenz>Auszeichnungssprachen</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>3</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>3</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>3</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>15</id>
+        <name>Angewandte Mathematik</name>
+        <beschreibung>Für die Informatik wichtige über den Stoff der Vorlesungen Lineare Algebra und Analysis hinausgehende mathematische Begriffe und Methoden beherrschen: Die wichtigsten Beweisverfahren sicher einsetzen, Stochastische und statistische Methoden einsetzen, Grundlegende Verfahren aus der Numerik anwenden</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Lineare Algebra</kompetenz>
+            <kompetenz>Analysis</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>3</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>3</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>3</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>16</id>
+        <name>Computergrafik</name>
+        <beschreibung>Grundkenntnisse der Computergrafik werden für eine große Zahl von Anwendungsgebieten der Informatik benötigt: Verständnis des Renderingprozesses und Kenntnis des aktuellen Stands der Technik bezüglich der Renderingschritte, Mit für die Computergrafik relevanten Konzepten aus dem Bereich der analytischen Geometrie sicher umgehen, Objekte adäquat repräsentieren unter Verwendung passender Datenstrukturen, Grafik-API (z.B. OpenGL, DirectX, …) und Szenengraph-API (z.B. OpenInventor, Java3D, …) praktisch einsetzen</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Programmieren 3</kompetenz>
+            <kompetenz>Entwicklung interaktiver Benutzeroberflächen</kompetenz>
+            <kompetenz>Lineare Algebra</kompetenz>
         </kompetenzen>
         <origFachsemesterId>4</origFachsemesterId>
         <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
@@ -84,15 +479,151 @@
         <vorherigesFachsemesterId>4</vorherigesFachsemesterId>
         <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
     </modul>
     <modul>
-        <id>5</id>
-        <name>Programmieren 5</name>
-        <beschreibung>Lernen Sie Programmieren, nur noch noch noch besser</beschreibung>
-        <cpGesamt>5</cpGesamt>
+        <id>17</id>
+        <name>Rechnernetze und Betriebssysteme</name>
+        <beschreibung>Rechnernetze und das Internet mit den darauf aufbauenden Diensten die auf Servern mit Betriebssystemen zur Ressourcenverwaltung laufen sind die Grundlage moderner IT-Systeme. Fundierte Kenntnisse über Konzepte, Aufbau und
+Einsatz moderner Netzwerktechnologien sowie von Betriebssystemkonzepten sind daher von großem Nutzen.</beschreibung>
+        <cpGesamt>6</cpGesamt>
         <kompetenzen>
-            <kompetenz>Java Grundkenntnisse 7</kompetenz>
-            <kompetenz>Java Grundkenntnisse 8</kompetenz>
+            <kompetenz>Programmieren 3</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>4</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>4</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>4</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>18</id>
+        <name>Softwaretechnik</name>
+        <beschreibung>Software im Team entwicklen unter Einsatz entsprechender Vorgehensmodelle</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Programmieren 3</kompetenz>
+            <kompetenz>Programmieren 2</kompetenz>
+            <kompetenz>Entwicklung interaktiver Benutzeroberflächen</kompetenz>
+            <kompetenz>Datenbanksysteme</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>4</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>4</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>4</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>19</id>
+        <name>Webbasierte Anwendungen</name>
+        <beschreibung>Web-basierte Anwendungen klassifizieren und geeignetete Konzepte und Technologien auswählen und einsetzen</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Programmieren 3</kompetenz>
+            <kompetenz>Entwicklung interaktiver Benutzeroberflächen</kompetenz>
+            <kompetenz>Datenbanksysteme</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>4</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>4</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>4</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>20</id>
+        <name>Animation</name>
+        <beschreibung>rlernen von Fertigkeiten im Bereich Bewegtbild und Animation</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Entwicklung interaktiver Benutzeroberflächen</kompetenz>
+            <kompetenz>Gestaltung elektronischer Medien</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>4</origFachsemesterId>
+        <origAngebotsIntervall>SOMMER</origAngebotsIntervall>
+        <verschFachsemesterId>4</verschFachsemesterId>
+        <verschAngebotsIntervall>SOMMER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>4</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>SOMMER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>21</id>
+        <name>Softwaretechnik-Projekt</name>
+        <beschreibung>Die Fähigkeit zur Auswahl, Bewertung und Anwendung von Konzepten und Methoden zur systematischen (Weiter-)Entwicklung
+(großer) Softwaresysteme, insbesondere bzgl. phasenübergreifender Querschnittsapekte und der Behandlung der späteren Phasen des Software-Lifecycles, ist für eine verantwortungsvolle Tätigkeit im IT-Bereich jenseits der reinen Programmierung unverzichtbar. Dabei spielt neben guten technischen Kenntnissen auch die Fähigkeit zur koordinierten,
+arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
+</beschreibung>
+        <cpGesamt>10</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Webbasierte Anwendungen</kompetenz>
+            <kompetenz>Programmieren 3</kompetenz>
+            <kompetenz>Softwaretechnik</kompetenz>
+            <kompetenz>Datenbanksysteme</kompetenz>
         </kompetenzen>
         <origFachsemesterId>5</origFachsemesterId>
         <origAngebotsIntervall>WINTER</origAngebotsIntervall>
@@ -101,5 +632,217 @@
         <vorherigesFachsemesterId>5</vorherigesFachsemesterId>
         <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
         <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>22</id>
+        <name>Wahlpflicht-Liste Medien und Informatik</name>
+        <beschreibung>Das Angebot der Wahlpflicht-Listen wird jedes Semester aktualisiert, es kann daher zu Änderungen hinsichtlich der Auswahlmöglichkeiten kommen.</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+        </kompetenzen>
+        <origFachsemesterId>5</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>5</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>5</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>23</id>
+        <name>Wahlpflicht-Liste Medien und Informatik</name>
+        <beschreibung>Das Angebot der Wahlpflicht-Listen wird jedes Semester aktualisiert, es kann daher zu Änderungen hinsichtlich der Auswahlmöglichkeiten kommen.</beschreibung>
+        <cpGesamt>10</cpGesamt>
+        <kompetenzen>
+        </kompetenzen>
+        <origFachsemesterId>5</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>5</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>5</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>24</id>
+        <name>Mensch-Computer-Interaktion</name>
+        <beschreibung>Die Fähigkeit zur Auswahl, Bewertung und Anwendung von Konzepten und Methoden zur systematischen (Weiter-)Entwicklung
+(großer) Softwaresysteme, insbesondere bzgl. phasenübergreifender Querschnittsapekte und der Behandlung der späteren Phasen des Software-Lifecycles, ist für eine verantwortungsvolle Tätigkeit im IT-Bereich jenseits der reinen Programmierung unverzichtbar. Dabei spielt neben guten technischen Ken</beschreibung>
+        <cpGesamt>6</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Entwicklung interaktiver Benutzungsoberflächen</kompetenz>
+            <kompetenz>Softwaretechnik</kompetenz>
+            <kompetenz>Gestaltung elektronischer Medien</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>5</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>5</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>5</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>25</id>
+        <name>Praktikum</name>
+        <beschreibung>Verpflichtendes Betriebspraktikum</beschreibung>
+        <cpGesamt>30</cpGesamt>
+        <kompetenzen>
+            <kompetenz>Entwicklung interaktiver Benutzungsoberflächen</kompetenz>
+            <kompetenz>Softwaretechnik</kompetenz>
+            <kompetenz>Gestaltung elektronischer Medien</kompetenz>
+        </kompetenzen>
+        <origFachsemesterId>6</origFachsemesterId>
+        <origAngebotsIntervall>WISO</origAngebotsIntervall>
+        <verschFachsemesterId>6</verschFachsemesterId>
+        <verschAngebotsIntervall>WISO</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>6</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WISO</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>26</id>
+        <name>Portfolio Medieninformatik</name>
+        <beschreibung>Die Themen/Inhalte der Lehrveranstaltung sind abhängig vom gewählten Portfolio</beschreibung>
+        <cpGesamt>10</cpGesamt>
+        <kompetenzen>
+  
+        </kompetenzen>
+        <origFachsemesterId>7</origFachsemesterId>
+        <origAngebotsIntervall>WISO</origAngebotsIntervall>
+        <verschFachsemesterId>7</verschFachsemesterId>
+        <verschAngebotsIntervall>WISO</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>7</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WISO</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>27</id>
+        <name>Wahlpflicht-Liste Internationalisierung</name>
+        <beschreibung>Fachunabhängige Kompetenzen werden integriert erworben. Dies betrifft insbesondere die Fähigkeit der Studierenden,ihr Handeln kritisch in Bezug auf Erwartungen und Folgen in außerfachlichen Kontexten zu reflektieren und ihre Einbettung in überfachliche Kontexte auch aus gesellschaftlicher Sicht wahrzunehmen und zu verstehen.</beschreibung>
+        <cpGesamt>4</cpGesamt>
+        <kompetenzen>
+  
+        </kompetenzen>
+        <origFachsemesterId>7</origFachsemesterId>
+        <origAngebotsIntervall>WISO</origAngebotsIntervall>
+        <verschFachsemesterId>7</verschFachsemesterId>
+        <verschAngebotsIntervall>WISO</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>7</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WISO</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>28</id>
+        <name>Bachelor-Thesis</name>
+        <beschreibung>Selbständige praxistaugliche Anwendung der im Studium gelernten Konzepte und Methoden zur Lösung einer begrenzten Aufgabenstellung in begrenzter Zeit im Schwierigkeitsbereich von fortgeschrittenen Lehrbüchern unter Einschluss
+einiger Bereiche des aktuellsten Wissensstandes des Studienfaches. Präsentation der Themenstellung der Abschlussarbeit und der dabei entwickelten Ergebnisse.</beschreibung>
+        <cpGesamt>15</cpGesamt>
+        <kompetenzen>
+  
+        </kompetenzen>
+        <origFachsemesterId>7</origFachsemesterId>
+        <origAngebotsIntervall>WISO</origAngebotsIntervall>
+        <verschFachsemesterId>7</verschFachsemesterId>
+        <verschAngebotsIntervall>WISO</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>7</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WISO</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
     </modul>
 </module>

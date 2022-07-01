@@ -27,9 +27,13 @@ public class StartView extends BorderPane{
         // set selected filter
 
         //Erstelle Upload Button und FileChooser
-        uploadButton = new Button("Upload Curriculum XML");
+        uploadButton = new Button("Klicken, um Curriculum (XML) hochzuladen");
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(extFilter);
+
+        this.getStylesheets().add("style.css");
+        this.getStyleClass().add("body");
+        uploadButton.getStyleClass().add("upload-button");
 
         this.setCenter(uploadButton);
 

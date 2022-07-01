@@ -7,6 +7,7 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.ErrorService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.EventHandler;
@@ -14,6 +15,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -40,8 +42,9 @@ public class StudienplanungView extends ScrollPane {
 
 	public StudienplanungView(App app) {
 		this.app = app;
-
-		setPrefSize(1000, 800);
+		this.getStylesheets().add("style.css");
+		this.getStyleClass().add("body");
+		setPrefSize(1400, 800);
 		modulService = app.getModulService();
 		studienplanService = app.getStudienplanService();
 		modulMap = modulService.getModulMap();
@@ -49,6 +52,8 @@ public class StudienplanungView extends ScrollPane {
 		container = new Pane();
 		container.setMinHeight(800);
 		containerVBox = new VBox();
+        containerVBox.setSpacing(20.0);
+
 
 
 		modulViewsListe = new HashMap<>();
@@ -56,14 +61,17 @@ public class StudienplanungView extends ScrollPane {
 
 		this.ladePlan();
 
-		for(int k : flowPaneMap.keySet()){
-			containerVBox.getChildren().add(flowPaneMap.get(k));
+		for(int i = flowPaneMap.size(); i > 0 ; i--){
+			containerVBox.getChildren().add(flowPaneMap.get(i));
 		}
 
+
 		container.getChildren().addAll(containerVBox);
+		container.getStyleClass().add("flow-panes");
 
 
 		this.setContent(container);
+		this.setFitToWidth(true);
 
 		initialize();
 
@@ -81,7 +89,8 @@ public class StudienplanungView extends ScrollPane {
 		// ModulViews für jedes Modul erstellen und der jeweiligen liste adden
 		for(int k : modulMap.keySet()){
 			ModulView modulView = new ModulView(modulMap.get(k), app);	
-			modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(k+1, modulView);
+			// modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(k+1, modulView);
+			modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(modulMap.get(k).getId(), modulView);
 		}
 
 		for(int x = 1; x <= studienplanService.maxSemesterAnzahl(); x++){
@@ -128,26 +137,44 @@ public class StudienplanungView extends ScrollPane {
 						vorherigesFachsemester = modul.getVerschobenesFachsemester();
 						aktuellesFachsemester = flowPaneMap.get(k).getSemester();
 
+						if(vorherigesFachsemester.getid() != aktuellesFachsemester.getid()){
+							System.out.println("vorher: " + vorherigesFachsemester.getid() + "nachher" + aktuellesFachsemester.getid());
 
 
-						if(app.getCheckService().checkSemester(vorherigesFachsemester.getAngebotsIntervall(), aktuellesFachsemester)){
+							if(app.getCheckService().checkSemester(modul, vorherigesFachsemester.getAngebotsIntervall(), aktuellesFachsemester)){
 							
-							if(app.getCheckService().checkFortschrittsregel(modul, aktuellesFachsemester)){
-								
-								app.getCheckService().checkKompetenzen(modul, aktuellesFachsemester);
+								if(app.getCheckService().checkFortschrittsregel(modul, aktuellesFachsemester)){
+									
+									if(app.getCheckService().checkKompetenzen(modul, aktuellesFachsemester)){
+										modul.setFalschVerschoben(false);
 
-								modul.setVorherigesFachsemester(vorherigesFachsemester);
-								modul.setVerschobenesFachsemester(aktuellesFachsemester);
-		
-		
-								modulService.getStudienplan().holeStudiensemesterMitId(modul.getVerschobenesFachsemester().getid()).addToSemester(modul);
-								modulService.getStudienplan().holeStudiensemesterMitId(modul.getVorherigesFachsemester().getid()).removeFromSemester(modul);
-								System.out.println("DROP HAT GEKLAPPT");
+									} else {
+										modul.setFalschVerschoben(true);
+									}
 	
+								} else{
+									modul.setFalschVerschoben(true);
+								}
+							
+		
+							} else {
+								modul.setFalschVerschoben(true);
 							}
-						
-	
+													
+							modul.setVorherigesFachsemester(vorherigesFachsemester);
+							modul.setVerschobenesFachsemester(aktuellesFachsemester);
+
+							
+
+
+							modulService.getStudienplan().holeStudiensemesterMitId(modul.getVerschobenesFachsemester().getid()).addToSemester(modul);
+							modulService.getStudienplan().holeStudiensemesterMitId(modul.getVorherigesFachsemester().getid()).removeFromSemester(modul);
+
 						}
+
+						// TODO: vor save alle Module checken
+						System.out.println("DROP HAT GEKLAPPT");
+
                         success = true;
     
                     }

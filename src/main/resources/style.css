@@ -1,0 +1,59 @@
+.body{
+	-fx-background-color: #f3f5fb;
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+ }
+
+.flow-panes{
+    -fx-vgap: 20px;
+    -fx-margin: 30px;
+}
+
+.flow-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-hgap: 10px;
+    -fx-padding: 10px;
+    -fx-margin: 30px;
+}
+
+.modul-view{
+    -fx-background-color: #b2c0f6;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+}
+.modul-view:hover{
+    -fx-cursor: hand; 
+}
+
+.lehrveranstaltungs-view{
+    -fx-background-color: green;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.upload-button{
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-padding: 30px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #5576f6;
+    -fx-font-color: white;
+}
+
+.upload-button:hover{
+    -fx-cursor: hand; 
+}
+
+.sem-Zahl{
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}

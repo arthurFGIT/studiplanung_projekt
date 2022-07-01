@@ -40,7 +40,7 @@ public class Studiensemester {
         modulListe.add(m);      
         List<Modul> modulListeNew = getModulListe();  
         this.pcs.firePropertyChange(ADD_MODUL_TO_SEMESTER, modulListePre, modulListeNew);
-        System.out.println("Neuer Modulliste hinzugefuegt");   
+        System.out.println(currentModul + "Neuer Modulliste hinzugefuegt");   
     }
 
     public void removeFromSemester(Modul m){
@@ -49,7 +49,7 @@ public class Studiensemester {
         modulListe.remove(m);     
         List<Modul> modulListeNew = getModulListe();     
         this.pcs.firePropertyChange(REMOVE_MODUL_FROM_SEMESTER, modulListePre, modulListeNew);
-        System.out.println("aus alter Modulliste geloescht");
+        System.out.println(currentModul + "aus alter Modulliste geloescht");
     }
 
 

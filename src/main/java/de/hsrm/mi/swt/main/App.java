@@ -1,5 +1,7 @@
 package de.hsrm.mi.swt.main;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.HashMap;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
@@ -11,7 +13,9 @@ import de.hsrm.mi.swt.UI.StudentUI.Views.StudentView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Path;
 import javafx.stage.Stage;
+import java.nio.file.*;
 
 public class App extends Application {
 
@@ -27,6 +31,7 @@ public class App extends Application {
 	private CheckService checkService;
 	private StudienplanService studienplanService;
 	private ErrorService errorService;
+	private String studienplanPfad = "";
 
 
 	@Override
@@ -39,14 +44,24 @@ public class App extends Application {
 		
 		this.scenes = new HashMap<>();
 		startView = new StartView(this);
+
 		
 		try{
 			
 			scenes.put("StartView", startView);
 			
-
+			// File moduleIndividual = new File(studienplanPfad).exists();
 			root = scenes.get("StartView");
-			Scene scene = new Scene(root, 1366, 768);
+
+			if (new File("moduleIndividual.xml").exists()) {
+				System.out.println("Geht rein");
+				studienplanPfad = "moduleIndividual.xml";
+				studentView = new StudentView(this, studienplanPfad);
+				scenes.put("StudentView", studentView);
+				root = scenes.get("StudentView");  
+			}
+			
+			Scene scene = new Scene(root, 1600, 768);
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Studiplanung");
@@ -66,7 +81,8 @@ public class App extends Application {
 			this.primaryStage.getScene().setRoot(root);
 			break;
 		case "STUDENTVIEW":
-			studentView = new StudentView(this);
+			studienplanPfad = "";
+			studentView = new StudentView(this, studienplanPfad);
 			scenes.put("StudentView", studentView);
 			root = scenes.get("StudentView");
 			this.primaryStage.getScene().setRoot(root);
