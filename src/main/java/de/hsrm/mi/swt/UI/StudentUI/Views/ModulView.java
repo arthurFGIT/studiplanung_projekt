@@ -2,6 +2,8 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 
 import java.awt.Color;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
@@ -15,7 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public class ModulView extends VBox{
+public class ModulView extends VBox implements PropertyChangeListener{
 
 	public static final double MODULBREITE = 100.0;
 	public static final double MODULHOEHE = 50.0;
@@ -35,7 +37,7 @@ public class ModulView extends VBox{
 		this.studienplanService = app.getStudienplanService();
 		this.getStylesheets().add("style.css");
 		this.getStyleClass().add("modul-view");
-
+		m.addPropertyChangeListener(this);
 		System.out.println("ModulView");
         prefWidth(MODULBREITE);
         prefHeight(MODULHOEHE);
@@ -92,6 +94,24 @@ public class ModulView extends VBox{
 
 	public void setModul(Modul modul) {
 		this.modul = modul;
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		
+		switch (evt.getPropertyName()){
+			case "falschVerschoben":
+			
+				if((boolean) evt.getNewValue() == false){
+					
+					this.setStyle("-fx-background-color : #b2c0f6;");
+				} else {
+					System.out.println("properyFalse");
+					this.setStyle("-fx-background-color : red;");
+				}
+
+		}
+		
 	}
     
 }

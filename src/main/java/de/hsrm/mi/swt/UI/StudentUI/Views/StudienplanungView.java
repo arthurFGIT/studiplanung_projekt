@@ -190,34 +190,16 @@ public class StudienplanungView extends ScrollPane {
 							System.out.println("vorher: " + vorherigesFachsemester.getid() + "nachher" + aktuellesFachsemester.getid());
 
 
-							if(app.getCheckService().checkSemester(modul, vorherigesFachsemester.getAngebotsIntervall(), aktuellesFachsemester)){
 							
-								if(app.getCheckService().checkFortschrittsregel(modul, aktuellesFachsemester)){
-									
-									if(app.getCheckService().checkKompetenzen(modul, aktuellesFachsemester)){
-										modul.setFalschVerschoben(false);
-
-									} else {
-										modul.setFalschVerschoben(true);
-									}
-	
-								} else{
-									modul.setFalschVerschoben(true);
-								}
-							
-		
-							} else {
-								modul.setFalschVerschoben(true);
-							}
-													
 							modul.setVorherigesFachsemester(vorherigesFachsemester);
 							modul.setVerschobenesFachsemester(aktuellesFachsemester);
-
 							
-
-
 							modulService.getStudienplan().holeStudiensemesterMitId(modul.getVerschobenesFachsemester().getid()).addToSemester(modul);
 							modulService.getStudienplan().holeStudiensemesterMitId(modul.getVorherigesFachsemester().getid()).removeFromSemester(modul);
+							studienplanService.checkAll();
+
+
+							
 
 						}
 

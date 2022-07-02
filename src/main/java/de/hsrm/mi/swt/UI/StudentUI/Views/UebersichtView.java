@@ -16,6 +16,8 @@ import javafx.beans.property.IntegerProperty;
 public class UebersichtView extends BorderPane{
 
     private Button saveButton;
+    private Button checkAllButton;
+
     private StudienplanService studienplanService;
 
     private App app;
@@ -31,7 +33,8 @@ public class UebersichtView extends BorderPane{
         this.app = app;
         headline = new Text("Dein Studienfortschritt: ");
         studienplanService = app.getStudienplanService();
-        saveButton = new Button("save");        
+        saveButton = new Button("save");   
+        checkAllButton = new Button("checkAll");     
            
         maxCP = studienplanService.calcMaxCP();
         System.out.println("Max CP: " + maxCP);
@@ -41,6 +44,7 @@ public class UebersichtView extends BorderPane{
 
         this.setTop(text);
         this.setBottom(saveButton);
+        this.setCenter(checkAllButton);
         initialize();
     }
 
@@ -49,6 +53,10 @@ public class UebersichtView extends BorderPane{
         saveButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {                
                 studienplanService.speicherePlan();            
 		});
+
+        checkAllButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {                
+            studienplanService.checkAll();            
+    });
         
         actCP.addListener(new ChangeListener<Number>() {
             @Override

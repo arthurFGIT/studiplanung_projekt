@@ -19,6 +19,7 @@ public class Modul {
     private List<Lehrveranstaltung> lehrveranstaltungenGesamt;
     public static final String SET_VERSCH_SEMESTER = "verschobenesSemester"; //TODO: googlen was das macht
     private boolean falschVerschoben;
+    
 
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
             Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden, List<Lehrveranstaltung> lehrveranstaltungenGesamt) {
@@ -154,7 +155,14 @@ public class Modul {
     }
 
     public void setFalschVerschoben(boolean falschVerschoben) {
+        var pre = this.falschVerschoben;
         this.falschVerschoben = falschVerschoben;
+        this.pcs.firePropertyChange("falschVerschoben", pre, falschVerschoben);
+        
+    }
+
+    public boolean getFalschVerschoben(){
+        return this.falschVerschoben;
     }
 
     

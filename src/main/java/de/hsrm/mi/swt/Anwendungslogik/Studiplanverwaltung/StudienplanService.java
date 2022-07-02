@@ -110,6 +110,41 @@ public class StudienplanService {
         return maxCP;
     }
 
+    public void checkAll(){
+        for(Modul m : modulMap.values()){
+
+
+            if (m.getName().equals("Programmieren 1")){
+                System.out.println(m.getName()+(m.getFalschVerschoben()));
+                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
+                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
+            }
+            checkService.checkSemester(m);
+            if (m.getName().equals("Programmieren 1")){
+                System.out.println(m.getName()+(m.getFalschVerschoben()));
+                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
+                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
+            }						
+            checkService.checkFortschrittsregel(m);
+            if (m.getName().equals("Programmieren 1")){
+                System.out.println(m.getName()+(m.getFalschVerschoben()));
+                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
+                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
+            }     
+            checkService.checkKompetenzen(m);
+            
+            if (m.getName().equals("Programmieren 1")){
+                System.out.println(m.getName()+(m.getFalschVerschoben()));
+                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
+                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
+            }
+           
+
+           
+        }
+
+    }
+
     public void speicherePlan(){
         try {
 

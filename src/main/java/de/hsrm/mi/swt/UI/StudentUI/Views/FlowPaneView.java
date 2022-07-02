@@ -73,7 +73,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         this.getChildren().clear();
         this.getChildren().add(semZahl);
         for (int k : modulViewMap.keySet()) {
-            System.out.println("Key: "+ k);
             this.getChildren().add(modulViewMap.get(k));
         }
         initialize();
@@ -156,14 +155,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 // modulViewMap.put(modulViewMap.size(), modulViewTemp);
                 setModulViewsNew();
 
-                System.out.println(modul.getName() + " : " + modul.isFalschVerschoben());
-                if (modul.isFalschVerschoben()) {
-                   modulViewTemp.setStyle("-fx-background-color : red;");
-                } else {
-                    modul.setFalschVerschoben(false);
-                    modulViewTemp.setStyle("-fx-background-color : #b2c0f6;"); 
-                }
-                System.out.println(modulViewMap);
                 System.out.println("Modul auf der GUI zu neuer View");
                 break;
             case Studiensemester.REMOVE_MODUL_FROM_SEMESTER:
