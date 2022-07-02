@@ -3,8 +3,8 @@ package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
-
 public class Modul {
+
 
     private int id;
     private String name;
@@ -20,9 +20,9 @@ public class Modul {
     public static final String SET_VERSCH_SEMESTER = "verschobenesSemester"; //TODO: googlen was das macht
     private boolean falschVerschoben;
 
-    
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
             Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden, List<Lehrveranstaltung> lehrveranstaltungenGesamt) {
+        super();
         this.id = id;
         this.name = name;
         this.beschreibung = beschreibung;

@@ -17,7 +17,7 @@
         <lehrveranstaltungen>
             <lehrveranstaltung>
                 <workloadInCP>3</workloadInCP>
-                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
