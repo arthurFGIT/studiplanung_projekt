@@ -77,6 +77,7 @@ public class CheckService {
     //         modulCounter = 0;
     //     }
         
+
     //     int horizont = 3;
     //     int ziel = modul.getVerschobenesFachsemester().getid();
     //     int original = modul.getOriginalesFachsemester().getid();
@@ -121,6 +122,7 @@ public class CheckService {
             if (!modul.getFalschVerschoben()){
                 modul.setFalschVerschoben(false);
             }
+
         } else{
             // System.out.println("Kann nicht verschoben werden (Angebotsintervall).");
             errorService.getObservableMessages().add("Das Modul "+ modul.getName() + " wird nicht in diesem Semester angeboten.");

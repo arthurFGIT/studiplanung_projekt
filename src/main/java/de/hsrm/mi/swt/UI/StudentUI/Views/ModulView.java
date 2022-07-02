@@ -61,7 +61,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 
 	private void createAndAddLehrveranstaltungsViews() {
 		for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
-			LehrveranstaltungsView lehrveranstaltungsView = new LehrveranstaltungsView(modul.getLehrveranstaltungenGesamt().get(i), app);
+			LehrveranstaltungsView lehrveranstaltungsView = new LehrveranstaltungsView(modul.getLehrveranstaltungenGesamt().get(i), modul, app);
 			this.getChildren().add(lehrveranstaltungsView);
 		}
 
