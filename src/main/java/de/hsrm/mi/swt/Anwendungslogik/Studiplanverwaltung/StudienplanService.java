@@ -76,7 +76,7 @@ public class StudienplanService {
         propertyCP.set(0);
         int cps = 0;
         for(int k : modulMap.keySet()){
-            System.out.println("For Schleife");
+            
             if(modulMap.get(k).isBestanden()){
                 System.out.println("Add CP: " + modulMap.get(k).getCpGesamt());
                 cps += modulMap.get(k).getCpGesamt();
@@ -112,7 +112,8 @@ public class StudienplanService {
 
     public void checkAll(){
         for(Modul m : modulMap.values()){
-
+            
+            m.setFalschVerschoben(false);
 
             if (m.getName().equals("Programmieren 1")){
                 System.out.println(m.getName()+(m.getFalschVerschoben()));

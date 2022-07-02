@@ -40,8 +40,8 @@ public class StudentView extends BorderPane {
         uebersichtView = new UebersichtView(app);
 
         this.setTop(errorView);
-        this.setRight(studienplanungView);
-        this.setLeft(uebersichtView);
+        this.setLeft(studienplanungView);
+        this.setRight(uebersichtView);
 
 
     }

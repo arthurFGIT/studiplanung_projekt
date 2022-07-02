@@ -73,13 +73,24 @@ public class ModulView extends VBox implements PropertyChangeListener{
 
 			if(checkBestanden.isSelected()){
 				modul.setBestanden(true);
-				this.setStyle("-fx-background-color: #c6f1e5;");			
+
+				if (modul.getFalschVerschoben()){
+					this.setStyle("-fx-background-color: orange;");	
+				} else {
+					this.setStyle("-fx-background-color: #c6f1e5;");	
+				}
+						
 				System.out.println("Act CP: " + studienplanService.calcActCP().getValue());
 				System.out.println("Modul Bestanden: " + modul.isBestanden());
 			}
 			else{
 				modul.setBestanden(false);
-				this.setStyle("-fx-background-color: #b2c0f6;");
+				if (modul.getFalschVerschoben()){
+					this.setStyle("-fx-background-color: red;");	
+				} else {
+					this.setStyle("-fx-background-color: #b2c0f6;");	
+				}
+				
 				studienplanService.calcActCP();
 				System.out.println("Modul Bestanden: " + modul.isBestanden());
 			}            
@@ -103,11 +114,12 @@ public class ModulView extends VBox implements PropertyChangeListener{
 			case "falschVerschoben":
 			
 				if((boolean) evt.getNewValue() == false){
-					
+				
 					this.setStyle("-fx-background-color : #b2c0f6;");
 				} else {
-					System.out.println("properyFalse");
+					
 					this.setStyle("-fx-background-color : red;");
+					
 				}
 
 		}

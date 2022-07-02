@@ -121,7 +121,22 @@ public class StudienplanungView extends ScrollPane {
 		
 		// ModulViews für jedes Modul erstellen und der jeweiligen liste adden
 		for(int k : modulMap.keySet()){
-			ModulView modulView = new ModulView(modulMap.get(k), app);	
+			ModulView modulView = new ModulView(modulMap.get(k), app);
+			Modul modul = modulMap.get(k);
+			if (modul.getFalschVerschoben()){
+				if (modul.isBestanden()){
+					modulView.setStyle("-fx-background-color : orange;");
+				} else {
+					modulView.setStyle("-fx-background-color : red;");
+				}
+				
+			} else {
+				if (modul.isBestanden()){
+					modulView.setStyle("-fx-background-color : #c6f1e5;");
+				} else {
+					modulView.setStyle("-fx-background-color : b2c0f6;");
+				}
+			}
 			// modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(k+1, modulView);
 			modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(modulMap.get(k).getId(), modulView);
 		}
@@ -146,6 +161,8 @@ public class StudienplanungView extends ScrollPane {
 			FlowPaneView paneView = new FlowPaneView(app, fachsemester, modulViewsListe.get(x), modulViewsListe, studiensemester);
 			paneView.getStyleClass().add("flow-pane");
 			flowPaneMap.put(x, paneView);
+
+			
 		}		
 	}
 
