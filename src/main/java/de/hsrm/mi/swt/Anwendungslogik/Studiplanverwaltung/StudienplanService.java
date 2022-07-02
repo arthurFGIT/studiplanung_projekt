@@ -19,6 +19,9 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 
 
 public class StudienplanService {
@@ -29,6 +32,9 @@ public class StudienplanService {
     private Map<Integer, Modul> modulMap;
     private int maxSemesterAnzahl;
 
+    private IntegerProperty propertyCP;
+    private int maxCP;
+
     public static final String xmlFilePath = "moduleIndividual.xml";   
 
 
@@ -38,6 +44,8 @@ public class StudienplanService {
         this.errorService = errorService;
         modulMap = modulService.getModulMap();
         maxSemesterAnzahl = 0;
+        // maxCP = calcMaxCP();
+        propertyCP = new SimpleIntegerProperty();
     }
 
     public int maxSemesterAnzahl(){
@@ -50,6 +58,10 @@ public class StudienplanService {
         return maxSemesterAnzahl;
     }
 
+    public int addSemesterAnzahl(){
+        return maxSemesterAnzahl()+1;
+    }
+
     public int calcMaxCP(){
         int maxCP = 0;
         for(int k : modulMap.keySet()){
@@ -58,14 +70,27 @@ public class StudienplanService {
         return maxCP;
     }
 
-    public int calcActCP(){
-        int actCP = 0;
+    public IntegerProperty calcActCP(){
+        propertyCP.set(0);
+        int cps = 0;
         for(int k : modulMap.keySet()){
+            System.out.println("For Schleife");
             if(modulMap.get(k).isBestanden()){
-                actCP += modulMap.get(k).getCpGesamt();
+                System.out.println("Add CP: " + modulMap.get(k).getCpGesamt());
+                cps += modulMap.get(k).getCpGesamt();
+                propertyCP.set(cps);
+                System.out.println(propertyCP.getValue());
+            }
+            else{
+                for(int y = 0 ;y < modulMap.get(k).getLehrveranstaltungenGesamt().size(); y++){
+                    if(modulMap.get(k).getLehrveranstaltungenGesamt().get(y).isBestanden()){
+                    cps += modulMap.get(k).getLehrveranstaltungenGesamt().get(y).getWorkloadInCP();
+                    propertyCP.set(cps);
+                }
             }
         }
-        return actCP;
+    }
+        return propertyCP;
     }
 
     public void speicherePlan(){
@@ -159,16 +184,18 @@ public class StudienplanService {
                 bestanden.appendChild(document.createTextNode(String.valueOf(m.isBestanden())));
                 modul.appendChild(bestanden);
 
-                // // kompetenzen element
-                // Element  = lehrveranstaltungen.createElement("lehrveranstaltungen");
-                // modul.appendChild(kompetenzen);
+                // lehrveranstaltungen element
+                Element lehrveranstaltungen = document.createElement("lehrveranstaltungen");
+                modul.appendChild(lehrveranstaltungen);
 
-                // for(Kompetenz k : m.getKompetenzGesamt()){
-                //     // kompetenz element
-                //     Element kompetenz = document.createElement("kompetenz");
-                //     kompetenz.appendChild(document.createTextNode(k.getName()));
-                //     kompetenzen.appendChild(kompetenz);
-                // }
+                for(int x = 0; x < m.getLehrveranstaltungenGesamt().size(); x++){
+                    Element lehrveranstaltung = document.createElement("lehrveranstaltung");
+                    lehrveranstaltungen.appendChild(lehrveranstaltung);
+
+                    lehrveranstaltung.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).getWorkloadInCP())));
+                    lehrveranstaltung.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).getVeranstaltungsTyp())));
+                    lehrveranstaltung.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).isBestanden())));
+                }
             }    
 
             // create the xml file
@@ -192,7 +219,17 @@ public class StudienplanService {
         
     }
 
-    
+    public IntegerProperty getPropertyCP() {
+        return propertyCP;
+    }
 
+    public void setPropertyCP(IntegerProperty propertyCP) {
+        this.propertyCP = propertyCP;
+    }
+
+
+    public int getMaxCP() {
+        return maxCP;
+    }    
     
 }

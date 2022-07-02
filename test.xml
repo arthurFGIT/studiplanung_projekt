@@ -49,7 +49,7 @@
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -59,7 +59,7 @@
         <id>2</id>
         <name>Einführung in die Gestaltung</name>
         <beschreibung>Kennenlernen der verschiedenen Design Tools und Vorschriften</beschreibung>
-        <cpGesamt>4</cpGesamt>
+        <cpGesamt>8</cpGesamt>
         <kompetenzen>
         </kompetenzen>            
         <origFachsemesterId>1</origFachsemesterId>
@@ -71,7 +71,7 @@
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
+                <workloadInCP>4</workloadInCP>
                 <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -86,7 +86,7 @@
         <id>3</id>
         <name>Analysis</name>
         <beschreibung>Die Modellbildung und deren Analyse fordert von den Medieninformatikerinnen und Medieninformatikern: den sicheren Umgang mit Funktionen, Beherrschung der Differential- und Integralrechnung, die Darstellung der Funktionen als Potenzreihen</beschreibung>
-        <cpGesamt>3</cpGesamt>
+        <cpGesamt>5</cpGesamt>
         <kompetenzen>
            
         </kompetenzen>            
@@ -104,7 +104,7 @@
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -132,7 +132,7 @@ hohen Innovationsraten, wirtschaftlichen Risiken und Kundenansprüchen betriebsw
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -193,7 +193,7 @@ benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssp
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -222,7 +222,7 @@ benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssp
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -251,7 +251,7 @@ benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssp
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -278,7 +278,7 @@ benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssp
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -306,7 +306,7 @@ sowie das problembewusste Erkennen von entsprechenden praxisbezogenen Grundfäll
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -335,7 +335,7 @@ sowie das problembewusste Erkennen von entsprechenden praxisbezogenen Grundfäll
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -367,7 +367,7 @@ und genutzt: Modellieren, Erstellen von Entity-Relationship-Modellen und Umsetzu
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -396,7 +396,7 @@ und genutzt: Modellieren, Erstellen von Entity-Relationship-Modellen und Umsetzu
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -427,7 +427,7 @@ effizienter, kompakter, mit geringerem Fehlerpotential und wartungsfreundlicher 
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -456,7 +456,7 @@ effizienter, kompakter, mit geringerem Fehlerpotential und wartungsfreundlicher 
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -486,7 +486,7 @@ effizienter, kompakter, mit geringerem Fehlerpotential und wartungsfreundlicher 
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -515,7 +515,7 @@ Einsatz moderner Netzwerktechnologien sowie von Betriebssystemkonzepten sind dah
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -546,7 +546,7 @@ Einsatz moderner Netzwerktechnologien sowie von Betriebssystemkonzepten sind dah
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -576,7 +576,7 @@ Einsatz moderner Netzwerktechnologien sowie von Betriebssystemkonzepten sind dah
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -605,7 +605,7 @@ Einsatz moderner Netzwerktechnologien sowie von Betriebssystemkonzepten sind dah
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -634,12 +634,12 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
+                <workloadInCP>5</workloadInCP>
                 <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>5</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -666,7 +666,7 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -688,12 +688,12 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
+                <workloadInCP>5</workloadInCP>
                 <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>5</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -724,7 +724,7 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>3</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -749,14 +749,10 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
-                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
-                <bestanden>false</bestanden>
+             
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
-                <bestanden>false</bestanden>
+                
             </lehrveranstaltung>
         </lehrveranstaltungen>
     </modul>
@@ -777,12 +773,12 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
+                <workloadInCP>5</workloadInCP>
                 <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>5</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -805,12 +801,12 @@ arbeitsteiligen Zusammenarbeit in einem Team eine wichtige Rolle.
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
+                <workloadInCP>2</workloadInCP>
                 <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
@@ -834,14 +830,9 @@ einiger Bereiche des aktuellsten Wissensstandes des Studienfaches. Präsentation
         <bestanden>false</bestanden>
         <lehrveranstaltungen>
             <lehrveranstaltung>
-                <workloadInCP>3</workloadInCP>
-                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
-                <bestanden>false</bestanden>
+   
             </lehrveranstaltung>
             <lehrveranstaltung>
-                <workloadInCP>4</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
-                <bestanden>false</bestanden>
             </lehrveranstaltung>
         </lehrveranstaltungen>
     </modul>

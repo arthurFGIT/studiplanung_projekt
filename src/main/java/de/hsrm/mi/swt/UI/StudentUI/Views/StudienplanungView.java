@@ -8,12 +8,16 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.ErrorService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -35,6 +39,7 @@ public class StudienplanungView extends ScrollPane {
 
 	private App app;
 
+	private Button addSemester;
 
 	private ModulService modulService; // später durch Studienplanservice -> lade Plan ersetzen
 	private StudienplanService studienplanService;
@@ -54,30 +59,58 @@ public class StudienplanungView extends ScrollPane {
 		containerVBox = new VBox();
         containerVBox.setSpacing(20.0);
 
+		addSemester = new Button("Add Semester");
+
+		
+
 
 
 		modulViewsListe = new HashMap<>();
 		flowPaneMap = new HashMap<>();
 
-		this.ladePlan();
+		this.ladePlan(studienplanService.maxSemesterAnzahl());
 
-		for(int i = flowPaneMap.size(); i > 0 ; i--){
-			containerVBox.getChildren().add(flowPaneMap.get(i));
-		}
-
-
-		container.getChildren().addAll(containerVBox);
-		container.getStyleClass().add("flow-panes");
-
+		this.ladeViews();
 
 		this.setContent(container);
 		this.setFitToWidth(true);
 
 		initialize();
+		initButton();
+
 
 	}
 
-	public void ladePlan(){	
+	public void ladeViewsNew(int semesteranzahl){
+		// this.getChildren().clear();
+		containerVBox.getChildren().clear();
+		container.getChildren().clear();
+		ladePlan(semesteranzahl);
+		for(int i = flowPaneMap.size(); i > 0 ; i--){
+			containerVBox.getChildren().add(flowPaneMap.get(i));
+		}
+		System.out.println("Neue Views");
+		container.getChildren().addAll(containerVBox, addSemester);
+		container.getStyleClass().add("flow-panes");
+
+		this.setContent(container);
+		initialize();
+
+	}
+
+	public void ladeViews(){
+		for(int i = flowPaneMap.size(); i > 0 ; i--){
+			containerVBox.getChildren().add(flowPaneMap.get(i));
+		}
+
+
+		container.getChildren().addAll(containerVBox, addSemester);
+		container.getStyleClass().add("flow-panes");
+	}
+
+	public void ladePlan(int semesteranzahl){	
+
+
 
 		// erstelle ModulViewMaps und adde sie der modulViewsListe
 		for(int y = 1; y <= studienplanService.maxSemesterAnzahl(); y++){
@@ -93,7 +126,7 @@ public class StudienplanungView extends ScrollPane {
 			modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(modulMap.get(k).getId(), modulView);
 		}
 
-		for(int x = 1; x <= studienplanService.maxSemesterAnzahl(); x++){
+		for(int x = 1; x <= semesteranzahl; x++){
 			Fachsemester fachsemester;
 			if(x%2 == 0){
 				fachsemester = new Fachsemester(x, AngebotsIntervall.SOMMER);		
@@ -101,11 +134,27 @@ public class StudienplanungView extends ScrollPane {
 			else{
 				fachsemester = new Fachsemester(x, AngebotsIntervall.WINTER);			
 			}
+			Studiensemester studiensemester;
+			studiensemester = modulService.getStudienplan().getSemesterMap().get(x);
+			if(x > studienplanService.maxSemesterAnzahl()){
+				Map<Integer, ModulView> modulViewMap = new HashMap<>();
+				modulViewsListe.put(x, modulViewMap);
+				studiensemester = new Studiensemester(this.app);
+				modulService.getStudienplan().getSemesterMap().put(x, studiensemester);			
+			}
 
-			FlowPaneView paneView = new FlowPaneView(app, fachsemester, modulViewsListe.get(x), modulViewsListe, modulService.getStudienplan().getSemesterMap().get(x));
+			FlowPaneView paneView = new FlowPaneView(app, fachsemester, modulViewsListe.get(x), modulViewsListe, studiensemester);
 			paneView.getStyleClass().add("flow-pane");
 			flowPaneMap.put(x, paneView);
 		}		
+	}
+
+	public void initButton(){
+		addSemester.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			// ladePlan();
+			System.out.println(studienplanService.addSemesterAnzahl());
+			ladeViewsNew(studienplanService.addSemesterAnzahl());
+		});
 	}
 
 	public void initialize() {

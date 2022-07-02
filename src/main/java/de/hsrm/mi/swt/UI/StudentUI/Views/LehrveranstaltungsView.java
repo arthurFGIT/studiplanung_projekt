@@ -61,7 +61,7 @@ public class LehrveranstaltungsView extends VBox{
 			if(checkBestanden.isSelected()){
 				lehrveranstaltung.setBestanden(true);
 				this.setStyle("-fx-background-color: #c6f1e5;");			
-				System.out.println("Act CP: " + studienplanService.calcActCP());
+				System.out.println("Act CP: " + studienplanService.calcActCP().getValue());
 				System.out.println("Lehrveranstaltung Bestanden: " + lehrveranstaltung.isBestanden());
 			}
 			else{

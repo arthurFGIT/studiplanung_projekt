@@ -9,7 +9,6 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
-import javafx.application.HostServices;
 
 public class CheckService {
     
@@ -23,7 +22,6 @@ public class CheckService {
         this.errorService = errorService;
         this.modulService = modulService;
         modulMap = modulService.getModulMap();
-
     }
 
     public boolean checkKompetenzen(Modul modul, Fachsemester zielFachsemester){ //TODO: wie machen wir die Zuordnung zwischen Fachsemester und Koordinaten

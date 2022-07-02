@@ -1,7 +1,6 @@
 package de.hsrm.mi.swt.main;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.util.HashMap;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
@@ -13,9 +12,7 @@ import de.hsrm.mi.swt.UI.StudentUI.Views.StudentView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Path;
 import javafx.stage.Stage;
-import java.nio.file.*;
 
 public class App extends Application {
 

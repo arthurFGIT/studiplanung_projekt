@@ -72,7 +72,7 @@ public class ModulView extends VBox{
 			if(checkBestanden.isSelected()){
 				modul.setBestanden(true);
 				this.setStyle("-fx-background-color: #c6f1e5;");			
-				System.out.println("Act CP: " + studienplanService.calcActCP());
+				System.out.println("Act CP: " + studienplanService.calcActCP().getValue());
 				System.out.println("Modul Bestanden: " + modul.isBestanden());
 			}
 			else{
