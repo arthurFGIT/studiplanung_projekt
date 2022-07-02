@@ -98,7 +98,7 @@ public class CheckService {
 
     public boolean checkSemester(Modul modul, AngebotsIntervall angebotsIntervall, Fachsemester neueFachsemester){
         
-        if(angebotsIntervall == neueFachsemester.getAngebotsIntervall() || neueFachsemester.getAngebotsIntervall() == AngebotsIntervall.WISO){
+        if(angebotsIntervall == neueFachsemester.getAngebotsIntervall() || angebotsIntervall == AngebotsIntervall.WISO){
             System.out.println("Kann verschoben werden (Angebotsintervall).");
             return true;
         } else{
