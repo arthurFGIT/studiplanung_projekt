@@ -18,6 +18,8 @@ import org.w3c.dom.Element;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -31,9 +33,9 @@ public class StudienplanService {
     private ErrorService errorService;
     private Map<Integer, Modul> modulMap;
     private int maxSemesterAnzahl;
-
     private IntegerProperty propertyCP;
     private int maxCP;
+
 
     public static final String xmlFilePath = "moduleIndividual.xml";   
 
@@ -91,6 +93,21 @@ public class StudienplanService {
         }
     }
         return propertyCP;
+    }
+
+    
+
+    public IntegerProperty getPropertyCP() {
+        return propertyCP;
+    }
+
+    public void setPropertyCP(IntegerProperty propertyCP) {
+        this.propertyCP = propertyCP;
+    }
+
+    
+    public int getMaxCP() {
+        return maxCP;
     }
 
     public void speicherePlan(){
@@ -219,17 +236,4 @@ public class StudienplanService {
         
     }
 
-    public IntegerProperty getPropertyCP() {
-        return propertyCP;
-    }
-
-    public void setPropertyCP(IntegerProperty propertyCP) {
-        this.propertyCP = propertyCP;
-    }
-
-
-    public int getMaxCP() {
-        return maxCP;
-    }    
-    
 }
