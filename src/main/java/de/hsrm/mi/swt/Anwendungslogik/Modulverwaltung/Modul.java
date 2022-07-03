@@ -9,25 +9,36 @@ public class Modul {
     private int id;
     private String name;
     private String beschreibung;
-    // private Prüfungsleistung prüfungsleistung;
     private int cpGesamt;
     private List<Kompetenz> kompetenzGesamt;
-    private Fachsemester originalesFachsemester; //TODO: Fachsemester wieder als Klasse, um Koordianten zu speichern
+    private Fachsemester originalesFachsemester;
     private Fachsemester verschobenesFachsemester;
     private Fachsemester vorherigesFachsemester;
     private boolean bestanden;
     private List<Lehrveranstaltung> lehrveranstaltungenGesamt;
-    public static final String SET_VERSCH_SEMESTER = "verschobenesSemester"; //TODO: googlen was das macht
+    public static final String SET_VERSCH_SEMESTER = "verschobenesSemester";
     private boolean falschVerschoben;
     
 
+    /**
+     * Konstruktor für ein Modul
+     * @param id
+     * @param name
+     * @param beschreibung
+     * @param cpGesamt
+     * @param kompetenz
+     * @param originalesFachsemester
+     * @param verschobenesFachsemester
+     * @param vorherigesFachsemester
+     * @param bestanden
+     * @param lehrveranstaltungenGesamt
+     */
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
             Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden, List<Lehrveranstaltung> lehrveranstaltungenGesamt) {
         super();
         this.id = id;
         this.name = name;
         this.beschreibung = beschreibung;
-        // this.prüfungsleistung = prüfungsleistung;
         this.cpGesamt = cpGesamt;
         this.kompetenzGesamt = kompetenz;
         this.originalesFachsemester = originalesFachsemester;
@@ -41,83 +52,94 @@ public class Modul {
     //changeEvents für Modul verschieben -> Kopie von DragAndDropFxDing
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
+    
+    /** 
+     * Fügt den Property ChangeListener hinzu
+     * @param listener
+     */
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         this.pcs.addPropertyChangeListener(listener);
     }
 
+    
+    /** 
+     * Löscht den Property Change Listener
+     * @param listener
+     */
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         this.pcs.removePropertyChangeListener(listener);
     }   
 
+    
+    /** 
+     * Gibt den Namen des Moduls zurück
+     * @return String
+     */
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    
+    /** 
+     * Gibt die Beschreibung des Moduls zurück
+     * @return String
+     */
     public String getBeschreibung() {
         return beschreibung;
     }
-
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
-    }
-
-    // public Prüfungsleistung getPrüfungsleistung() {
-    //     return prüfungsleistung;
-    // }
-
-    // public void setPrüfungsleistung(Prüfungsleistung prüfungsleistung) {
-    //     this.prüfungsleistung = prüfungsleistung;
-    // }
-
+    
+    /** 
+     * Gibt die Gesamte CP Anzahl des Moduls zurück
+     * @return int
+     */
     public int getCpGesamt() {
         return cpGesamt;
     }
-
-    public void setCpGesamt(int cpGesamt) {
-        this.cpGesamt = cpGesamt;
-    }
-
+        
+    /** 
+     * Gibt eine Liste von Kompetenzen des Moduls zurück
+     * @return List<Kompetenz>
+     */
     public List<Kompetenz> getKompetenzGesamt() {
         return kompetenzGesamt;
     }
-
-    public void setKompetenzGesamt(List<Kompetenz> kompetenzGesamt) {
-        this.kompetenzGesamt = kompetenzGesamt;
-    }
-
+    
+    /** 
+     * Gibt eine Liste von Lehrveranstaltungen des Moduls zurück
+     * @return List<Lehrveranstaltung>
+     */
     public List<Lehrveranstaltung> getLehrveranstaltungenGesamt() {
         return lehrveranstaltungenGesamt;
     }
-
-    public void setLehrveranstaltungenGesamt(List<Lehrveranstaltung> lehrveranstaltungenGesamt) {
-        this.lehrveranstaltungenGesamt = lehrveranstaltungenGesamt;
-    }
-
+    
+    /** 
+     * Gibt die ID des Moduls zurück
+     * @return int
+     */
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     
-
+    /** 
+     * Gibt das originale Fachsemester des Moduls zurück
+     * @return Fachsemester
+     */
     public Fachsemester getOriginalesFachsemester() {
         return originalesFachsemester;
     }
-
-    public void setOriginalesFachsemester(Fachsemester originalesFachsemester) {
-        this.originalesFachsemester = originalesFachsemester;
-    }
-
+    
+    /** 
+     * Gibt das verschobene Fachsemester des Moduls zurück
+     * @return Fachsemester
+     */
     public Fachsemester getVerschobenesFachsemester() {
         return verschobenesFachsemester;
     }
 
+    
+    /** 
+     * Setzt das originale Fachsemester des Moduls
+     * @param verschobenesFachsemester
+     */
     public void setVerschobenesFachsemester(Fachsemester verschobenesFachsemester) {
         Fachsemester pre = this.verschobenesFachsemester;
         this.verschobenesFachsemester = verschobenesFachsemester;
@@ -125,15 +147,30 @@ public class Modul {
         System.out.println("set verschobenes Fachsemester: "+ verschobenesFachsemester.getid());
     }
 
+    
+    /** 
+     * Gibt zurück, ob das Modul bestanden ist
+     * @return boolean
+     */
     public boolean isBestanden() {
         return bestanden;
     }
 
+    
+    /** 
+     * Setzt das Modul, ob es bestanden ist oder nicht
+     * @param bestanden
+     */
     public void setBestanden(boolean bestanden) {
         this.bestanden = bestanden;
     }
 
 
+    
+    /** 
+     * String ausgabe des Moduls
+     * @return String
+     */
     @Override
     public String toString() {
         return "Modul [ bestanden=" + bestanden + ", cpGesamt=" + cpGesamt + ", id="
@@ -142,18 +179,38 @@ public class Modul {
                 + ", vorherigesFachsemester=" + vorherigesFachsemester.getid() + "]";
     }
 
+    
+    /** 
+     * Gibt das Fachsemester des Moduls, in dem es vorher war, zurück
+     * @return Fachsemester
+     */
     public Fachsemester getVorherigesFachsemester() {
         return vorherigesFachsemester;
     }
 
+    
+    /** 
+     * Setzt das vorherige Fachsemester des Moduls
+     * @param vorherigesFachsemester
+     */
     public void setVorherigesFachsemester(Fachsemester vorherigesFachsemester) {
         this.vorherigesFachsemester = vorherigesFachsemester;
     }
 
+    
+    /** 
+     * Gibt zurück, ob das Modul falsch verschoben ist
+     * @return boolean
+     */
     public boolean isFalschVerschoben() {
         return falschVerschoben;
     }
 
+    
+    /** 
+     * Setzt, ob das Modul falsch verschoben ist oder nicht
+     * @param falschVerschoben
+     */
     public void setFalschVerschoben(boolean falschVerschoben) {
         var pre = this.falschVerschoben;
         this.falschVerschoben = falschVerschoben;
@@ -161,6 +218,11 @@ public class Modul {
         
     }
 
+    
+    /** 
+     * Gibt zurück, ob das Modul falsch verschoben ist
+     * @return boolean
+     */
     public boolean getFalschVerschoben(){
         return this.falschVerschoben;
     }

@@ -100,8 +100,10 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
                     // checkService.checkFortschrittsregel(modul, zielFachsemester);
                     // checkService.checkKompetenzen(modul, zielFachsemester);
+                    System.out.println("Vorheriges Sem: " + semester.getid());
+                    System.out.println("Zum Verschieben Sem: " +  m.getVerschobenesFachsemester().getid());
 
-                    if (m.getVorherigesFachsemester().getid() != m.getVerschobenesFachsemester().getid()) {
+                    if (semester.getid() != m.getVerschobenesFachsemester().getid()) {
                         m.setVerschobenesFachsemester(semester);
 
                         app.getModulService().getStudienplan()

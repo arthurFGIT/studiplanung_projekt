@@ -59,10 +59,8 @@ public class StudienplanungView extends ScrollPane {
 		containerVBox = new VBox();
         containerVBox.setSpacing(20.0);
 
-		addSemester = new Button("Add Semester");
-
-		
-
+		addSemester = new Button("Semester hinzufuegen");
+		addSemester.getStyleClass().add("add-button");
 
 
 		modulViewsListe = new HashMap<>();
@@ -82,15 +80,15 @@ public class StudienplanungView extends ScrollPane {
 	}
 
 	public void ladeViewsNew(int semesteranzahl){
-		// this.getChildren().clear();
 		containerVBox.getChildren().clear();
 		container.getChildren().clear();
+		containerVBox.getChildren().add(addSemester);
 		ladePlan(semesteranzahl);
 		for(int i = flowPaneMap.size(); i > 0 ; i--){
 			containerVBox.getChildren().add(flowPaneMap.get(i));
 		}
 		System.out.println("Neue Views");
-		container.getChildren().addAll(containerVBox, addSemester);
+		container.getChildren().addAll(containerVBox);
 		container.getStyleClass().add("flow-panes");
 
 		this.setContent(container);
@@ -99,17 +97,17 @@ public class StudienplanungView extends ScrollPane {
 	}
 
 	public void ladeViews(){
+		containerVBox.getChildren().add(addSemester);
 		for(int i = flowPaneMap.size(); i > 0 ; i--){
 			containerVBox.getChildren().add(flowPaneMap.get(i));
 		}
+		container.getChildren().addAll(containerVBox);
 
-
-		container.getChildren().addAll(containerVBox, addSemester);
+		
 		container.getStyleClass().add("flow-panes");
 	}
 
 	public void ladePlan(int semesteranzahl){	
-
 
 
 		// erstelle ModulViewMaps und adde sie der modulViewsListe
@@ -125,19 +123,18 @@ public class StudienplanungView extends ScrollPane {
 			Modul modul = modulMap.get(k);
 			if (modul.getFalschVerschoben()){
 				if (modul.isBestanden()){
-					modulView.setStyle("-fx-background-color : orange;");
+					modulView.setStyle("-fx-background-color : #fbe9cb;");
 				} else {
-					modulView.setStyle("-fx-background-color : red;");
+					modulView.setStyle("-fx-background-color : #ffd6d6;");
 				}
 				
 			} else {
 				if (modul.isBestanden()){
 					modulView.setStyle("-fx-background-color : #c6f1e5;");
 				} else {
-					modulView.setStyle("-fx-background-color : b2c0f6;");
+					modulView.setStyle("-fx-background-color : #b2c0f6;");
 				}
 			}
-			// modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(k+1, modulView);
 			modulViewsListe.get(modulMap.get(k).getVerschobenesFachsemester().getid()).put(modulMap.get(k).getId(), modulView);
 		}
 
@@ -168,7 +165,6 @@ public class StudienplanungView extends ScrollPane {
 
 	public void initButton(){
 		addSemester.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			// ladePlan();
 			System.out.println(studienplanService.addSemesterAnzahl());
 			ladeViewsNew(studienplanService.addSemesterAnzahl());
 		});

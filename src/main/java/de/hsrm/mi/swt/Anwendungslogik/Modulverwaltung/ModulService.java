@@ -12,26 +12,35 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
-
 
 public class ModulService {
 
     private Modul aktuellesModul;
     private Modul neuesModul;
-    private StudienplanService studienplanService;
     private App app;
     private Studienplan studienplan;
 
     private Map<Integer, Modul> modulMap;
 
+
+
+    /**
+     * Konstruktor für den Modulservice. Erstellt eine leere modulMap, die alle Module verwaltet
+     * @param app
+     */
     public ModulService(App app){
         this.app = app;
         modulMap = new HashMap<>();
     }
  
 
+    
+    /** 
+     * Aus der Datei mit dem Dateipfad werden Module erstellt und der ModulMap hinzugefügt und zurückgegeben
+     * @param dateipfad
+     * @return Map<Integer, Modul>
+     */
     public Map<Integer, Modul> erzeugen(String dateipfad){
         try {
             File file = new File(dateipfad);
@@ -102,6 +111,7 @@ public class ModulService {
                                 
                 boolean bestanden = Boolean.parseBoolean(document.getElementsByTagName("bestanden").item(i).getTextContent());
 
+                // Lehrveranstaltungen
                 int workloadInCP = 0;
                 String veranstaltungsTypString = "";
                 VeranstaltungsTyp veranstaltungsTyp = null;
@@ -146,9 +156,6 @@ public class ModulService {
                             lehrveranstaltungsListe.add(lehrveranstaltungsObj);
     
                         }
-  
-        
-  
                      }
                 }
 
@@ -164,26 +171,51 @@ public class ModulService {
          return modulMap;
     }
 
+    
+    /** 
+     * @param id
+     * @return Modul
+     */
     public Modul holeModulmitId(int id){
         return modulMap.get(id);
     }
 
+    
+    /** 
+     * @return Modul
+     */
     public Modul getAktuellesModul() {
         return aktuellesModul;
     }
 
+    
+    /** 
+     * @return Modul
+     */
     public Modul getNeuesModul() {
         return neuesModul;
     }
 
+    
+    /** 
+     * @return Map<Integer, Modul>
+     */
     public Map<Integer, Modul> getModulMap() {
         return modulMap;
     }
 
+    
+    /** 
+     * @return Studienplan
+     */
     public Studienplan getStudienplan() {
         return studienplan;
     }
 
+    
+    /** 
+     * @param studienplan
+     */
     public void setStudienplan(Studienplan studienplan) {
         this.studienplan = studienplan;
     }   

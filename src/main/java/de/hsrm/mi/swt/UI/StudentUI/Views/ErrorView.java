@@ -47,7 +47,6 @@ public class ErrorView extends ScrollPane{
         observableMessages.addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(Change<? extends String> c) {
-                System.out.println("Geht rein");
                 createVBox();
             }
 

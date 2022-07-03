@@ -245,9 +245,17 @@ public class StudienplanService {
                     Element lehrveranstaltung = document.createElement("lehrveranstaltung");
                     lehrveranstaltungen.appendChild(lehrveranstaltung);
 
-                    lehrveranstaltung.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).getWorkloadInCP())));
-                    lehrveranstaltung.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).getVeranstaltungsTyp())));
-                    lehrveranstaltung.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).isBestanden())));
+                    Element workloadInCp = document.createElement("workloadInCP");
+                    workloadInCp.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).getWorkloadInCP())));
+                    lehrveranstaltung.appendChild(workloadInCp);
+
+                    Element lehrveranstaltungsTyp = document.createElement("veranstaltungsTyp");
+                    lehrveranstaltungsTyp.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).getVeranstaltungsTyp())));
+                    lehrveranstaltung.appendChild(lehrveranstaltungsTyp);
+                    
+                    Element bestandenLehr = document.createElement("bestanden");
+                    bestandenLehr.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).isBestanden())));
+                    lehrveranstaltung.appendChild(bestandenLehr);
                 }
             }    
 

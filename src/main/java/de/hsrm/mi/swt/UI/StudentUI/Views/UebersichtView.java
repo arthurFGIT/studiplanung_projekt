@@ -31,13 +31,15 @@ public class UebersichtView extends BorderPane{
         this.getStyleClass().add("body");
         this.app = app;
         headline = new Text("Dein Studienfortschritt: ");
+        headline.getStyleClass().add("headline-text");
         studienplanService = app.getStudienplanService();
-        saveButton = new Button("save");   
+        saveButton = new Button("Plan speichern");   
+        saveButton.getStyleClass().add("save-button");
            
         maxCP = studienplanService.calcMaxCP();
-        System.out.println("Max CP: " + maxCP);
         actCP = studienplanService.getPropertyCP();
         studienfortschritt = new Text(studienplanService.getPropertyCP().getValue() + " CPs von " + maxCP + " CPs erreicht.");
+        studienfortschritt.getStyleClass().add("headline-text");
         text = new VBox(headline, studienfortschritt);
 
         this.setTop(text);
@@ -49,14 +51,11 @@ public class UebersichtView extends BorderPane{
 
         saveButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {                
                 studienplanService.speicherePlan();            
-		});
-
-  
+		});  
         
         actCP.addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                // actCP.set(studienplanService.calcActCP());
                 actCP.setValue(newValue);
                 System.out.println("Changed to " + newValue);
                 studienfortschritt = new Text(studienplanService.getPropertyCP().getValue() + " CPs von " + maxCP + " CPs erreicht.");

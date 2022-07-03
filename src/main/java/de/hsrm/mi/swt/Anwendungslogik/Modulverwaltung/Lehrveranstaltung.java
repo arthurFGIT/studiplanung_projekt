@@ -3,55 +3,59 @@ package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 public class Lehrveranstaltung {
 
     private int workloadInCP;
-    // private int zeitaufwand;
-    // private boolean anwesenheitspflicht;
     private VeranstaltungsTyp veranstaltungsTyp;
     private boolean bestanden;
 
+    /**
+     * Konstruktor für eine Lehrveranstaltung
+     * @param workloadInCP
+     * @param veranstaltungsTyp
+     * @param bestanden
+     */
     public Lehrveranstaltung(int workloadInCP, VeranstaltungsTyp veranstaltungsTyp, boolean bestanden) {
         this.workloadInCP = workloadInCP;
-        // this.zeitaufwand = zeitaufwand;
-        // this.anwesenheitspflicht = anwesenheitspflicht;
         this.veranstaltungsTyp = veranstaltungsTyp;
         this.bestanden = bestanden;
     }
-
+    
+    /** 
+     * Gibt den Workload in CP zurück
+     * @return int
+     */
     public int getWorkloadInCP() {
         return workloadInCP;
     }
 
-    public void setWorkloadInCP(int workloadInCP) {
-        this.workloadInCP = workloadInCP;
-    }
-
-    // public int getZeitaufwand() {
-    //     return zeitaufwand;
-    // }
-
-    // public void setZeitaufwand(int zeitaufwand) {
-    //     this.zeitaufwand = zeitaufwand;
-    // }
-
-    // public boolean isAnwesenheitspflicht() {
-    //     return anwesenheitspflicht;
-    // }
-
-    // public void setAnwesenheitspflicht(boolean anwesenheitspflicht) {
-    //     this.anwesenheitspflicht = anwesenheitspflicht;
-    // }
-
+    
+    /** 
+     * Gibt den Veranstaltungstyp als Enum zurück
+     * @return VeranstaltungsTyp
+     */
     public VeranstaltungsTyp getVeranstaltungsTyp() {
         return veranstaltungsTyp;
     }
-
+    
+    /**
+     * Setzt den Veranstaltungstyp 
+     * @param veranstaltungsTyp
+     */
     public void setVeranstaltungsTyp(VeranstaltungsTyp veranstaltungsTyp) {
         this.veranstaltungsTyp = veranstaltungsTyp;
     }
 
+    
+    /** 
+     * Gibt zurück, ob die Lehrveranstaltung bestanden ist
+     * @return boolean
+     */
     public boolean isBestanden() {
         return bestanden;
     }
-
+    
+    /** 
+     * Setzt die Lehrveranstaltung auf bestanden
+     * @param bestanden
+     */
     public void setBestanden(boolean bestanden) {
         this.bestanden = bestanden;
     } 

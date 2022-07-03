@@ -43,6 +43,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
         prefHeight(MODULHOEHE);
 		name = new Text(m.getName());
 		cpGesamt = new Text("CP: " + String.valueOf(m.getCpGesamt()));
+		this.setSpacing(5);
 		
 		checkBestanden = new CheckBox();
 		if(modul.isBestanden()){
@@ -62,9 +63,10 @@ public class ModulView extends VBox implements PropertyChangeListener{
 	private void createAndAddLehrveranstaltungsViews() {
 		for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
 			LehrveranstaltungsView lehrveranstaltungsView = new LehrveranstaltungsView(modul.getLehrveranstaltungenGesamt().get(i), modul, app);
-			this.getChildren().add(lehrveranstaltungsView);
+			lehrveranstaltungsView.getStyleClass().add("lehrveranstaltung-view");
+			this.getChildren().add(lehrveranstaltungsView);			
 		}
-
+		
 	}
 
 	private void initialize() {
@@ -75,7 +77,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 				modul.setBestanden(true);
 
 				if (modul.getFalschVerschoben()){
-					this.setStyle("-fx-background-color: orange;");	
+					this.setStyle("-fx-background-color: #fbe9cb;");	
 				} else {
 					this.setStyle("-fx-background-color: #c6f1e5;");	
 				}
@@ -85,8 +87,11 @@ public class ModulView extends VBox implements PropertyChangeListener{
 			}
 			else{
 				modul.setBestanden(false);
+				for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
+					modul.getLehrveranstaltungenGesamt().get(i).setBestanden(true);
+				}
 				if (modul.getFalschVerschoben()){
-					this.setStyle("-fx-background-color: red;");	
+					this.setStyle("-fx-background-color: #ffd6d6;");	
 				} else {
 					this.setStyle("-fx-background-color: #b2c0f6;");	
 				}
@@ -118,7 +123,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 					this.setStyle("-fx-background-color : #b2c0f6;");
 				} else {
 					
-					this.setStyle("-fx-background-color : red;");
+					this.setStyle("-fx-background-color : #ffd6d6;");
 					
 				}
 

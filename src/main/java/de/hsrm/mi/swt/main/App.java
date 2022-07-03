@@ -51,7 +51,6 @@ public class App extends Application {
 			root = scenes.get("StartView");
 
 			if (new File("moduleIndividual.xml").exists()) {
-				System.out.println("Geht rein");
 				studienplanPfad = "moduleIndividual.xml";
 				studentView = new StudentView(this, studienplanPfad);
 				scenes.put("StudentView", studentView);

@@ -22,33 +22,72 @@
 }
 
 .modul-view{
-    -fx-background-color: #b2c0f6;
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+    -fx-background-color: #6a85f4;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-padding: 15px;
+    -fx-vgap: 5px;
 }
 .modul-view:hover{
     -fx-cursor: hand; 
 }
 
 .lehrveranstaltungs-view{
-    -fx-background-color: green;
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+    -fx-background-color: #b2c0f6;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-padding: 5px;
+    -fx-padding: 3px;
+    -fx-margin: 3px;
 }
 
 .upload-button{
+    -fx-font-family: 'Poppins', Arial, sans-serif;
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
     -fx-padding: 30px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-background-color: #5576f6;
-    -fx-font-color: white;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 .upload-button:hover{
+    -fx-cursor: hand; 
+}
+
+.save-button{
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #5576f6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.save-button:hover{
+    -fx-cursor: hand; 
+}
+
+.add-button{
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-padding: 10px;
+    -fx-margin: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #5576f6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.add-button:hover{
     -fx-cursor: hand; 
 }
 
@@ -56,4 +95,9 @@
     -fx-font-family: 'Poppins', Arial, sans-serif;
     -fx-font-weight: bold;
     -fx-font-size: 20px;
+}
+
+.headline-text{
+    -fx-font-family: 'Poppins', Arial, sans-serif;
+    -fx-font-size: 15px;
 }
