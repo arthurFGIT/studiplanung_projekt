@@ -13,33 +13,32 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
 import de.hsrm.mi.swt.main.App;
-
+/**
+ * ModulService, der Module erzeugt, und den Stundenplan erzeugt und zur Verfuegung stellt
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class ModulService {
 
     private Modul aktuellesModul;
     private Modul neuesModul;
     private App app;
     private Studienplan studienplan;
-
     private Map<Integer, Modul> modulMap;
-
-
 
     /**
      * Konstruktor für den Modulservice. Erstellt eine leere modulMap, die alle Module verwaltet
-     * @param app
+     * @param app : Application wird mitgegeben
      */
     public ModulService(App app){
         this.app = app;
         modulMap = new HashMap<>();
-    }
- 
+    } 
 
     
     /** 
      * Aus der Datei mit dem Dateipfad werden Module erstellt und der ModulMap hinzugefügt und zurückgegeben
-     * @param dateipfad
-     * @return Map<Integer, Modul>
+     * @param dateipfad : Dateipfad der XML Datei
+     * @return Map<Integer, Modul> : Gibt Map der Module zurück
      */
     public Map<Integer, Modul> erzeugen(String dateipfad){
         try {
@@ -171,34 +170,11 @@ public class ModulService {
          return modulMap;
     }
 
-    
-    /** 
-     * @param id
-     * @return Modul
-     */
-    public Modul holeModulmitId(int id){
-        return modulMap.get(id);
-    }
 
-    
-    /** 
-     * @return Modul
-     */
-    public Modul getAktuellesModul() {
-        return aktuellesModul;
-    }
 
-    
     /** 
-     * @return Modul
-     */
-    public Modul getNeuesModul() {
-        return neuesModul;
-    }
-
-    
-    /** 
-     * @return Map<Integer, Modul>
+     * Gibt die ModulMap zurück
+     * @return Map<Integer, Modul> : HashMap aus allen erzeugten Modulen
      */
     public Map<Integer, Modul> getModulMap() {
         return modulMap;
@@ -206,19 +182,10 @@ public class ModulService {
 
     
     /** 
-     * @return Studienplan
+     * Gibt den Studienplan zurück
+     * @return Studienplan : Gibt ein Objekt der Studienplan-Klasse zurück
      */
     public Studienplan getStudienplan() {
         return studienplan;
-    }
-
-    
-    /** 
-     * @param studienplan
-     */
-    public void setStudienplan(Studienplan studienplan) {
-        this.studienplan = studienplan;
-    }   
-
-    
+    }    
 }

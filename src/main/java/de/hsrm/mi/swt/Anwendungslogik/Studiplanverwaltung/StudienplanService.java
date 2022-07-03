@@ -11,21 +11,17 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
-
-
+/**
+ * StudienplanService, stellt die Verwaltung des Studienplans zur Verfügung
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class StudienplanService {
 
     private ModulService modulService;
@@ -40,16 +36,25 @@ public class StudienplanService {
     public static final String xmlFilePath = "moduleIndividual.xml";   
 
 
+    /**
+     * Konstruktor für den StudienplanService -> bekommt die alle Services mitgegeben
+     * @param modulService 
+     * @param checkService
+     * @param errorService
+     */
     public StudienplanService(ModulService modulService, CheckService checkService, ErrorService errorService) {
         this.modulService = modulService;
         this.checkService = checkService;
         this.errorService = errorService;
         modulMap = modulService.getModulMap();
         maxSemesterAnzahl = 0;
-        // maxCP = calcMaxCP();
         propertyCP = new SimpleIntegerProperty();
     }
-
+    
+    /** 
+     * Berechnet die MaxSemesterAnzahl, die aus den Modulen errechnet wird
+     * @return int : Anzahl der Semester
+     */
     public int maxSemesterAnzahl(){
         maxSemesterAnzahl = modulMap.get(0).getVerschobenesFachsemester().getid();
         for(int k : modulMap.keySet()){
@@ -59,11 +64,19 @@ public class StudienplanService {
         }
         return maxSemesterAnzahl;
     }
-
+    
+    /** 
+     * Fügt ein Semester hinzu und gibt die Anzahl zurück
+     * @return int : Semesteranzahl
+     */
     public int addSemesterAnzahl(){
         return maxSemesterAnzahl()+1;
     }
-
+    
+    /** 
+     * Berechnet die Maximal zu erreichende CP Zahl
+     * @return int : Gibt die Anzahl zurück
+     */
     public int calcMaxCP(){
         int maxCP = 0;
         for(int k : modulMap.keySet()){
@@ -71,7 +84,11 @@ public class StudienplanService {
         }
         return maxCP;
     }
-
+    
+    /** 
+     * Berechnet die schon erreichte CP Anzahl
+     * @return IntegerProperty : Gibt es als IntegerProperty zurück
+     */
     public IntegerProperty calcActCP(){
         propertyCP.set(0);
         int cps = 0;
@@ -93,23 +110,35 @@ public class StudienplanService {
         }
     }
         return propertyCP;
-    }
-
+    }  
     
-
+    /** 
+     * Gibt die CP Anzahl als Property zurück
+     * @return IntegerProperty
+     */
     public IntegerProperty getPropertyCP() {
         return propertyCP;
     }
-
+    
+    /** 
+     * Setzt die CP Anzahl
+     * @param propertyCP
+     */
     public void setPropertyCP(IntegerProperty propertyCP) {
         this.propertyCP = propertyCP;
-    }
-
+    }    
     
+    /** 
+     * Gibt die maximale CP Anzahl zurück
+     * @return int
+     */
     public int getMaxCP() {
         return maxCP;
     }
 
+    /**
+     * Checkt beim verschieben nochmal alle Module, ob die verschiebung möglich ist
+     */
     public void checkAll(){
         for(Modul m : modulMap.values()){
             
@@ -138,14 +167,16 @@ public class StudienplanService {
                 System.out.println(m.getName()+(m.getFalschVerschoben()));
                 System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
                 System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
-            }
-           
+            }          
 
-           
         }
 
     }
 
+    /**
+     * Erstellt eine XML Datei von dem aktuellen Studienplan und speichert diese 
+     * Wird beim neustart des Programms dann automatisch geladen
+     */
     public void speicherePlan(){
         try {
 
@@ -257,7 +288,7 @@ public class StudienplanService {
                     bestandenLehr.appendChild(document.createTextNode(String.valueOf(m.getLehrveranstaltungenGesamt().get(x).isBestanden())));
                     lehrveranstaltung.appendChild(bestandenLehr);
                 }
-            }    
+            }   
 
             // create the xml file
             //transform the DOM Object to an XML File

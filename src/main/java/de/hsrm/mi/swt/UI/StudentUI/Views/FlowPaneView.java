@@ -10,18 +10,16 @@ import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.CheckService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-
+/**
+ * FlowPaneView ist eine View (ScrollPane), die ein Semester darstellt
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
     private Fachsemester semester;
@@ -32,6 +30,14 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
     private CheckService checkService;
     private Text semZahl;
 
+    /**
+     * Konstruktor für die FlowPaneView
+     * @param app
+     * @param semester : jeweilige Semester von der FlowPane
+     * @param modulViewMap : Map von ModulViews
+     * @param modulViewsListe : Liste von ModulViewMaps (Alle Semester)
+     * @param studiensemester : das jeweilige Studiensemester
+     */
     public FlowPaneView(App app, Fachsemester semester, Map<Integer, ModulView> modulViewMap,
             Map<Integer, Map<Integer, ModulView>> modulViewsListe,
             Studiensemester studiensemester) {
@@ -44,8 +50,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         this.setMinHeight(70.0);
         this.modulViewMap = modulViewMap;
         this.modulViewsListe = modulViewsListe;
-        // this.setBackground(new Background(new BackgroundFill(Color.BLUE,
-        // CornerRadii.EMPTY, Insets.EMPTY)));
         this.getStylesheets().add("style.css");
         this.getStyleClass().add("flow-pane");
 
@@ -62,6 +66,9 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
     }
 
+    /**
+     * Setzt die ModulViews in die ScrollPane
+     */
     private void setModulViews() {
         this.getChildren().add(semZahl);
         for (int k : modulViewMap.keySet()) {
@@ -69,6 +76,9 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         }
     }
 
+    /**
+     * Setzt die ModulViews in die ScrollPane neu
+     */
     private void setModulViewsNew() {
         this.getChildren().clear();
         this.getChildren().add(semZahl);
@@ -78,6 +88,9 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         initialize();
     }
 
+    /**
+     * Fügt für jede ModulViewMap einen setOnDragDetected Handler und einen setOnMouseReleased Handler
+     */
     private void initialize() {
 
         for (int k : modulViewMap.keySet()) {
@@ -98,8 +111,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
                     Modul m = modulViewMap.get(k).getModul();
 
-                    // checkService.checkFortschrittsregel(modul, zielFachsemester);
-                    // checkService.checkKompetenzen(modul, zielFachsemester);
                     System.out.println("Vorheriges Sem: " + semester.getid());
                     System.out.println("Zum Verschieben Sem: " +  m.getVerschobenesFachsemester().getid());
 
@@ -125,15 +136,31 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
         }
 
     }
-
+    
+    /** 
+     * Gibt Fachsemster zurück
+     * @return Fachsemester
+     */
     public Fachsemester getSemester() {
         return semester;
     }
 
+    
+    /** 
+     * Gibt ModulViewMap zurück
+     * @return Map<Integer, ModulView>
+     */
     public Map<Integer, ModulView> getModulViewMap() {
         return modulViewMap;
     }
 
+    
+    /** 
+     * Reagiert auf Change Events
+     * (ADD_MODUL_TO_SEMESTER : Fügt ModulView in die passende ModulViewMap ein)
+     * (REMOVE_MODUL_FROM_SEMESTER : löscht die ModulView aus der passenden ModulViewMap) 
+     * @param event
+     */
     @Override
     public void propertyChange(PropertyChangeEvent event) {
 
@@ -154,7 +181,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 }
 
                 modulViewMap.put(modul.getId(), modulViewTemp);
-                // modulViewMap.put(modulViewMap.size(), modulViewTemp);
                 setModulViewsNew();
 
                 System.out.println("Modul auf der GUI zu neuer View");
@@ -162,7 +188,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
             case Studiensemester.REMOVE_MODUL_FROM_SEMESTER:
                 Map<Integer, ModulView> modulViewMapTemp2 = modulViewsListe
                         .get(modul.getVorherigesFachsemester().getid());
-                ModulView modulViewTemp2 = null;
                 for (int k : modulViewMapTemp2.keySet()) {
                     if (modulViewMapTemp2.get(k).getModul().getId() == modul.getId()) {
                         this.getModulViewMap().remove(k);
@@ -177,7 +202,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
             default:
                 throw new IllegalArgumentException("UnbehandeltesEvent " + event);
         }
-
       
     }
 

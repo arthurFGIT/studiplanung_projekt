@@ -1,7 +1,6 @@
 package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 
-import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -10,13 +9,13 @@ import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
+/**
+ * ModulView, die ein einzelnes Modul darstellt
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class ModulView extends VBox implements PropertyChangeListener{
 
 	public static final double MODULBREITE = 100.0;
@@ -30,8 +29,12 @@ public class ModulView extends VBox implements PropertyChangeListener{
 	private StudienplanService studienplanService;
 
 	
+	/**
+	 * Konstruktor für die ModulView
+	 * @param m : bekommt das jeweilige Modul mitgegeben
+	 * @param app
+	 */
 	public ModulView(Modul m, App app){
-		super();
 		this.modul = m;
 		this.app = app;
 		this.studienplanService = app.getStudienplanService();
@@ -60,6 +63,9 @@ public class ModulView extends VBox implements PropertyChangeListener{
 		initialize();
 	}
 
+	/**
+	 * Erstellt die zugehörigen LehrveranstaltungsViews und addet sie der ModulView
+	 */
 	private void createAndAddLehrveranstaltungsViews() {
 		for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
 			LehrveranstaltungsView lehrveranstaltungsView = new LehrveranstaltungsView(modul.getLehrveranstaltungenGesamt().get(i), modul, app);
@@ -68,7 +74,9 @@ public class ModulView extends VBox implements PropertyChangeListener{
 		}
 		
 	}
-
+	/**
+	 * Initialisiert Click Handler für die CheckBox, wenn ein Modul bestanden ist
+	 */
 	private void initialize() {
 		
 		checkBestanden.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -104,14 +112,19 @@ public class ModulView extends VBox implements PropertyChangeListener{
 
 	}
 
+	
+	/** 
+	 * Gibt das Modul zurück
+	 * @return Modul
+	 */
 	public Modul getModul() {
 		return this.modul;
 	}
-
-	public void setModul(Modul modul) {
-		this.modul = modul;
-	}
-
+	
+	/** 
+	 * Property Change Methode, Färbung der ModulViews, wenn etwas falsch verschoben wurde
+	 * @param evt
+	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		

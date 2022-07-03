@@ -3,7 +3,6 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
@@ -11,8 +10,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.beans.property.IntegerProperty;
-
+/**
+ * UebersichtsView, beinhaltet den Studienfortschritt und einen Speichern button für den geänderten Studienplan
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class UebersichtView extends BorderPane{
 
     private Button saveButton;
@@ -26,6 +27,10 @@ public class UebersichtView extends BorderPane{
     private IntegerProperty actCP;
     private int maxCP;
 
+    /**
+     * Erstellt die View mit Text und Button
+     * @param app
+     */
     public UebersichtView(App app){
         this.getStylesheets().add("style.css");
         this.getStyleClass().add("body");
@@ -47,6 +52,9 @@ public class UebersichtView extends BorderPane{
         initialize();
     }
 
+    /**
+     * Initialisiert Handler für den speichern Button und einen Listener für die aktuelle Anzeige der bereits erreichten CPs
+     */
     public void initialize(){
 
         saveButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {                

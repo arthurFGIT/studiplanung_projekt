@@ -2,16 +2,15 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.ErrorService;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 
+/**
+ * Die StudentView beinhaltet die StudienplanungView und die ÜbersichtsView
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class StudentView extends BorderPane {
 
     private StudienplanungView studienplanungView;
@@ -23,6 +22,12 @@ public class StudentView extends BorderPane {
     private ErrorService errorService;
     private ErrorView errorView;
 
+
+    /**
+     * Konstruktor der StudentView
+     * @param app
+     * @param studienplanPfad : bekommt den Pfad des Studienplans mitgegeben
+     */
     public StudentView(App app, String studienplanPfad){
         this.app = app;
         this.modulService = app.getModulService();
@@ -43,8 +48,6 @@ public class StudentView extends BorderPane {
         this.setLeft(studienplanungView);
         this.setRight(uebersichtView);
 
-
     }
-
 
 }

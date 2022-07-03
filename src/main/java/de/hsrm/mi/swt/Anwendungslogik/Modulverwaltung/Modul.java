@@ -3,6 +3,11 @@ package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
+
+/**
+ * Die Verwaltung eines Moduls
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class Modul {
 
 
@@ -22,16 +27,16 @@ public class Modul {
 
     /**
      * Konstruktor für ein Modul
-     * @param id
-     * @param name
-     * @param beschreibung
-     * @param cpGesamt
-     * @param kompetenz
-     * @param originalesFachsemester
-     * @param verschobenesFachsemester
-     * @param vorherigesFachsemester
-     * @param bestanden
-     * @param lehrveranstaltungenGesamt
+     * @param id : ModulID -> eindeutige Kennung
+     * @param name : Modulname
+     * @param beschreibung : Modulbeschreibung
+     * @param cpGesamt : Gesamte CP Anzahl
+     * @param kompetenz : Liste an Komepetenzen des Moduls
+     * @param originalesFachsemester : Das originale Fachsemester laut Curriculum
+     * @param verschobenesFachsemester : Das verschobene Fachsemester
+     * @param vorherigesFachsemester : Das vorherige Fachsemester vor dem verschieben
+     * @param bestanden : Wahrheitswert, ob das Modul bestanden ist
+     * @param lehrveranstaltungenGesamt : Liste an Lehrveranstaltungen des Moduls 
      */
     public Modul(int id, String name, String beschreibung, int cpGesamt, List<Kompetenz> kompetenz,
             Fachsemester originalesFachsemester, Fachsemester verschobenesFachsemester, Fachsemester vorherigesFachsemester, boolean bestanden, List<Lehrveranstaltung> lehrveranstaltungenGesamt) {

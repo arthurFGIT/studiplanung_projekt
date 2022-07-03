@@ -1,5 +1,8 @@
 package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
-
+/**
+ * Lehrveranstaltung, die in einem Modul angeboten wird
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class Lehrveranstaltung {
 
     private int workloadInCP;
@@ -8,9 +11,9 @@ public class Lehrveranstaltung {
 
     /**
      * Konstruktor für eine Lehrveranstaltung
-     * @param workloadInCP
-     * @param veranstaltungsTyp
-     * @param bestanden
+     * @param workloadInCP : CP Anzahl für die Lehrveranstaltung
+     * @param veranstaltungsTyp : Typ der Veranstaltung
+     * @param bestanden : Wahrheitswert, ob die Lehrveranstaltung bestanden ist
      */
     public Lehrveranstaltung(int workloadInCP, VeranstaltungsTyp veranstaltungsTyp, boolean bestanden) {
         this.workloadInCP = workloadInCP;

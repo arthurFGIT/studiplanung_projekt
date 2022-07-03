@@ -7,6 +7,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * Die Errorview ist für die Anzeige der Errors beim verschieben zuständig
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class ErrorView extends ScrollPane{
 
     private App app;
@@ -14,6 +18,11 @@ public class ErrorView extends ScrollPane{
     private VBox messagesBox;
 
     
+    /**
+     * Konstruktor der Errorview
+     * Erzeugt den Body (Scrollpane) mit einer VBox von messages
+     * @param app
+     */
     public ErrorView(App app){
         this.app = app;
         observableMessages = app.getErrorService().getObservableMessages();
@@ -31,6 +40,9 @@ public class ErrorView extends ScrollPane{
         initialize();
     }
 
+    /**
+     * Erstellt die VBox mit den Messages
+     */
     public void createVBox(){
 
         messagesBox.getChildren().clear();
@@ -42,6 +54,9 @@ public class ErrorView extends ScrollPane{
 
     }
 
+    /**
+     * Fügt ein ListChangeListener an die Observerable Messages
+     */
     private void initialize() {
 
         observableMessages.addListener(new ListChangeListener<String>() {

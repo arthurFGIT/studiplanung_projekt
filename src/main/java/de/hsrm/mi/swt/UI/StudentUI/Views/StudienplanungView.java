@@ -7,8 +7,6 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.ErrorService;
-import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
@@ -19,10 +17,12 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
+/**
+ * StudienplanungView verwaltet alle Flowpaneviews in einer Scrollpane
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class StudienplanungView extends ScrollPane {
 
 	private Modul modul;
@@ -30,21 +30,19 @@ public class StudienplanungView extends ScrollPane {
 	private Pane container;
 	private Map<Integer, ModulView> modulViewMap;
 	private Map<Integer, Map<Integer, ModulView>> modulViewsListe;
-
-
 	private Map<Integer, FlowPaneView> flowPaneMap;
 	private VBox containerVBox;
-
 	private Fachsemester aktuellesFachsemester, vorherigesFachsemester;
-
 	private App app;
-
 	private Button addSemester;
-
-	private ModulService modulService; // später durch Studienplanservice -> lade Plan ersetzen
+	private ModulService modulService;
 	private StudienplanService studienplanService;
 
 
+	/**
+	 * Konstruktor der StudienplanungView, der Button und FlowPaneViews läd
+	 * @param app
+	 */
 	public StudienplanungView(App app) {
 		this.app = app;
 		this.getStylesheets().add("style.css");
@@ -79,6 +77,10 @@ public class StudienplanungView extends ScrollPane {
 
 	}
 
+	/**
+	 * Läd die FlowPaneViews und Button neu, wenn ein neues Semester hinzugefügt wird
+	 * @param semesteranzahl : die Anzahl der neuen Semester
+	 */
 	public void ladeViewsNew(int semesteranzahl){
 		containerVBox.getChildren().clear();
 		container.getChildren().clear();
@@ -96,6 +98,9 @@ public class StudienplanungView extends ScrollPane {
 
 	}
 
+	/**
+	 * Läd die Views zu beginn mit den Standardsemestern
+	 */
 	public void ladeViews(){
 		containerVBox.getChildren().add(addSemester);
 		for(int i = flowPaneMap.size(); i > 0 ; i--){
@@ -107,6 +112,10 @@ public class StudienplanungView extends ScrollPane {
 		container.getStyleClass().add("flow-panes");
 	}
 
+	/**
+	 * Erstellt die einzelnen FlowPaneViews mit zugehörigen ModulViews
+	 * @param semesteranzahl : die Semesteranzahl (neu oder alt)
+	 */
 	public void ladePlan(int semesteranzahl){	
 
 
@@ -163,6 +172,9 @@ public class StudienplanungView extends ScrollPane {
 		}		
 	}
 
+	/**
+	 * Initialisierung des Buttons mit einem Click Handler, der dafür sorgt, dass die Views neu geladen werden
+	 */
 	public void initButton(){
 		addSemester.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 			System.out.println(studienplanService.addSemesterAnzahl());
@@ -170,6 +182,9 @@ public class StudienplanungView extends ScrollPane {
 		});
 	}
 
+	/**
+	 * Initialisiert Handler für das DragOver und DragDropped auf jeder FlowPaneView
+	 */
 	public void initialize() {
 
 		for(int k : flowPaneMap.keySet()){
@@ -209,10 +224,7 @@ public class StudienplanungView extends ScrollPane {
 							
 							modulService.getStudienplan().holeStudiensemesterMitId(modul.getVerschobenesFachsemester().getid()).addToSemester(modul);
 							modulService.getStudienplan().holeStudiensemesterMitId(modul.getVorherigesFachsemester().getid()).removeFromSemester(modul);
-							studienplanService.checkAll();
-
-
-							
+							studienplanService.checkAll();							
 
 						}
 

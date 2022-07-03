@@ -1,5 +1,8 @@
 package de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung;
-
+/**
+ * Das Fachsemester ist definiert durch eine Nummer z.B. 1. Semester und ob es ein Winter- oder Sommersemester ist
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class Fachsemester {
 
     private int id;
@@ -7,8 +10,8 @@ public class Fachsemester {
 
     /**
      * Konstruktor für das Fachsemester
-     * @param id
-     * @param angebotsIntervall
+     * @param id : Semesterzahl
+     * @param angebotsIntervall : Winter- oder Sommersemester
      */
     public Fachsemester(int id, AngebotsIntervall angebotsIntervall) {
         this.id = id;

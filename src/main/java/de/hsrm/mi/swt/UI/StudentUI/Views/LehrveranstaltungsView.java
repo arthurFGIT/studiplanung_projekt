@@ -1,8 +1,5 @@
 package de.hsrm.mi.swt.UI.StudentUI.Views;
 
-
-import java.awt.Color;
-
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Lehrveranstaltung;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
@@ -11,13 +8,13 @@ import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.main.App;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
+/**
+ * LehrveranstaltungsView, stellt die Lehrveranstaltung in der ModulView dar
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class LehrveranstaltungsView extends VBox{
 
 	public static final double MODULBREITE = 80.0;
@@ -30,10 +27,14 @@ public class LehrveranstaltungsView extends VBox{
 	private HBox nameWithCheck;
 	private StudienplanService studienplanService;
 	private Modul modul;
-
 	
+	/**
+	 * Konstruktor für die LehrveranstaltungsView
+	 * @param l : bekommt eine Lehrveranstaltung mit
+	 * @param m : bekommt das Modul, der jeweiligen Lehrveranstalung mit
+	 * @param app
+	 */
 	public LehrveranstaltungsView(Lehrveranstaltung l, Modul m, App app){
-		super();
 		this.lehrveranstaltung = l;
 		this.app = app;
 		this.studienplanService = app.getStudienplanService();
@@ -59,6 +60,9 @@ public class LehrveranstaltungsView extends VBox{
 		initialize();
 	}
 
+	/**
+	 * Initialisiert Click Handler für die CheckBox, wenn eine Lehrveranstaltung bestanden ist
+	 */
 	private void initialize() {
 		
 		checkBestanden.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -87,15 +91,15 @@ public class LehrveranstaltungsView extends VBox{
 
 	}
 
-    public Lehrveranstaltung getLehrveranstaltung() {
-        return lehrveranstaltung;
-    }
-
-    public void setLehrveranstaltung(Lehrveranstaltung lehrveranstaltung) {
-        this.lehrveranstaltung = lehrveranstaltung;
-    }
-
     
+	/** 
+	 * Gibt die Lehrveranstaltung zurück
+	 * @return Lehrveranstaltung
+	 */
+	public Lehrveranstaltung getLehrveranstaltung() {
+        return lehrveranstaltung;
+    }   
+	 
 }
     
 

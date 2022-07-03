@@ -1,6 +1,5 @@
 package de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,21 +8,33 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Kompetenz;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
-
+/**
+ * CheckService, der die Check-Methoden für das Verschieben von Modulen zur Verfügung stellt
+ * @author Marie Bohnert, Beate Arnold, Arthur Fieguth
+ */
 public class CheckService {
     
     private ErrorService errorService;  
     private Map<Integer, Modul> modulMap;
     private ModulService modulService;
-    private final int SEMESTERANZAHL_STANDARDCURRICULUM = 7;
 
 
+    /**
+     * Konstruktor für den CheckService
+     * @param modulService : Instanz vom ModulService -> Module zu erhalten
+     * @param errorService : Instanz vom ErrorService -> Errormeldungen zu speichern
+     */
     public CheckService(ModulService modulService, ErrorService errorService) {
         this.errorService = errorService;
         this.modulService = modulService;
         modulMap = modulService.getModulMap();
     }
 
+    
+    /** 
+     * Es wird überprüft, ob benötigte Kompetenzen beim verschieben nicht mehr erfüllt werden können
+     * @param modul : Das Modul, welches verschoben wird
+     */
     public void checkKompetenzen(Modul modul){
         List<Kompetenz> kompetenzen = modul.getKompetenzGesamt();
         // alle durchgehen -> größer gleich ziel.id => kompetenzen dadrin - name Modul
@@ -49,6 +60,11 @@ public class CheckService {
         
     }   
 
+    
+    /** 
+     * Es wird überprüft, ob die Fortschrittsregelung, beim verschieben eines Moduls, eingehalten wird
+     * @param modul : Modul, welches verschoben wird
+     */
     public void checkFortschrittsregel(Modul modul){
 
         
@@ -78,6 +94,11 @@ public class CheckService {
 
     }
     
+    
+    /** 
+     * Es wird überprüft, ob das Modul, das verschoben werden soll, in diesem Semester angeboten wird
+     * @param modul : Modul, welches verschoben wird
+     */
     public void checkSemester(Modul modul){
         
         AngebotsIntervall angebotsIntervall = modul.getOriginalesFachsemester().getAngebotsIntervall();
