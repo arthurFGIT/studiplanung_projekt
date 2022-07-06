@@ -276,7 +276,7 @@ public class StudienplanService {
 
             transformer.transform(domSource, streamResult);
 
-            System.out.println("Done creating XML File"); // TODO: Message auf der View
+            System.out.println("Done creating XML File");
 
 
         } catch (ParserConfigurationException pce) {
@@ -287,5 +287,11 @@ public class StudienplanService {
 
         
     }
+
+    public void setModulMap(Map<Integer, Modul> modulMap) {
+        this.modulMap = modulMap;
+    }
+
+    
 
 }

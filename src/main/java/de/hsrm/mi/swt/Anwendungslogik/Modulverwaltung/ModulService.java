@@ -187,5 +187,20 @@ public class ModulService {
      */
     public Studienplan getStudienplan() {
         return studienplan;
-    }    
+    }
+
+    public void setStudienplan(Studienplan studienplan){
+        this.studienplan = studienplan;
+    }
+
+
+    /**
+     * 
+     * @param modulMap
+     */
+    public void setModulMap(Map<Integer, Modul> modulMap) {
+        this.modulMap = modulMap;
+    }  
+    
+    
 }

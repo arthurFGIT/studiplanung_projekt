@@ -1,11 +1,13 @@
 package de.hsrm.mi.swt;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
@@ -26,8 +28,8 @@ public class StudienplanServiceTester {
     private ErrorService errorService = new ErrorService();  
     private ModulService modulService = new ModulService(app);
     private CheckService checkService = new CheckService(modulService, errorService);
-
     private StudienplanService studienplanService = new StudienplanService(modulService, checkService, errorService);
+
 
     private Fachsemester erstes = new Fachsemester(1, AngebotsIntervall.WINTER);
     private Fachsemester zweites = new Fachsemester(2, AngebotsIntervall.SOMMER);
@@ -51,26 +53,33 @@ public class StudienplanServiceTester {
         kompetenzList2.add(kompetenz2);
     }
     
-    private Modul modul = new Modul(1, "testModul", "Dies ist ein Test", 6,kompetenzList, erstes, erstes, erstes, false, lvList);
-    private Modul modul2 = new Modul(2, "testModul2", "Dies ist ein Test", 4, kompetenzList2, zweites, zweites, zweites, false, lvList);
+    private Modul modul = new Modul(1, "testModul", "Dies ist ein Test", 6,kompetenzList, erstes, erstes, erstes, true, lvList);
+    private Modul modul2 = new Modul(2, "testModul2", "Dies ist ein Test", 4, kompetenzList2, zweites, zweites, zweites, true, lvList);
     private Modul modul3 = new Modul(3, "testModul3", "Dies ist ein Test", 5, kompetenzList2, drittes, drittes, drittes, false, lvList);
 
     private Map<Integer, Modul> modulMap = new HashMap<>();
 
     private final int MAX_SEMESTER_ANZAHL = 3;
     private final int CP_GESAMT = 15;
+    private final int CP_ACT = 10;
 
-    @Test
-    void vorabCheck(){
+    @BeforeEach
+    void putInMaps(){
         erzeugen();
         modulMap.put(0,modul);
         modulMap.put(1,modul2);
         modulMap.put(2,modul3);
+        studienplanService.setModulMap(modulMap);
+    }
+
+    
+    @Test
+    void vorabCheck(){
         Assertions.assertNotNull(modulService);
         Assertions.assertNotNull(errorService);
         Assertions.assertNotNull(checkService);
         Assertions.assertNotNull(studienplanService);
-    }
+    }     
 
     @Test
     void checkMaxSemesterAnzahl(){
@@ -85,5 +94,17 @@ public class StudienplanServiceTester {
     @Test
     void checkCalcMaxCp(){
         Assertions.assertEquals(CP_GESAMT, studienplanService.calcMaxCP());
+    }
+
+    @Test
+    void checkCalcActCp(){
+        Assertions.assertEquals(CP_ACT, studienplanService.calcActCP().intValue());
+    }
+
+    @Test
+    void checkspeicherePlan(){
+        studienplanService.speicherePlan();
+        File file = new File("moduleIndividual.xml");
+        Assertions.assertNotNull(file);
     }
 }

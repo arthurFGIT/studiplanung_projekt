@@ -3,6 +3,8 @@ package de.hsrm.mi.swt.UI.StudentUI.Views;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
@@ -27,6 +29,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 	private CheckBox checkBestanden;
 	private HBox nameWithCheck;
 	private StudienplanService studienplanService;
+	private List<LehrveranstaltungsView> lehrveranstaltungenViews;
 
 	
 	/**
@@ -47,6 +50,8 @@ public class ModulView extends VBox implements PropertyChangeListener{
 		name = new Text(m.getName());
 		cpGesamt = new Text("CP: " + String.valueOf(m.getCpGesamt()));
 		this.setSpacing(5);
+
+		lehrveranstaltungenViews = new ArrayList();
 		
 		checkBestanden = new CheckBox();
 		if(modul.isBestanden()){
@@ -70,6 +75,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 		for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
 			LehrveranstaltungsView lehrveranstaltungsView = new LehrveranstaltungsView(modul.getLehrveranstaltungenGesamt().get(i), modul, app);
 			lehrveranstaltungsView.getStyleClass().add("lehrveranstaltung-view");
+			lehrveranstaltungenViews.add(lehrveranstaltungsView);
 			this.getChildren().add(lehrveranstaltungsView);			
 		}
 		

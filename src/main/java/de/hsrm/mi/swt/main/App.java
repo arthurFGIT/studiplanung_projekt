@@ -105,5 +105,15 @@ public class App extends Application {
 		return errorService;
 	}
 
+	public void setModulService(ModulService modulService) {
+		this.modulService = modulService;
+	}
+
+	public void setStudienplanService(StudienplanService studienplanService) {
+		this.studienplanService = studienplanService;
+	}
+
+	
+
 	
 }

@@ -64,7 +64,9 @@ public class Studienplan {
      */
     public Map<Integer, Studiensemester> getSemesterMap() {
         return semesterMap;
-    } 
+    }
+
+    
 }
 
     
