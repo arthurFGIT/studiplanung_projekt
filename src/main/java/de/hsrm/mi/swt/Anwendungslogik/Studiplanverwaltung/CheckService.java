@@ -92,8 +92,7 @@ public class CheckService {
             }
         }
 
-    }
-    
+    }    
     
     /** 
      * Es wird überprüft, ob das Modul, das verschoben werden soll, in diesem Semester angeboten wird
@@ -109,7 +108,6 @@ public class CheckService {
             }
 
         } else{
-            // System.out.println("Kann nicht verschoben werden (Angebotsintervall).");
             errorService.getObservableMessages().add("Das Modul "+ modul.getName() + " wird nicht in diesem Semester angeboten.");
             modul.setFalschVerschoben(true);
         }

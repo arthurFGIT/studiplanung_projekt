@@ -1,0 +1,58 @@
+<?xml version = "1.0"?>
+<module>
+    <modul>
+        <id>0</id>
+        <name>Programmieren 1</name>
+        <beschreibung>Lernen Sie Programmieren</beschreibung>
+        <cpGesamt>7</cpGesamt>
+        <kompetenzen>
+        </kompetenzen>            
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>4</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+    <modul>
+        <id>1</id>
+        <name>Einführung in die Medieninformatik</name>
+        <beschreibung>In dem Modul sollen sowohl theoretische Kompetenzen erworben als auch deren konkrete Anwendung bzw. praktische Umsetzung während des Semesters erprobt werden.</beschreibung>
+        <cpGesamt>5</cpGesamt>
+        <kompetenzen>
+         
+        </kompetenzen>            
+        <origFachsemesterId>1</origFachsemesterId>
+        <origAngebotsIntervall>WINTER</origAngebotsIntervall>
+        <verschFachsemesterId>1</verschFachsemesterId>
+        <verschAngebotsIntervall>WINTER</verschAngebotsIntervall>
+        <vorherigesFachsemesterId>1</vorherigesFachsemesterId>
+        <vorherigesAngebotsIntervall>WINTER</vorherigesAngebotsIntervall>
+        <bestanden>false</bestanden>
+        <lehrveranstaltungen>
+            <lehrveranstaltung>
+                <workloadInCP>3</workloadInCP>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+            <lehrveranstaltung>
+                <workloadInCP>2</workloadInCP>
+                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <bestanden>false</bestanden>
+            </lehrveranstaltung>
+        </lehrveranstaltungen>
+    </modul>
+</module>

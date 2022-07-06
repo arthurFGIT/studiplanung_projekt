@@ -228,7 +228,6 @@ public class StudienplanungView extends ScrollPane {
 
 						}
 
-						// TODO: vor save alle Module checken
 						System.out.println("DROP HAT GEKLAPPT");
 
                         success = true;

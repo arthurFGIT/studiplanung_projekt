@@ -137,40 +137,17 @@ public class StudienplanService {
     }
 
     /**
-     * Checkt beim verschieben nochmal alle Module, ob die verschiebung möglich ist
+     * Checkt beim verschieben nochmal alle Module, ob die Verschiebung möglich ist
      */
     public void checkAll(){
         for(Modul m : modulMap.values()){
             
             m.setFalschVerschoben(false);
-
-            if (m.getName().equals("Programmieren 1")){
-                System.out.println(m.getName()+(m.getFalschVerschoben()));
-                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
-                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
-            }
-            checkService.checkSemester(m);
-            if (m.getName().equals("Programmieren 1")){
-                System.out.println(m.getName()+(m.getFalschVerschoben()));
-                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
-                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
-            }						
-            checkService.checkFortschrittsregel(m);
-            if (m.getName().equals("Programmieren 1")){
-                System.out.println(m.getName()+(m.getFalschVerschoben()));
-                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
-                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
-            }     
-            checkService.checkKompetenzen(m);
-            
-            if (m.getName().equals("Programmieren 1")){
-                System.out.println(m.getName()+(m.getFalschVerschoben()));
-                System.out.println(m.getOriginalesFachsemester().getAngebotsIntervall());
-                System.out.println(m.getVerschobenesFachsemester().getAngebotsIntervall());
-            }          
+            checkService.checkSemester(m);						
+            checkService.checkFortschrittsregel(m); 
+            checkService.checkKompetenzen(m);       
 
         }
-
     }
 
     /**
