@@ -60,6 +60,7 @@ public class App extends Application {
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Studiplanung");
+			primaryStage.setFullScreen(true);
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
