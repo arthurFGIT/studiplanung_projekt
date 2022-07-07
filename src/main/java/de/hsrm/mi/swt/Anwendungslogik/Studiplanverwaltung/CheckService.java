@@ -43,8 +43,6 @@ public class CheckService {
 
                 for(Kompetenz komp : kompetenzen){
                     if(komp.getName().equals(m.getName())){
-                        // errorService.getObservableMessages().add("Wenn du das Modul "+ modul.getName() + " dorthin verschiebst, fehlen dir wichtige Kompetenzen in den vorherigen Semestern.");      
-                        // System.out.println("Wenn du das Modul "+modul.getName() + "dorthin verschiebst, fehlen dir wichtige Kompetenzen in den vorherigen Semestern.");
 
                         modul.setFalschVerschoben(true);
                     }
@@ -84,7 +82,7 @@ public class CheckService {
         for (Modul m : modulMap.values()){
             if (m.getVerschobenesFachsemester().getid() >= aktuellFachsemester.getid()){
                 if (m.getOriginalesFachsemester().getid() <= mindestSemester){                    
-                    errorService.getObservableMessages().add("Das Modul "+ modul.getName() + " verstoeßt gegen die Fortschrittsregel");
+                    errorService.getObservableMessages().add("Das Modul "+ modul.getName() + " verstoesst gegen die Fortschrittsregel");
                     modul.setFalschVerschoben(true);
                     return;
                 }

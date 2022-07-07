@@ -32,8 +32,7 @@ public class StudienplanService {
     private IntegerProperty propertyCP;
     private int maxCP;
 
-
-    public static final String xmlFilePath = "moduleIndividual.xml";   
+    public static final String xmlFilePath = "./src/main/resources/individualPlan.xml";   
 
 
     /**
@@ -95,10 +94,8 @@ public class StudienplanService {
         for(int k : modulMap.keySet()){
             
             if(modulMap.get(k).isBestanden()){
-                System.out.println("Add CP: " + modulMap.get(k).getCpGesamt());
                 cps += modulMap.get(k).getCpGesamt();
                 propertyCP.set(cps);
-                System.out.println(propertyCP.getValue());
             }
             else{
                 for(int y = 0 ;y < modulMap.get(k).getLehrveranstaltungenGesamt().size(); y++){
@@ -248,7 +245,7 @@ public class StudienplanService {
                 // lehrveranstaltungen element
                 Element lehrveranstaltungen = document.createElement("lehrveranstaltungen");
                 modul.appendChild(lehrveranstaltungen);
-
+                
                 for(int x = 0; x < m.getLehrveranstaltungenGesamt().size(); x++){
                     Element lehrveranstaltung = document.createElement("lehrveranstaltung");
                     lehrveranstaltungen.appendChild(lehrveranstaltung);

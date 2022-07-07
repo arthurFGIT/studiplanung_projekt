@@ -44,7 +44,6 @@ public class ModulView extends VBox implements PropertyChangeListener{
 		this.getStylesheets().add("style.css");
 		this.getStyleClass().add("modul-view");
 		m.addPropertyChangeListener(this);
-		System.out.println("ModulView");
         prefWidth(MODULBREITE);
         prefHeight(MODULHOEHE);
 		name = new Text(m.getName());
@@ -102,8 +101,6 @@ public class ModulView extends VBox implements PropertyChangeListener{
 					this.setStyle("-fx-background-color: #c6f1e5;");	
 				}
 						
-				System.out.println("Act CP: " + studienplanService.calcActCP().getValue());
-				System.out.println("Modul Bestanden: " + modul.isBestanden());
 			}
 			else{
 				modul.setBestanden(false);
@@ -118,7 +115,6 @@ public class ModulView extends VBox implements PropertyChangeListener{
 				}
 				
 				studienplanService.calcActCP();
-				System.out.println("Modul Bestanden: " + modul.isBestanden());
 			}            
 		});
 

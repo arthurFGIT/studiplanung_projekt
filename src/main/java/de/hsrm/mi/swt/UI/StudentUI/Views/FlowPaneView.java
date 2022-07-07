@@ -111,9 +111,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
 
                     Modul m = modulViewMap.get(k).getModul();
 
-                    System.out.println("Vorheriges Sem: " + semester.getid());
-                    System.out.println("Zum Verschieben Sem: " +  m.getVerschobenesFachsemester().getid());
-
                     if (semester.getid() != m.getVerschobenesFachsemester().getid()) {
                         m.setVerschobenesFachsemester(semester);
 
@@ -196,7 +193,6 @@ public class FlowPaneView extends FlowPane implements PropertyChangeListener {
                 }
 
                 setModulViewsNew();
-                System.out.println(modulViewMap);
                 System.out.println("Modul auf der GUI aus alter View");
                 break;
             default:

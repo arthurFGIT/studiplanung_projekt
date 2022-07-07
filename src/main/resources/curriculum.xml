@@ -17,7 +17,7 @@
         <lehrveranstaltungen>
             <lehrveranstaltung>
                 <workloadInCP>3</workloadInCP>
-                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
+                <veranstaltungsTyp>VORLESUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
             <lehrveranstaltung>
@@ -105,7 +105,7 @@
             </lehrveranstaltung>
             <lehrveranstaltung>
                 <workloadInCP>2</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
         </lehrveranstaltungen>
@@ -133,7 +133,7 @@ hohen Innovationsraten, wirtschaftlichen Risiken und Kundenansprüchen betriebsw
             </lehrveranstaltung>
             <lehrveranstaltung>
                 <workloadInCP>2</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
         </lehrveranstaltungen>
@@ -205,7 +205,7 @@ benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssp
         <beschreibung>Ausbau der bisherigen Fertigkeiten und Techniken des Programmierens:Objektorientierte Paradigmen aufgabengerecht einsetzen, Programmieraufgaben in einer konkreten Programmiersprache objektorientiert umsetzen, Umfangreichen, genormten Standard Bibliotheken verwenden</beschreibung>
         <cpGesamt>5</cpGesamt>
         <kompetenzen>
- 		<kompetenz>Programmieren 1</kompetenz>
+ 		    <kompetenz>Programmieren 1</kompetenz>
             <kompetenz>Einführung in die Medieninformatik</kompetenz>
         </kompetenzen>
         <origFachsemesterId>2</origFachsemesterId>
@@ -279,7 +279,7 @@ benötigt daher folgendende Fähigkeiten: XML zur Definition von Auszeichnungssp
             </lehrveranstaltung>
             <lehrveranstaltung>
                 <workloadInCP>2</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
         </lehrveranstaltungen>
@@ -307,7 +307,7 @@ sowie das problembewusste Erkennen von entsprechenden praxisbezogenen Grundfäll
             </lehrveranstaltung>
             <lehrveranstaltung>
                 <workloadInCP>2</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
         </lehrveranstaltungen>
@@ -457,7 +457,7 @@ effizienter, kompakter, mit geringerem Fehlerpotential und wartungsfreundlicher 
             </lehrveranstaltung>
             <lehrveranstaltung>
                 <workloadInCP>3</workloadInCP>
-                <veranstaltungsTyp>PRAKTIKUM</veranstaltungsTyp>
+                <veranstaltungsTyp>UEBUNG</veranstaltungsTyp>
                 <bestanden>false</bestanden>
             </lehrveranstaltung>
         </lehrveranstaltungen>

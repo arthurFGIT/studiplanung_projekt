@@ -85,7 +85,7 @@ public class ModulServiceTester {
 
     @Test
     void checkModulErzeugen(){
-        String dateipfad = "curriculum.xml";
+        String dateipfad = "./src/main/resources/curriculum.xml";
         modulMap = modulService.erzeugen(dateipfad);
         Assertions.assertInstanceOf(Modul.class, modulMap.get(0));
     }

@@ -121,6 +121,20 @@ public class ModulService {
                 VeranstaltungsTyp veranstaltungsTyp = null;
                 boolean lehrveranstaltungBestanden = false;
 
+                // Node lehrveranstaltungenNode = document.getElementsByTagName("lehrveranstaltung").item(i);
+                // NodeList lehrveranstaltungenList = lehrveranstaltungenNode.getChildNodes();
+                // List<Lehrveranstaltung> lehrveranstaltungListe = new ArrayList<>();
+                // System.out.println("Modul " + i + ": ");
+                // for (int l = 0; l < lehrveranstaltungenList.getLength(); l++){
+                //     Node node = lehrveranstaltungenList.item(l);
+                //     if (node.getNodeType() == Node.ELEMENT_NODE) {
+                //         NodeList liste = node.getChildNodes();
+                //         System.out.println(liste.item(l).getTextContent());
+                        
+                        
+                //     }
+                // }
+
                 List<String> nodes;
                 NodeList childreeen;
                 NodeList children = document.getElementsByTagName("lehrveranstaltungen").item(i).getChildNodes();
@@ -163,9 +177,9 @@ public class ModulService {
                 }
 
                 neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, vorherigesFachsemester, bestanden, lehrveranstaltungsListe);
-                for(int o = 0; o < kompetenzListe.size(); o++){
-                    System.out.println("Kompetenz von Modul " + i + ": " + neuesModul.getKompetenzGesamt().get(o).getName());
-                }
+                // for(int o = 0; o < kompetenzListe.size(); o++){
+                //     System.out.println("Kompetenz von Modul " + i + ": " + neuesModul.getKompetenzGesamt().get(o).getName());
+                // }
                 modulMap.put(i, neuesModul);
             }
 

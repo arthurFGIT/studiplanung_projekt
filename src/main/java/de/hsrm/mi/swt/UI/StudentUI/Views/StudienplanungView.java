@@ -10,6 +10,7 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
+import javafx.beans.property.IntegerProperty;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -72,10 +73,11 @@ public class StudienplanungView extends ScrollPane {
 
 		this.setContent(container);
 		this.setFitToWidth(true);
+        
+        app.getStudienplanService().checkAll();
 
 		initialize();
 		initButton();
-
 
 	}
 
@@ -176,7 +178,6 @@ public class StudienplanungView extends ScrollPane {
 	 */
 	public void initButton(){
 		addSemester.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-			System.out.println(studienplanService.addSemesterAnzahl());
 			ladeViewsNew(studienplanService.addSemesterAnzahl());
 		});
 
@@ -186,6 +187,7 @@ public class StudienplanungView extends ScrollPane {
 			this.modulViewMap.clear();
 			this.modulViewsListe.clear();
 			this.flowPaneMap.clear();
+			studienplanService.getPropertyCP().set(0);
 			modulService.erzeugen("curriculum.xml");
 			this.ladeViewsNew(studienplanService.maxSemesterAnzahl());
 
@@ -225,9 +227,6 @@ public class StudienplanungView extends ScrollPane {
 						aktuellesFachsemester = flowPaneMap.get(k).getSemester();
 
 						if(vorherigesFachsemester.getid() != aktuellesFachsemester.getid()){
-							System.out.println("vorher: " + vorherigesFachsemester.getid() + "nachher" + aktuellesFachsemester.getid());
-
-
 							
 							modul.setVorherigesFachsemester(vorherigesFachsemester);
 							modul.setVerschobenesFachsemester(aktuellesFachsemester);

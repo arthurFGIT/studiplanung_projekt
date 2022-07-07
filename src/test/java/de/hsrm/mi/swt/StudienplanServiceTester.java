@@ -104,7 +104,7 @@ public class StudienplanServiceTester {
     @Test
     void checkspeicherePlan(){
         studienplanService.speicherePlan();
-        File file = new File("moduleIndividual.xml");
+        File file = new File("./src/main/resources/individualPlan.xml");
         Assertions.assertNotNull(file);
     }
 }

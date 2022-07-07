@@ -35,6 +35,7 @@ public class ErrorView extends ScrollPane{
         messagesBox = new VBox();
 
 
+
         this.setContent(messagesBox);
 
         initialize();

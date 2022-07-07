@@ -74,8 +74,6 @@ public class LehrveranstaltungsView extends VBox{
 					modul.getVerschobenesFachsemester().setAngebotsIntervall(AngebotsIntervall.WISO);
 					System.out.println("verschobenes Fachsemester Angebotsintervall zu WISO gesetzt");
 				}	
-				System.out.println("Act CP: " + studienplanService.calcActCP().getValue());
-				System.out.println("Lehrveranstaltung Bestanden: " + lehrveranstaltung.isBestanden());
 			}
 			else{
 				lehrveranstaltung.setBestanden(false);
@@ -83,9 +81,7 @@ public class LehrveranstaltungsView extends VBox{
 				studienplanService.calcActCP();
 				if(lehrveranstaltung.getVeranstaltungsTyp() == VeranstaltungsTyp.PRAKTIKUM){
 					modul.getVerschobenesFachsemester().setAngebotsIntervall(modul.getVorherigesFachsemester().getAngebotsIntervall());
-					System.out.println("verschobenes Fachsemester Angebotsintervall zurueck gesetzt");
 				}	
-				System.out.println("Lehrveranstaltung Bestanden: " + lehrveranstaltung.isBestanden());
 			}            
 		});
 
