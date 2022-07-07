@@ -50,7 +50,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 		cpGesamt = new Text("CP: " + String.valueOf(m.getCpGesamt()));
 		this.setSpacing(5);
 
-		lehrveranstaltungenViews = new ArrayList();
+		lehrveranstaltungenViews = new ArrayList<>();
 		
 		checkBestanden = new CheckBox();
 		if(modul.isBestanden()){
