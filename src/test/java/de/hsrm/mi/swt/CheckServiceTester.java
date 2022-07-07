@@ -146,7 +146,6 @@ public class CheckServiceTester {
         modul2.setVerschobenesFachsemester(zweites);
         modul2.setFalschVerschoben(false);
 
-
     }
 
     // @Test

@@ -90,6 +90,12 @@ public class ModulView extends VBox implements PropertyChangeListener{
 			if(checkBestanden.isSelected()){
 				modul.setBestanden(true);
 
+				for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
+					modul.getLehrveranstaltungenGesamt().get(i).setBestanden(true);
+					lehrveranstaltungenViews.get(i).getCheckBestanden().setSelected(true);
+					lehrveranstaltungenViews.get(i).setStyle("-fx-background-color: #c6f1e5;");	
+				}
+
 				if (modul.getFalschVerschoben()){
 					this.setStyle("-fx-background-color: #fbe9cb;");	
 				} else {
@@ -103,6 +109,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 				modul.setBestanden(false);
 				for(int i = 0; i < modul.getLehrveranstaltungenGesamt().size(); i++){
 					modul.getLehrveranstaltungenGesamt().get(i).setBestanden(true);
+					lehrveranstaltungenViews.get(i).getCheckBestanden().setSelected(true);
 				}
 				if (modul.getFalschVerschoben()){
 					this.setStyle("-fx-background-color: #ffd6d6;");	

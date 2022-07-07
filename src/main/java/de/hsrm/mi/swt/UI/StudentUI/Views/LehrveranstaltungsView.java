@@ -98,7 +98,15 @@ public class LehrveranstaltungsView extends VBox{
 	 */
 	public Lehrveranstaltung getLehrveranstaltung() {
         return lehrveranstaltung;
-    }   
+    }
+
+	public CheckBox getCheckBestanden() {
+		return checkBestanden;
+	}
+
+	public void setCheckBestanden(CheckBox checkBestanden) {
+		this.checkBestanden = checkBestanden;
+	}   
 	 
 }
     

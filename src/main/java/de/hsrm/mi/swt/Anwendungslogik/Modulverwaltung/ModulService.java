@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studienplan;
@@ -54,14 +56,27 @@ public class ModulService {
                 String modulname = document.getElementsByTagName("name").item(i).getTextContent();
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
-                                
-                NodeList kompetenzList = document.getElementsByTagName("kompetenzen").item(i).getChildNodes();
+                
+                Node kompetenzNode = document.getElementsByTagName("kompetenz").item(i);
+                NodeList kompetenzList = kompetenzNode.getChildNodes();
                 List<Kompetenz> kompetenzListe = new ArrayList<>();
                 for (int j = 0; j < kompetenzList.getLength(); j++){
-                    String kompetenz = document.getElementsByTagName("kompetenz").item(j).getTextContent(); 
-                    Kompetenz kompetenzNew = new Kompetenz(kompetenz);
-                    kompetenzListe.add(kompetenzNew);
+                    // if(!fileElement.getParentNode().getNodeName().equals("modul")) {
+                        // Element xmlElement = (Element) kompetenzList.item(j);
+                        Node node = kompetenzList.item(j);
+                        if (node.getNodeType() == Node.ELEMENT_NODE && Objects.equals("kompetenz", node.getNodeName())) {
+                            Kompetenz kompetenzNew = new Kompetenz(node.getTextContent());
+                            System.out.println("Kompetenz: "  + node.getTextContent());
+                            kompetenzListe.add(kompetenzNew);
+                            break;
+                        }
+                        // String kompetenz = document.getElementsByTagName("name").item(j).getTextContent(); 
+
+                    // }
                 }
+                // for(int o = 0; o < kompetenzListe.size(); o++){
+                //     System.out.println("Kompetenzliste " + i + ": " + kompetenzListe.get(o).getName());
+                // }
 
                 // Originales Fachsemester
                 int origFachsemesterID = Integer.parseInt(document.getElementsByTagName("origFachsemesterId").item(i).getTextContent());
@@ -124,7 +139,6 @@ public class ModulService {
                     if(children.item(y).getNodeType() == 1 || children.item(y).getNodeType() == 3) {
                         nodes = new ArrayList<>();
                         childreeen = children.item(y).getChildNodes();
-
                         
                         for(int z = 0; z < childreeen.getLength(); z++){
                             if(childreeen.item(z).getNodeType()== Node.ELEMENT_NODE) {
@@ -159,6 +173,9 @@ public class ModulService {
                 }
 
                 neuesModul = new Modul(modulID, modulname, modulBeschreibung, cpGesamt, kompetenzListe, origFachsemester, verschFachsemester, vorherigesFachsemester, bestanden, lehrveranstaltungsListe);
+                for(int o = 0; o < kompetenzListe.size(); o++){
+                    System.out.println("Kompetenz von Modul " + i + ": " + neuesModul.getKompetenzGesamt().get(o).getName());
+                }
                 modulMap.put(i, neuesModul);
             }
 

@@ -83,9 +83,8 @@ public class CheckService {
 
         for (Modul m : modulMap.values()){
             if (m.getVerschobenesFachsemester().getid() >= aktuellFachsemester.getid()){
-                if (m.getOriginalesFachsemester().getid() <= mindestSemester){
-                    
-                    errorService.getObservableMessages().add("Das Modul "+ modul.getName() + " verstößt gegen die Fortschrittsregel");
+                if (m.getOriginalesFachsemester().getid() <= mindestSemester){                    
+                    errorService.getObservableMessages().add("Das Modul "+ modul.getName() + " verstoeßt gegen die Fortschrittsregel");
                     modul.setFalschVerschoben(true);
                     return;
                 }

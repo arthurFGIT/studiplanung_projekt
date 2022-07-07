@@ -34,7 +34,7 @@ public class StudienplanungView extends ScrollPane {
 	private VBox containerVBox;
 	private Fachsemester aktuellesFachsemester, vorherigesFachsemester;
 	private App app;
-	private Button addSemester;
+	private Button addSemester, reloadCurriculum;
 	private ModulService modulService;
 	private StudienplanService studienplanService;
 
@@ -60,6 +60,8 @@ public class StudienplanungView extends ScrollPane {
 		addSemester = new Button("Semester hinzufuegen");
 		addSemester.getStyleClass().add("add-button");
 
+		reloadCurriculum = new Button("Plan zuruecksetzen");
+		reloadCurriculum.getStyleClass().add("add-button");
 
 		modulViewsListe = new HashMap<>();
 		flowPaneMap = new HashMap<>();
@@ -84,7 +86,7 @@ public class StudienplanungView extends ScrollPane {
 	public void ladeViewsNew(int semesteranzahl){
 		containerVBox.getChildren().clear();
 		container.getChildren().clear();
-		containerVBox.getChildren().add(addSemester);
+		containerVBox.getChildren().addAll(reloadCurriculum, addSemester);
 		ladePlan(semesteranzahl);
 		for(int i = flowPaneMap.size(); i > 0 ; i--){
 			containerVBox.getChildren().add(flowPaneMap.get(i));
@@ -102,13 +104,12 @@ public class StudienplanungView extends ScrollPane {
 	 * Läd die Views zu beginn mit den Standardsemestern
 	 */
 	public void ladeViews(){
-		containerVBox.getChildren().add(addSemester);
+		containerVBox.getChildren().addAll(reloadCurriculum, addSemester);
 		for(int i = flowPaneMap.size(); i > 0 ; i--){
 			containerVBox.getChildren().add(flowPaneMap.get(i));
 		}
-		container.getChildren().addAll(containerVBox);
 
-		
+		container.getChildren().addAll(containerVBox);		
 		container.getStyleClass().add("flow-panes");
 	}
 
@@ -116,15 +117,13 @@ public class StudienplanungView extends ScrollPane {
 	 * Erstellt die einzelnen FlowPaneViews mit zugehörigen ModulViews
 	 * @param semesteranzahl : die Semesteranzahl (neu oder alt)
 	 */
-	public void ladePlan(int semesteranzahl){	
-
+	public void ladePlan(int semesteranzahl){
 
 		// erstelle ModulViewMaps und adde sie der modulViewsListe
 		for(int y = 1; y <= studienplanService.maxSemesterAnzahl(); y++){
 			modulViewMap = new HashMap<>();
 			modulViewsListe.put(y, modulViewMap);
 		}
-
 		
 		// ModulViews für jedes Modul erstellen und der jeweiligen liste adden
 		for(int k : modulMap.keySet()){
@@ -179,6 +178,17 @@ public class StudienplanungView extends ScrollPane {
 		addSemester.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
 			System.out.println(studienplanService.addSemesterAnzahl());
 			ladeViewsNew(studienplanService.addSemesterAnzahl());
+		});
+
+		reloadCurriculum.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+			modulService.getModulMap().clear();
+			modulService.getStudienplan().getSemesterMap().clear();
+			this.modulViewMap.clear();
+			this.modulViewsListe.clear();
+			this.flowPaneMap.clear();
+			modulService.erzeugen("curriculum.xml");
+			this.ladeViewsNew(studienplanService.maxSemesterAnzahl());
+
 		});
 	}
 
