@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
@@ -44,9 +45,10 @@ public class CheckServiceTester {
     private Lehrveranstaltung lv2 = new Lehrveranstaltung(4, VeranstaltungsTyp.VORLESUNG, false);
     private List<Lehrveranstaltung> lvList = new ArrayList<>();
   
-    private Kompetenz kompetenz = new Kompetenz("");
-    private Kompetenz kompetenz2 = new Kompetenz("testModul");
+    private Kompetenz kompetenz = new Kompetenz("testModul");
+    private Kompetenz kompetenz2 = new Kompetenz("testModul2");
     private List<Kompetenz> kompetenzList = new ArrayList<>();
+    private List<Kompetenz> leereListe = new ArrayList<>();
     private List<Kompetenz> kompetenzList2 = new ArrayList<>();
     private Map<Integer, Modul> modulMap = new HashMap<>();
 
@@ -76,7 +78,7 @@ public class CheckServiceTester {
     
     
 
-    private Modul modul = new Modul(1, "testModul", "Dies ist ein Test", 6,kompetenzList, erstes, erstes, erstes, false, lvList);
+    private Modul modul = new Modul(1, "testModul", "Dies ist ein Test", 6,leereListe, erstes, erstes, erstes, false, lvList);
 
     private Modul modul2 = new Modul(2, "testModul2", "Dies ist ein Test", 4, kompetenzList2, zweites, zweites, zweites, false, lvList);
 
@@ -110,21 +112,10 @@ public class CheckServiceTester {
         checkService.checkSemester(modul5);
         Assertions.assertFalse(modul5.getFalschVerschoben());  
 
-        modul.setVerschobenesFachsemester(erstes);
-        modul.setFalschVerschoben(false);
-
-        modul2.setVerschobenesFachsemester(zweites);
-        modul2.setFalschVerschoben(false);
-
-        modul5.setVerschobenesFachsemester(fuenftes);
-        modul5.setFalschVerschoben(false);
     }
 
     @Test
     void checkFortschrittsregel(){
-        // modul.setVerschobenesFachsemester(fuenftes);
-        // checkService.checkFortschrittsregel(modul6);
-        // Assertions.assertTrue(modul6.getFalschVerschoben());
         
         erzeugen();
 
@@ -138,20 +129,22 @@ public class CheckServiceTester {
 
         checkService.checkFortschrittsregel(modul5);
         Assertions.assertTrue(modul5.getFalschVerschoben());
-       
-
-        modul.setVerschobenesFachsemester(erstes);
-        modul.setFalschVerschoben(false);
-
-        modul2.setVerschobenesFachsemester(zweites);
-        modul2.setFalschVerschoben(false);
 
     }
 
-    // @Test
-    // void checkKompetenzenTest(){
-    //     Assertions.assertTrue(true);
-    //     Assertions.assertNotNull(17);
-    // }
+
+    @Test
+    void checkKompetenzenTest(){
+
+        erzeugen();
+        modul.setVerschobenesFachsemester(drittes);
+        checkService.checkKompetenzen(modul2);
+        Assertions.assertTrue(modul2.getFalschVerschoben());
+
+        checkService.checkKompetenzen(modul);
+        Assertions.assertFalse(modul.getFalschVerschoben());
+
+    }
+
     
 }

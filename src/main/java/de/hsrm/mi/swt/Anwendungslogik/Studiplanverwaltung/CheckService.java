@@ -43,6 +43,8 @@ public class CheckService {
 
                 for(Kompetenz komp : kompetenzen){
                     if(komp.getName().equals(m.getName())){
+                        errorService.getObservableMessages().add("Dem Modul "+ modul.getName() + "fehlen Kompetenzen, aus einem anderen Semester.");      
+                        // System.out.println("Wenn du das Modul "+modul.getName() + "dorthin verschiebst, fehlen dir wichtige Kompetenzen in den vorherigen Semestern.");
 
                         modul.setFalschVerschoben(true);
                     }
