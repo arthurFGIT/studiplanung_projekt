@@ -43,7 +43,8 @@ public class UebersichtView extends BorderPane{
            
         maxCP = studienplanService.calcMaxCP();
         actCP = studienplanService.calcActCP();
-        studienfortschritt = new Text(studienplanService.getPropertyCP().getValue() + " CPs von " + maxCP + " CPs erreicht.");
+        actCP = studienplanService.getPropertyCP();
+        studienfortschritt = new Text(actCP.getValue() + " CPs von " + maxCP + " CPs erreicht.");
         studienfortschritt.getStyleClass().add("headline-text");
         text = new VBox(headline, studienfortschritt);
 
@@ -66,6 +67,7 @@ public class UebersichtView extends BorderPane{
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 actCP.setValue(newValue);
                 studienfortschritt = new Text(studienplanService.getPropertyCP().getValue() + " CPs von " + maxCP + " CPs erreicht.");
+                studienfortschritt.getStyleClass().add("headline-text");
                 text.getChildren().clear();
                 text.getChildren().addAll(headline, studienfortschritt);
             }

@@ -100,6 +100,7 @@ public class ModulView extends VBox implements PropertyChangeListener{
 				} else {
 					this.setStyle("-fx-background-color: #c6f1e5;");	
 				}
+				studienplanService.calcActCP();
 						
 			}
 			else{
