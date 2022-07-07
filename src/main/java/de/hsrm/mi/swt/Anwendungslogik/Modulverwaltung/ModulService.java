@@ -57,26 +57,16 @@ public class ModulService {
                 String modulBeschreibung = document.getElementsByTagName("beschreibung").item(i).getTextContent();
                 int cpGesamt = Integer.parseInt(document.getElementsByTagName("cpGesamt").item(i).getTextContent());
                 
-                Node kompetenzNode = document.getElementsByTagName("kompetenz").item(i);
+                Node kompetenzNode = document.getElementsByTagName("kompetenzen").item(i);
                 NodeList kompetenzList = kompetenzNode.getChildNodes();
                 List<Kompetenz> kompetenzListe = new ArrayList<>();
                 for (int j = 0; j < kompetenzList.getLength(); j++){
-                    // if(!fileElement.getParentNode().getNodeName().equals("modul")) {
-                        // Element xmlElement = (Element) kompetenzList.item(j);
-                        Node node = kompetenzList.item(j);
-                        if (node.getNodeType() == Node.ELEMENT_NODE && Objects.equals("kompetenz", node.getNodeName())) {
-                            Kompetenz kompetenzNew = new Kompetenz(node.getTextContent());
-                            System.out.println("Kompetenz: "  + node.getTextContent());
-                            kompetenzListe.add(kompetenzNew);
-                            break;
-                        }
-                        // String kompetenz = document.getElementsByTagName("name").item(j).getTextContent(); 
-
-                    // }
+                    Node node = kompetenzList.item(j);
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+                        Kompetenz kompetenzNew = new Kompetenz(node.getTextContent());
+                        kompetenzListe.add(kompetenzNew);
+                    }
                 }
-                // for(int o = 0; o < kompetenzListe.size(); o++){
-                //     System.out.println("Kompetenzliste " + i + ": " + kompetenzListe.get(o).getName());
-                // }
 
                 // Originales Fachsemester
                 int origFachsemesterID = Integer.parseInt(document.getElementsByTagName("origFachsemesterId").item(i).getTextContent());
