@@ -7,6 +7,7 @@ import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.AngebotsIntervall;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Fachsemester;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.Modul;
 import de.hsrm.mi.swt.Anwendungslogik.Modulverwaltung.ModulService;
+import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.ErrorService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.StudienplanService;
 import de.hsrm.mi.swt.Anwendungslogik.Studiplanverwaltung.Studiensemester;
 import de.hsrm.mi.swt.main.App;
@@ -188,9 +189,9 @@ public class StudienplanungView extends ScrollPane {
 			this.modulViewsListe.clear();
 			this.flowPaneMap.clear();
 			studienplanService.getPropertyCP().set(0);
-			modulService.erzeugen("curriculum.xml");
+			app.getErrorService().getObservableMessages().clear();
+			modulService.erzeugen("./src/main/resources/curriculum.xml");
 			this.ladeViewsNew(studienplanService.maxSemesterAnzahl());
-
 		});
 	}
 
